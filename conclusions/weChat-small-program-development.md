@@ -1,12 +1,15 @@
-前言
-开始写博客之前，总要唠叨一两句，但是我写文字是越来越少了。坚持写文字，go,go,go,go
+
+2017 年 12 月
 
 知识点合集
 小知识点
-css小知识点
-tab选项卡的实现
-html
 
+css小知识点
+
+##### tab选项卡的实现
+
+html部分
+```
 <view class="menu" >
   <text class="{{ current == index ? 'menu-item menu-item-selected':'menu-item'}}" wx:for="{{ navs }}" wx:key="{{ index }}" data-idx= "{{ index }}" bindtap="click"> {{ item }}</text>
 </view>
@@ -26,8 +29,10 @@ Page({
     })
   }
 })
-wxss
+```
+wxss部分
 
+```
 .menu {
   display: flex;
   height: 96rpx;
@@ -42,9 +47,12 @@ wxss
   border-bottom: 2px solid #3cb29a;
   background-color: #555555;
 }
-自定义弹出模态框的实现
-wxml
+```
 
+##### 自定义弹出模态框的实现
+
+wxml部分
+```
 <!-- <button class="show-btn" bindtap="showDialogBtn">弹窗</button> -->
 <!--弹窗-->
  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view> 
@@ -56,8 +64,10 @@ wxml
   </view>
   <view><button class="modal-confirm" bindtap="onConfirm">确认按钮</button></view>
 </view>
-wxss
+```
 
+wxss部分
+```
 .modal-mask {
   width: 100%;
   height: 100%;
@@ -99,8 +109,9 @@ wxss
 .modal-close {
   color: #3cb29a;
 }
-js
-
+```
+js部分
+```
 Page({
   data: {
     showModal: false,
@@ -142,7 +153,11 @@ Page({
     this.hideModal();
   }
 })
-文字垂直水平居中
+```
+
+##### 文字垂直水平居中
+
+```
 view {
     line-height: 60rpx;
     height: 63rpx;
@@ -150,14 +165,20 @@ view {
     text-align: center;
     vertical-align: middle;
 }
-单/多行文本超出文本框显示省略号
+```
+
+##### 单/多行文本超出文本框显示省略号
+
 单行
+```
 .intro {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;        
 }
+```
 多行
+```
 .book-intro {
     font-size: 28rpx;
     color: #414141;
@@ -171,13 +192,16 @@ view {
     -webkit-line-clamp: 4;  // 定义几行之后省略号
     -webkit-box-orient: vertical;
 }
+```
 
-文本如何换行
+##### 文本如何换行
 
 直接在样式里头加 style="word-break: break-all"
 
 
-如何做出一条直线的感觉
+##### 如何做出一条直线的感觉
+
+```
 <view class="line"></view>
 .line {
     height: 5rpx;
@@ -185,13 +209,19 @@ view {
     width: 300rpx;
     margin: 0 20rpx;  // 距离两端的距离
 }
-flex 布局文本对齐
+```
+
+##### flex 布局文本对齐
+```
 .text {
     display: flex;
     align-items: baseline;
 
 }
-不让按钮变形
+```
+
+##### 不让按钮变形
+```
 .submit button {
   font-size: 32rpx;
   width: 22%;
@@ -200,10 +230,16 @@ flex 布局文本对齐
   background-color: #3CB29A;
   line-height: 80rpx;
 }
-复制文本
+```
+##### 复制文本
+
+```
 // 加上 selectable 属性
 <text class="detail" selectable="true">{{ myAns.comment }}</text>
+```
 js小知识点
+
+
 1、微信小程序for循环如何删除其中一个`wx:if="{{ index ! == 3 }}"`。
 
 2、for循环，获取第一个数组。用index来实现。

@@ -10,13 +10,13 @@ my-blog
 
 [抓包工具fiddler的使用](https://github.com/tang-yue/my-blog/blob/master/conclusions/fiddler-course.md)
 
-[学习es6笔记](https://github.com/tang-yue/my-blog/blob/master/learn-es6/README.md)
+[学习es6笔记](https://github.com/tang-yue/my-blog/blob/master/learn-es6)
 
 [leetcode笔记](https://github.com/tang-yue/my-blog/blob/master/notes/note-leetcode.md)
 
 [javascript语言精粹笔记](https://github.com/tang-yue/my-blog/blob/master/notes/the-good-parts.md)
 
-[工作新知识1](https://github.com/tang-yue/my-blog/blob/master/sources/work-new-knowledge.md)
+[工作新知识1](https://github.com/tang-yue/my-blog/blob/master/sources/work-new-knowledge1.md)
 
 
 
