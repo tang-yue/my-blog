@@ -18,6 +18,19 @@ var flattened = [[0, 1], [2, 3], [4, 5]].reduce(
 
 ### Toeplitz Matrix
 
+让我再写一遍，我可能还是会写错的
+
+### Move Zeroes
+
+splice
+
+从后向前循环，不能从前向后循环，从前向后循环会报错的。
+
+
+
+
+
+
 
 
 

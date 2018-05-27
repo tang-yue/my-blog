@@ -2,25 +2,25 @@
 2018 年 3月9号开始 至 2018 年 5月26日
 
 ---
-### 工作新知识
-## sublime 全局搜索 
+## 工作新知识
+### sublime 全局搜索 
 sublime 頂部 find >>> Find all Files
-## 查看ssh keys密钥命令
+### 查看ssh keys密钥命令
 `cat ~/.ssh/id_rsa.pub`
-## 查看本地分支
+### 查看本地分支
 `git branch`
-## 查看远程分支
+### 查看远程分支
 `git branch -r`
-## 查看远程仓库
+### 查看远程仓库
 `git remote -v`
-## 强制合并
+### 强制合并
 `git pull --force`
-## refusing to merge unrelated histories
+### refusing to merge unrelated histories
 `git pull origin branchname --allow-unrelated-histories`
-## git diff
+### git diff
 比较暂存区和本地区的区别
-## 回滚的几种方式
-## fork 多人协作
+### 回滚的几种方式
+### fork 多人协作
 
 如果自己fork的远程的仓库，被更新了，那么我自己的仓库，应该如何和自己fork的远程仓库
 保持一致。
@@ -49,13 +49,16 @@ git fetch octocat master:delelop // 注意fetch命令只是将远端的数据拉
 [try git](https://try.github.io/levels/1/challenges/1)
 [参考](https://gist.github.com/suziewong/4378619)
 
-## 拉取远程新分支命令
+### 拉取远程新分支命令
+
 方法一:  先执行git fetch， 然后查看远程分支 git branch -r，然后执行git checkout v2。即现在的当前本地分支为远程新建的分支。
+
 方法二: git fetch origin 'remote-branch-name':'local-branch-name'; 将远程新分支在本地重新命令一下，之后，git checkout local-branch-name.
 [参考](https://stackoverflow.com/questions/1783405/how-do-i-check-out-a-remote-git-branch))
+
 方法三: git checkout -b 'branch-name' 'remote-name'/'branch-name' 就是将两步合并起来。
 
-## generator( 生成器 )
+### generator( 生成器 )
 
 写下这个， 是因为我对于 * 号和 yield的一脸懵状。
 
@@ -101,7 +104,7 @@ example with yield*
 ```
 [具体参考](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*)
 
-## 三个点的用法
+### 三个点的用法
 
 1、用于组装数组
 ```
@@ -155,19 +158,25 @@ const d = 4;
 const ret = { ...foo, ...bar, d };  // { a:1, b:3, c:2, d:4 }
 ```
 
-## 复制数组不改变原数组的三种方法
+### 复制数组不改变原数组的三种方法
 
 1、connect
+
 为了防止 array1 为undefined，最好写成下面这样。
+
 (1) first method
 `var array2 = [].concat(array1 || []);`
+
 (2) second method
 `var array2 = (array1 || []).concat(); `
+
 2、spreads ... to copy array
 `const itemCopy = [...items]`
 
 2、slice
+
 `var newArray = array.slice();`
+
 为了防止 array1 为空，最好的方式是`var array2 = (array1 || []).slice();`
 
 3、filter
@@ -199,7 +208,7 @@ console.log(uniqueProducts); // [8, 9, 10, 11]
 以上全部，参考文档
 [参考文档](https://stackoverflow.com/questions/7486085/copying-array-by-value-in-javascript)
 
-## react 一种之前没有用过的做法
+### react 一种之前没有用过的做法
 
 说神奇是因为 他把数据，放在 map内部进行处理，处理完之后，再使用。
 ```
@@ -222,7 +231,7 @@ item.content.map((_val, index) => {
                          })
 }
 ```
-## css 虚线的实现
+### css 虚线的实现
 ```
 div {
     padding: 1em;
@@ -231,10 +240,10 @@ div {
     repeating-linear-gradient(-45deg,#ccc 0, #ccc 0.25em,white 0,white 0.75em);
 }
 ```
-## 圆角矩形
+### 圆角矩形
 `border-radius: 100px`
 
-## 主分支合并dev分支
+### 主分支合并dev分支
 第一种方式
 ```
 git checkout master
@@ -248,12 +257,12 @@ git merge master (on branch development)
 git checkout master
 git merge development (there won't be any conflicts now)
 ```
-## git push
+### git push
 `git push <远程主机名> <本地分支名>:<远程分支名>`
 
-## git pull
+### git pull
 `git pull <远程主机名> <远程分支名>:<本地分支名>`
-## 判断是否微信端
+### 判断是否微信端
 第一种方式
 ```
 var ua = navigator.userAgent.toLowerCase();//获取判断用的对象
@@ -277,7 +286,7 @@ export const config = {
 ```
 const isWechat = config.md.match('MicroMessenge');
 ```
-## video.js
+### video.js
 
 https://codepen.io/heff/pen/EarCt
 
@@ -287,7 +296,7 @@ https://codepen.io/zanechua/pen/GozrNe
 react html5视频
 https://www.npmjs.com/package/react-html5video
 
-## 高度撑不开看不到完整的背景图  如何解决.
+### 高度撑不开看不到完整的背景图  如何解决.
 背景图撑开盒子高度
 代码如下
 ```
@@ -317,10 +326,9 @@ https://www.npmjs.com/package/react-html5video
 </body>
 </html>
 ```
-## 看看微信小程序配置
+### 看看微信小程序配置
 
-
-## react 里面滚动到底部功能
+### react 里面滚动到底部功能
 ```
 import { animateScroll } from 'react-scroll';
 ```
@@ -330,7 +338,7 @@ onClick={(e) => {
     	animateScroll.scrollToBottom();
     }}
 ```
-## 关于写模态框的一些思考
+### 关于写模态框的一些思考
 1. 比较常用的state值的函数
 ```
 父组件
@@ -377,16 +385,17 @@ export default Mask;
 ```
  {Mask(this.maskContent.bind(this),this.close.bind(this))}
 ```
-## 204(No Content)
+
+### 204(No Content)
 服务器成功处理了请求，但不需要返回任何实体内容，204响应禁止包含任何消息体。浏览器收到该响应后不应产生文档视图的变化。
 
-## 抓包
+### 抓包
 所有的抓包不成功都是因为教程不完整。
 首先下载 fiddler
 1.配置fiddler允许监听https(fiddler 默认)
 这个有空再写吧
 
-## 移动端，点击图片禁止出现预览图片的效果
+### 移动端，点击图片禁止出现预览图片的效果
 ```
 var img=document.getElementById("bg");
 img.addEventListener('click',function(e){
@@ -394,10 +403,10 @@ img.addEventListener('click',function(e){
 });
 ```
 上述的代码完全是正确的，但是在电脑上在下面加一个console.log，这个log还是会打出来的。
-## 合并多个commit
+### 合并多个commit
 [参考链接](https://blog.csdn.net/itfootball/article/details/44154121)
 
-## 关于异步请求
+### 关于异步请求
 promise 如何运用resolve 异步 和同步 是什么样的
 http://welefen.com/post/how-to-convert-callback-to-promise.html
 
@@ -456,6 +465,7 @@ function abc() {
 
 以上三种情况我都写错了，难道我是在瞎写吗？
 每当要放弃的时候，再想一种方法或许就会成功了。
+
 别人好的代码:
 ```
 const pingppRes = yield call(getPingpp,res.data.data.ChargeInfo);
@@ -502,7 +512,7 @@ const getPingpp = function(arg) {
                   window.location.href = `${origin}/orderForm`;
                }
 ```
-## 禁用微信分享功能
+### 禁用微信分享功能
 ```
 function onBridgeReady() {  
         WeixinJSBridge.call('hideOptionMenu');  
@@ -521,12 +531,13 @@ function onBridgeReady() {
 ```
 https://blog.csdn.net/wyk304443164/article/details/72733946
 
-## react里面关于标题是如何显示的
+### react里面关于标题是如何显示的
 
 
-## 关于http和https的一些思考
+### 关于http和https的一些思考
 
-## 关于landingpage的一些思考
+### 关于landingpage的一些思考
+
 播放按钮的绝对定位问题
 
 第二个是slide的。
@@ -543,7 +554,7 @@ https://blog.csdn.net/wyk304443164/article/details/72733946
 
 第三个关于背景撑满内容高度
 
-## 关于渲染
+### 关于渲染
 昨天犯了一个很大的错误
 `onPlaying={this.videoPlaying.bind(this,url)}`
 在一个函数里面传另一个带参数的函数
@@ -551,10 +562,10 @@ https://blog.csdn.net/wyk304443164/article/details/72733946
 React 高阶组件
 https://blog.csdn.net/mpdemp/article/details/74923332
 
-## 关于视频refs的第一次使用。
+### 关于视频refs的第一次使用。
 值得学习很多。
 
-## 我的邀请页面也有很多值得学习的地方
+### 我的邀请页面也有很多值得学习的地方
 ```
 // 加载中
 <ActivityIndicator
@@ -563,15 +574,15 @@ https://blog.csdn.net/mpdemp/article/details/74923332
   animating={true}
   />
 ```
-## 从某个分支的某一次commit切换新分支
+### 从某个分支的某一次commit切换新分支
 https://www.aliyun.com/jiaocheng/25343.html
 
-## 关于报json at position 97 或0 或1 类似
+### 关于报json at position 97 或0 或1 类似
 大都是后端返回的数据不是object格式。
 而是两个object。就会报这样的错误。
 已经遇见过两次了。
 
-## 关于自适应字体
+### 关于自适应字体
 ```
 export default function winResize(doc, win) {
     let docEl = doc.documentElement,
@@ -588,10 +599,10 @@ export default function winResize(doc, win) {
   }
 ```
 
-## 加hash值的问题
-## run build
+### 加hash值的问题
+### run build
 
-## 手机浏览器
+### 手机浏览器
 Android 手机而言: 使用最高就是Webkit 内核。
 
 Webkit 内核 的使用范围则较为广泛， Android原生浏览器，苹果的Safari，谷歌的Chrome 都是基于Webkit开源内核开发的。
@@ -603,13 +614,13 @@ Safari浏览器的内核 Webkit
 react插件 rc-tween-one 单页动画元素 
 TweenOne
 
-## 在当前分支拉master分支的代码
+### 在当前分支拉master分支的代码
 在该分支上绑定master 分支
 
 #### 1.git remote add main 当前仓库地址，，（当前仓库地址默认就是master分支）
 #### 2.git pull main master
 
-## react-生命周期
+### react-生命周期
 执行顺序 先DidMount 再render。。。。
 
 
