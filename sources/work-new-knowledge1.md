@@ -611,8 +611,53 @@ QQ浏览器X5 内核
 
 Safari浏览器的内核 Webkit
 
-react插件 rc-tween-one 单页动画元素 
-TweenOne
+### react插件 rc-tween-one 单页动画元素 
+TweenOne 
+类似gif的动画效果，代码如下
+```
+// js 
+  function renderBody13() {
+      return(
+          <TweenOne
+              animation={[
+                { rotate: '+=10', duration: 2000, yoyo: true, repeat: -1 },
+              ]}
+              style={{
+                  zIndex: 9999,
+                  position: 'fixed',
+                  top: '5rem',
+                  left: '5.9rem',
+                  display: 'inline-block',
+                  transform: 'rotate(43deg)'
+              }}
+            >
+           <div className={styles.body13} style={{top: parseInt(pageHeight/2) - 2 + 'rem'}}>
+              <img 
+                  src="//wwwcdn.firstleap.cn/m/img/zhuce.png"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = cls.url;
+                    }
+                  }}
+                />
+             </div>
+          </TweenOne>
+       )
+  }
+```
+
+```
+// css
+.body13 {
+   display: inline-block;
+}
+.body13 img {
+   z-index: 9999;
+   width: 2.2rem;
+}
+```
+效果图如下:
+[gif动效图](//img.pipacoding.com/assets/new2_landingpage/animation.gif)
 
 ### 在当前分支拉master分支的代码
 在该分支上绑定master 分支
@@ -622,6 +667,11 @@ TweenOne
 
 ### react-生命周期
 执行顺序 先DidMount 再render。。。。
+
+
+
+try again
+https://stackoverflow.com/questions/5970879/git-rebase-error-cannot-stat-file-permission-denied?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
 
 
 
