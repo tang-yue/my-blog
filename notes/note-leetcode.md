@@ -81,6 +81,72 @@ for(let i = 0; i < nums.length; i++) {
 只是觉得我得方法是如此得low。
 // 这道题是我照别人抄的
 
+### transpose-matrix
+这道题我觉得我又需要去抄别人了。
+这道题，这么简单，但是我去抄了别人的。
+可耻，重新默写吧
+
+### Max Area of Island
+这道题我觉得我也同样是写不出来的。
+https://leetcode.com/problems/max-area-of-island/discuss/127909/100-JavaScript-solution
+
+### Best Time to Buy and Sell Stock
+
+哈哈， 这道题我做出来了
+
+### 118.Pascal triangle 
+这道题我又做不出来了
+```
+var generate = function(numRows) {
+  var outputs = [];
+  for(var i = 0; i < numRows; i++) {
+    var curArr = [i];
+    curArr[0] = 1, curArr[i] = 1;
+    for(var j = 1; j < i; j++) {
+      curArr[j] = outputs[i - 1][j - 1] + outputs[i - 1][j];
+    }
+    outputs.push(curArr);
+  }
+  return outputs;
+}
+```
+上面是我看答案之后的结果
+### 53.Maximum Subarray
+这道题 我觉得我自己是做的没有的错的，
+但是实际提交的时候， 却是有报错的。
+报错提示: Memory Limit Exceeded。
+```
+var maxSubArray = function(nums) {
+  let cur = nums[0];
+  let res = nums[0];
+  for(let i = 1; i < nums.length; i ++){
+    if(cur < 0){
+      cur = nums[i];
+    }
+    else {
+      cur = cur + nums[i];
+    }
+    res = Math.max(res, cur);
+  }
+  return res;
+};
+// 这个答案我完全理解不了
+```
+
+```
+var maxSubArray = function(nums) {
+  for(let i = 1; i < nums.length; i++) {
+    nums[i] = Math.max(nums[i], nums[i] + nums[i -1])
+  }
+  return Math.max(...nums);
+}
+// 这个答案我也是完全的理解不了
+```
+
+### 66. Plus One
+这道题我又做不出来了。
+
+
 
 
 

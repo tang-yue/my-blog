@@ -299,6 +299,22 @@ yield put(routerRedux.push('/logout'));
 yield put(routerRedux.push({pathname: '/applySuccess',query:{classId:payload.dataInfo.id}}));
 // Outside Effects
 dispatch(routerRedux.push({pathname: '/applySuccess',query:{classId:payload.dataInfo.id}}));
+// 能够看到和用window.location.href跳转url，的明显的区别，
+在地址栏的用window,就是直接整个url地址都跳动了，但是用push这种方式，变化的仅仅是路由变化，
+前面的window.location.origin 是没有变化的。
+```
+上面是在dva.1.0中的跳转方法。
+dva2.0 的跳转方式如下:
+```
+  yield put(routerRedux.push('/user'), {name:'tangyue', age: 22});
+  那么这个参数会如何接受到呢，如下代码:
+  subscriptions: {
+    history.listen((location) => {
+      console.log(location.state);  // 这里的location.state就是传递过来的参数
+      // 即为 {name: "tangyue", age: "20"}
+      })
+  },
+
 ```
 ### 关于元素属性offsetTop
 ```
@@ -359,6 +375,81 @@ XBack.listen(function(){
 配置文件问题
 新的用法问题
 关于select问题
+### css 优雅的写法
+#### 选择器
+```
+// .vue 文件
+<div class="AboutUs_details content" :id="index" v-for="(value, index) in History">
+      <p class="post" v-text='value.post'></p>
+      <p class="pay" v-text="value.pay"></p>
+      <P class="standard">
+        <span v-for="valueR in value.standard" v-text="valueR"></span>
+      </P>
+</div>
+// .css 文件
+.AboutUs_details>p{
+  text-align: center;
+}
+.AboutUs_details>p.post {
+  margin: 100px auto 0;
+  font-size: 26px;
+}
+.AboutUs_details>p.pay {
+  margin: 12px auto;
+  font-size: 24px;
+  color: #ee6d0f;
+}
+.AboutUs_details>p.standard {
+  margin: 12px auto;
+  font-size: 14px;
+  color: #9c9591;
+}
+.AboutUs_details>p.standard span{
+  padding-left: 20px;
+  margin-right: 20px;
+}
+.AboutUs_details>p.standard span:nth-child(1){
+  background: url(//img.pipacoding.com/assets/pc/landingpage2.0/my/standard_0.png) no-repeat 0px center;
+}
+```
+#### 全局定义，分开引用
+```
+@imgUrl: "//img.pipacoding.com/assets/pc/landing3.0/";
+@color_back_gray: rgba(240, 240, 240, 1);
+
+// 使用
+.select {
+  background: url("@{imgUrl}select_001.png") no-repeat center 0px;
+}
+.select {
+  p {
+    span {
+      color: @color_back_gray;
+    }
+  }
+}
+```
+
+### 关于支付前提示
+这个需求是根据后端接口的返回码，
+用antd design 里面的toast去提示用户，
+比如，你购买的课已经卖完了。
+可是我做了很多很多次，得到的结果都是，
+会出现点击第一次没有反应，第二次才会出现提示。
+我一直是把 toast 写在routes层，却从未想过要把它写在modal层。
+基于之前刚看过一个项目，用的是antd design 里的message提示，
+是写在modal层。
+几天再一次回到这个项目，我为什么也不写在modal。
+今天终于把这个问题给解决了。
+### 我决定要为dva写一个总结文档。
+### 关于一个简单的js基础
+我却每次都在网上搜索资料。
+我觉得我不应该再去网上搜索资料，就可以写出来。
+于是记录如下：
+`moment().format('L').split('/').join('-')`
+说明:2018/08/10  变成为  2018-08-10
+### 关于网站加载慢的几个因素
+### 关于
 
 
 
