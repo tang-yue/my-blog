@@ -23,6 +23,7 @@ thirdLine
 3. manipulate Arrays with shift() remove first of array
 4. manipulate Arrays with unshift() add elements in front of the array
 
+
 下午3点36分
 
 开始刷es6.看了三分钟文章.
@@ -417,3 +418,171 @@ https://regexone.com/lesson/capturing_groups
 基本数据结构刷完了。 8月15日  16:37 分
 
 其他的之后再刷吧，休息会。
+
+8月19日  11点10 
+继续刷javascript 
+
+Global vs. Local Scope in Functions
+
+Understanding Undefined Value returned from a Function
+
+1. 如果一个函数没有返回值，那么返回的将是 undefined
+
+2. 严格操作符不像平等操作符，尝试将值转换成类型进行比较。仅仅是各做各的。
+```
+  3 == '3' // returns true because Javascript performs type conversion from string to number
+  3 === '3' // returns false because the types are different and type conversion is not performed
+```
+3. 像相等操作符，大于操作符和大于等于操作符，小于操作符，小于等于操作符将转换数据类型的值进行比较
+```
+5 > 3     // true
+7 > '3'   // true
+2 > 3     // false
+'1' > 9   // false
+```
+4. Multiple Identical Options in Switch Statements
+
+5. Returning Boolean Values from Functions
+
+```
+第一种写法
+function isLess(a, b) {
+  if(a < b) {
+    return true;
+  } else {
+    return false;
+  }
+}
+第二种写法， 这种写法可以优化代码
+function isLess(a, b) {
+  return a < b;
+}
+```
+
+6. Basic Javascript: Counting Cards
+
+这道题究竟是什么意思呢，
+明明是传入一个单值，为什么感觉是一组队列呢。
+
+`return count + (count > 0 ? " Bet": " Hold");`
+直接写在一行里面多好。
+
+7. `testObj["an entree"]` 有空格当然不能用`.`去取对象里面的值了，
+同时变量也不能用点`.`
+
+8. 转换一个switch statement into an object, Use it to look up val and
+assign the associated string to the result variable.
+```
+    switch(val) {
+    case "alpha": 
+      result = "Adams";
+      break;
+    case "bravo": 
+      result = "Boston";
+      break;
+    case "charlie": 
+      result = "Chicago";
+      break;
+    case "delta": 
+      result = "Denver";
+      break;
+    case "echo": 
+      result = "Easy";
+      break;
+    case "foxtrot": 
+      result = "Frank";
+  }
+  ---------- 转化后
+  var lookup = {
+    "alpha": "Adams",
+    "bravo": "Boston",
+    "charlie":"chicago",
+    "delta": "Denver",
+    "echo": "Easy",
+    "foxtrot": "Frank"
+  }
+```
+
+这样完全可以节省很多很多的代码。
+
+9. 判断对象属性是否存在
+```
+var myObj = {
+  top: "hat",
+  bottom: "pants"
+}
+//   myObj.hasOwnProperty("top")
+```
+10. Generate Random Whole Numbers within a Range
+
+`Math.floor(Math.random() * (max - min + 1)) + min` == (min, max) 两边都是包含的
+
+11. Use the parseInt Function
+
+`parseInt("007")`  // 7
+
+* The above function converts the string "OO7" to an integer 7. \
+if the first character in the string can't be converted into a number, then it returns NaN
+
+`parseInt("a007")` // NAN
+
+8月20日    14:13 分  刷 Basic Algorithm Scripting
+
+
+reverse 的用法
+
+关于split转换string为数组，令我惊讶的地方。
+```
+  "hello".split(",")   // return ["hello"]
+  "hello".split()     // return ["hello"]
+  "hello".split("")   // return ["h","e","l","l","o"]
+```
+
+```
+  ["o","l","l","e","l"].join("")   // return "ollel"
+```
+
+关于js中的 join 的用法。 以下面的代码为列
+```
+  ver ele = ["Fire", "Wind", "Rain"];
+  ele.join();    // return "Fire,Wind,Rain"
+  ele.join(","); // return "Fire,Wind,Rain"
+  ele.join("");  // return "FireWindRain"
+  ele.join("-"); // return "Fire-Wind-Rain"
+```
+
+便于记忆如下：
+```
+  function reverseString(str) {
+    let newA = str.split("");   // 没有空格""
+    let re = newA.reverse();
+    return re.join("")  
+  }
+  reverseString("hello") // return olleh
+```
+
+1. 温度转换
+2. 转换字符串
+3. 介乘
+4. 发现str里，最长的单词
+令人惊讶的地方
+```
+  "this fire wind rain".split(",");   // return ["this fire wind rain"]
+  "this fire wind rain".split(""); // ["t","h","i","s","f".....]
+  "this fire wind rain".split(" "); // ["this", "fire", "wind", "rain"]
+```
+5. 返回数组里面的最大数，集合
+6. 验证末尾
+
+如何截取字符串。
+str.substring(indexStart[, indexEnd]);
+str.substring(1,3);  // 包含位置1不包含位置3上的元素
+str.substring(2);    // 包含位置2上的元素，一直到末尾。
+
+str.substr(start[, length]);  // 包含start 位置上的元素
+
+7. repeat a string repeat a string
+
+8. Title Case a Sentence
+
+我就是这么牛逼
