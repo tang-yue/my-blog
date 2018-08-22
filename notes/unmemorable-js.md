@@ -38,6 +38,33 @@
   ele.join("-"); // return "Fire-Wind-Rain"
 ```
 
+数字如何转字符串。
+```
+    let n = 34;
+    n.toString();
+    string(34); // "34"
+```
+
+slice 不会改变原数组。
+splice 会改变原数组。
+
+sort 会不会改变原数组？
+sort 会改变原数组的。
+
+11. Where do I Belong
+
+写一个简单的排序函数
+```
+    arr.sort(function(a,b) {
+        return a - b;
+    })
+```
+
+
+
+
+
+
 
 
 

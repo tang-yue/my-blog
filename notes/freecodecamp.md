@@ -585,4 +585,51 @@ str.substr(start[, length]);  // 包含start 位置上的元素
 
 8. Title Case a Sentence
 
+9. Slice and Splice
+
 我就是这么牛逼
+
+10. Falsy Bouncer
+最近学的新方法
+
+```
+function bouncer(arr) {
+  // Don't show a false ID to this bouncer.
+  for(let i = 0; i < arr.length; i++) {
+    if(!Boolean(arr[i])) {
+      arr.splice(i,1);
+      i--;
+    }
+  }
+  return arr;
+}
+
+bouncer([7, "ate", "", false, 9]);
+```
+
+11. Where do I Belong
+第一种方法
+```
+  function belong(arr, num) {
+    arr.sort(function(a, b) {
+      return a - b;
+    })
+    for(let i = 0; i < arr.length; i++) {
+      if(num <= arr[i]) {
+        return i;
+      }
+    }
+    return arr.length;   // 数组为0 走的就是这个逻辑
+  }
+  belong([40,60], 50)
+```
+第二种方法
+```
+  function belong(arr, num) {
+    arr.push(num);
+    arr.sort(function(a, b) {
+      return a - b;
+    })
+    return arr.indexOf(num);
+  }
+```
