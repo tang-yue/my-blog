@@ -391,6 +391,7 @@ https://regexone.com/lesson/capturing_groups
     return newArr;
   }
 ```
+
 第二种方法
 ```
   function filteredArray(arr, elem) {
@@ -633,3 +634,244 @@ bouncer([7, "ate", "", false, 9]);
     return arr.indexOf(num);
   }
 ```
+
+// 下面开始刷 Object Oriented Programming
+8月23日 11:07 分
+
+1. Define a Constructor Function 
+// 定义一个构造函数
+```
+  function Dog() {
+    this.name = "huahua";
+    this.color = "yellow";
+    this.numLegs = 4;
+  }
+```
+
+2. Use a Constructor to Create Objects
+
+```
+  function Bird() {
+    this.name = "Albert";
+    this.color = "blue";
+    this.numLegs = 2;
+  }
+
+  let blueBird = new Bird();
+  // This tells Javascript to create a new instance of Bird called blueBird.
+```
+那么 blueBird 就会有定义在Bird构造器里的所有属性。
+
+3. 扩展构造器去接受参数
+```
+  function Dog(name, color) {
+    this.name = name;
+    this.color = color;
+    this.numLegs = 4;
+  }
+  let terrier = new Dog("tang", "black");
+```
+
+4. Verify an Object's Constructor with instanceof
+
+```
+  function House(numBedrooms) {
+      this.numBedrooms = numBedrooms;
+  }
+
+  let myHouse = new House(5);
+  
+  myHouse instanceof House; // return true;
+```
+
+5. Understand Own Properties
+
+```
+  function Bird(name) {
+    this.name = name;
+    this.numLegs = 2;
+  }
+  let canary = new Bird("Tweety");
+  let ownProps = [];
+  for(let property in canary) {
+    if(canary.hasOwnProperty(property)) {
+      ownProps.push(property)
+    }
+  }
+```
+6. Use Prototype Properties to Reduce Duplicate Code
+
+```
+  function Dog(name) {
+    this.name = name;
+  }
+  Dog.prototype.numLegs = 2;
+  // 使用prototype 可以有效的防止变量被很多个实列被重复复制。
+```
+
+7. iterate Over All Properties
+
+```
+  function Dog(name) {
+    this.name = name;
+  }
+
+  Dog.prototype.numLegs = 4;
+
+  let beagle = new Dog("Snoopy");
+
+  let ownProps = [];
+  let prototypeProps = [];
+  for(let property in beagle) {
+    if(beagle.hasOwnProperty(property)) {
+      ownProps.push(property);
+    } else {
+      prototypeProps.push(property);
+    }
+  }
+```
+
+8. Understand the Constructor Property
+
+```
+ function Dog(name) {
+   this.name = name;
+ } 
+
+ let candidate = new Dog();
+ 
+ function joinDogFraternity(candidate) {
+  if(candidate.constructor === Dog) {  // 实列的构造器是什么
+    return true;
+  }else {
+    return false;
+  }
+ }
+```
+
+9. Change the Prototype to a New Object
+
+```
+  function Dog(name) {
+    this.name = name;
+  }
+
+  Dog.prototype = {
+    numLegs: 4,
+    eat: function() {
+      console.log("eat");
+    },
+    describe: function() {
+      console.log("describe")
+    }
+  };
+  你看上述，
+  Dog.prototype.eat = function() {
+    console.log('eat');
+  }
+  把单独的一个一个prototype，综合到一个Object里面 
+```
+
+10. whenever a prototype is manually set to a new object,
+remember to define the constructor property.
+
+```
+  Dog.prototype = {
+    constructor: Dog,
+    numLegs: 2,
+    eat: function() {
+
+    },
+    describe: function() {
+
+    }
+  }
+```
+
+11. Understand Where an Object's Prototype Comes From
+
+`duck inherits its prototype from the Bird constructor function`
+
+Code:   `Bird.prototype.isPrototypeOf(duck)`  鸭子是从鸟哪里继承的基因的吗？
+
+12. Understand the Prototype Chain
+
+```
+  function Dog(name) {
+    this.name = name;
+  }
+  let beagle = new Dog("Snoopy");
+
+  Dog.prototype.isPrototypeOf(beagle);
+
+  Object.prototype.isPrototypeOf(Dog.prototype);
+  // beagle的原型是 Dog， Dog的原型是Object
+```
+
+13. Inherit Behaviors from a Supertype
+```
+  继承的两种方式
+  let animal = new Animal();
+
+  let animal = Object.create(Animal.prototype);
+```
+
+14. Set the Child's Prototype to an Instance of the Parent
+
+// 这道题我怎么有点看不懂呢。
+设置 child 的prototype 成为 parent 实列
+```
+function Animal() {}
+
+Animal.prototype = {
+  constructor:  Animal,
+  eat: function() {
+    console.logo('nom nom nom');
+  }
+}
+
+function Dog() {}
+
+Dog.prototype = Object.create(Animal.prototype);
+
+let beagle = new Dog();
+
+beagle.eat();
+```
+
+15. Reset an Inherited Constructor Property
+```
+  function Bird() {
+
+  }
+  Bird.prototype = Object.create(Animal.prototype);
+  let duck = new Bird();
+  duck.constructor // function Animal() {...}
+
+  Bird.prototype.constructor = Bird;  // 这句话比较关键
+  duck.constructor  // function Bird() {...}
+```
+
+被刚看的原型搞得，头晕目眩。
+
+16. Add Methods After Inheritance
+
+```
+  function Animal() {}
+
+  Animal.prototype.eat = function() {
+    console.log('nom nom nom');
+  }
+  function Dog() {}
+
+  Dog.prototype = Object.create(Animal.prototype);
+  Dog.prototype.constructor = Dog;
+  Dog.prototype.bark = function() {
+    console.log('woof!')
+  }
+  let beagle = new Dog();
+  beagle.eat();
+  beagle.bark();
+
+```
+
