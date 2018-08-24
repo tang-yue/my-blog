@@ -872,6 +872,55 @@ beagle.eat();
   let beagle = new Dog();
   beagle.eat();
   beagle.bark();
+```
+
+17. Override Inherited Methods
+我觉得继承这里所有方法，都要再重新看一遍
+
+18. Use a Mixin to Add Common Behavior Between Unrelated Objects
+
+再重新刷一遍
+
+19. Use Closure to Protect Properties Within an Object from Being Modified Externally
 
 ```
+  bird.name = "Duffy";
+  像这样bird 里面的name会很容易就被改变。这并不是我们想要的。
+
+  function Bird() {
+    let weight = 15;
+    this.getWeight = function() {
+      return weight;
+    };
+  }
+
+  let ducky = new Bird();
+  ducky.getWeight();
+```
+
+20. Use an IIFE to Create a Module
+
+13: 56 分 刷完 Object Oriented Programming
+
+下面接着刷 Functional Programming， 函数编程
+
+1. Implement map on a Prototype
+```
+  var s = [23, 65, 98, 5];
+
+  Array.prototype.myMap = function(callback) {
+    let newArray = [];
+    this.forEach(function(ele) {   // 注意这里的this
+      newArray.push(callback(ele));  // 传进来的callback并没有参数，但是用的时候
+      可以传参数进去
+    })
+    return newArray;
+  } 
+
+  let new_s = s.myMap(function(item) {
+    return item * 2;
+  })
+```
+
+
 

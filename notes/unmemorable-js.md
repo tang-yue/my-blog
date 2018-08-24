@@ -23,6 +23,7 @@
   "hello".split(",")   // return ["hello"]
   "hello".split()     // return ["hello"]
   "hello".split("")   // return ["h","e","l","l","o"]
+  "How4are8yue".split(/\d/); // return ["How","are","you"]
 ```
 
 ```
@@ -59,9 +60,30 @@ sort 会改变原数组的。
         return a - b;
     })
 ```
-
 12. 关于setTimeout() 加参数
 
+13. 关于splice 
+`arr.splice(0,1)`  // 删除的是0位置上的数，不包含1位置上的数
+`arr.splice(0)` // 删除的是0以及0之后的所有数。并不是0位置上的数
+
+14. 关于push
+`book.push(bookName)`  返回的是book数组添加进bookName之后的数组的长度
+
+15. 关于forEach和filter
+```
+arr.forEach(function(ele) {
+  
+}) 
+```
+
+16.  关于sort排序内部的用法
+
+参考http://imweb.io/topic/565cf7253ad940357eb99881
+
+字母排序用如下：
+`arr.sort(function(a,b) {return a>b})` 其中的原理是什么呢
+数字排序用如下：
+`arr.sort(function(a,b) {return a -b})`
 
 
 
