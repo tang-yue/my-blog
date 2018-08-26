@@ -922,5 +922,40 @@ beagle.eat();
   })
 ```
 
+*令我记忆犹新的，令我印象深刻的*
+```
+  function impartial(x, y, z) {
+    return x + y + z;
+  }
+  var partialFn = impartial.bind(this, 1, 2);
+  partialFn(10); // return 13
+```
+
+// 8月26日 上午10:57 分 刷完 Functional Programming
+
+下面开始学习 intermediate Algorithm Scripting
+
+Diff Two Arrays
+我说过我应该看看别人的优秀代码。
+```
+   两份重复的代码，合并成一个函数。
+   第二个简短的代码是用了filter加includes的组合。
+   函数内部嵌套函数，或者是直接就用了一个return。
+```
+Seek and Destroy
+怎么样，学了就用上了。
+includes 只能是用于数组是否包含某个值吗？
+还有一个是string，也可以，但是我并没有具体用过。
+感觉中级算法这个部分需要重新刷一遍。
+
+Wherefore art thou
+这道题我不知道这个key, value 究竟是应该如何匹配的
+我做成功了。就是这么厉害
+Spinal Tap Case 
+遇到大写字母的时候，我应该把它给拆开才是。
+如果前面有空格了，那么我也不能再添加空格。
+没事添加了多个空格也是没事的。
+这道题做好了。
+
 
 

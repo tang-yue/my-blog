@@ -1,4 +1,4 @@
-https://javascript.info  该网站笔记
+shttps://javascript.info  该网站笔记
 
 ### promise 笔记
 
