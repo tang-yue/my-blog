@@ -98,6 +98,49 @@ concat 方法，括号中只能是数组吗？
 
 判断一个字母是否是大写。该如何判断。
 
+str 删除元素和添加元素，该如何操作。 拼接
+
+元音字母是哪几个？
+
+正则`/ /`  这个里面是如何写变量的呢。
+用`var re = new RegExp("^\\d+$", "gim")`
+给前面的字符串加变量
+```
+var v = "b1";
+var re = new RegExp("^\\d+" + v + "$", "gim");
+```
+
+```
+  function myReplace(str, before, after) {
+       // 其中before 和 after 都是 变量
+      str.replace(/`${before}`/g, after);时 // 是错误的写法
+      str.replace(before, after);    // 这个才是正确的写法
+  }
+```
+将一个字符串的第一个值转大写，其余是小写，最优雅的写法是什么样子？
+
+`after = after.charAt(0).toUpperCase() + after.slice(1)`
+
+`charAt(position)` 直接就是返回这个位置上的那个数。
+`charCodeAt(num)`  直接对应的就是这个位置上的数的ASCII码值。
+`String.fromCharCode(num)` num 指代ASCII码值，将该数字转换成字符。 
+
+另外一种 `after = after[0].toUpperCase() + after.slice(1)`
+
+indexOf 是数组和str 都有的方法吗？
+答案： 数组， str 
+区别在哪里？
+`arr.indexOf(searchElement[, fromIndex])`
+`str.indexOf(searchValue[,  fromIndex])`
+
+
+
+
+
+
+
+
+
 
 
 

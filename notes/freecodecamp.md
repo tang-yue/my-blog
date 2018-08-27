@@ -956,6 +956,68 @@ Spinal Tap Case
 如果前面有空格了，那么我也不能再添加空格。
 没事添加了多个空格也是没事的。
 这道题做好了。
+Pig Latin 
+应该处理单词没有元音。这是关键的问题，我没有理解。
+所以我做不出来。所以我决定待会再看。
+DNA Pairing
+虽然是做出来了，但是我自己是感觉有点麻烦的。
+我好像是不太喜欢在函数里面再嵌套一个函数的。
+把string 拆分成一个数组 `str.split("")`
+```
+  function pairElement(str) {
+  return str.split("").map((ele) => {
+    if(ele === "A") {
+      return ["A", "T"];
+    }else if(ele === "T") {
+      return ["T", "A"];
+    }else if(ele === "C") {
+      return ["C", "G"];
+    }else if(ele === "G") {
+      return ["G", "C"];
+    }
+  })
+}
+
+pairElement("GCG");
+// 对于这样的map 使用方法， 我还是太常使用。
+```
+Missing letters
+我怎么知道究竟是哪个丢失了呢？
+做出来了，怎么办，我觉得我好厉害。
+可惜的是只要我提交了，就看不到我写的答案了。
+有没有简单的方法？ 看别人优质的答案。
+我的方法
+```
+  function fearNotLetter(str) {
+  let total = "abcdefghijklmnopqrstuvwxyz";
+  let len = total.length;
+  let s = total.slice(total.indexOf(str[0]), total.indexOf(str[len -1]));
+  for(let v of s) {
+    if(str.indexOf(v) === -1) {
+      return v;
+    }
+  }
+}
+```
+别人的优解法
+```
+   function fearNotLetter(str) {
+            // 默写一遍就是用map
+            var compare = str.charCodeAt(0), missing;
+            str.split("").map((letter, index) => {
+                if(str.charCodeAt(index) === compare) {
+                    ++compare;
+                }else {
+                    missing = String.fromCharCode(compare);
+                }
+            })
+            return missing;
+        }
+```
+
+
+
+
 
 
 
