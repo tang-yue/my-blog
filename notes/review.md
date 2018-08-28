@@ -203,13 +203,14 @@ str.substr(start[, length]);
         describe: function() {
             console.log("des");
         }
-    }; // 使用prototype 可以有效防止变量被很多个实列重复复制
+    }; 
+    // 使用prototype 可以有效防止变量被很多个实列重复复制
     let myHouse = new House(5); // 第一种继承方式
     let myHouse = Object.create(House.prototype); // 第二种方式（前提是function House(){}内部为空，所有的东西都是在原型上的）
     myHouse instanceof House;   // return true,   myHouse 是House的实列
     myHouse.hasOwnProperty(numBedrooms);  // return true
     myHouse.hasOwnProperty(numBathroom); //  return false
-    myHouse.constructor === House;     // return true, 即使constructor 没有被显现的定义，它的值仍旧是为 House
+    myHouse.constructor === House;     // return true, 要被显现定义，才会返回true,没有显现定义并不是默认就是，会返回false
 
     myHouse inherits its prototype from the Bird constructor function
     House.prototype.isPrototypeOf(myHouse) // return true
@@ -221,5 +222,52 @@ str.substr(start[, length]);
 
 2. Set the Child's Prototype to an Instance of the Parent
 ```
- 
+   function Animal() {}
+   Animal.prototype = {
+     constructor: Animal,
+     eat: function() {
+        console.log("nom nom nom");
+     }
+   }
+   function Dog() {}
+   Dog.prototype = Object.create(Animal.prototype);'
+   // 下面这两行代码表示，继承之后添加方法的
+   Dog.prototype.bark = function() {
+     console.log('woof!')
+   }
+   let beagle = new Dog();  // 很显然这里就是原型的原型了
+   beagle.eat();
+   console.log(beagle.constructor) // f Animal() {}  因为此时Dog.prototype 并没有constructor，所以会继续往上面找，即找到上一层
+   console.log(Dog.prototype.constructor) // f Animal() {}
+   console.log(beagle.constructor === Animal) // return true
+   console.log(Dog.prototype.constructor === Animal) // return true
+   Dog.prototype.constructor = Dog;
+   console.log(Dog.prototype.constructor === Dog) // return true
+   console.log(beagle.constructor === Dog) // return true
 ```
+
+#### 函数编程
+1. Implement map on a Prototype
+```
+    var s = [23, 65, 98, 5];
+    Array.prototype.myMap = function(callback) {
+        let newArray = [];
+        this.forEach(function(ele) {
+            newArray.push(callback(ele));
+        })
+        return newArray;
+    }
+
+    let new_s = s.myMap(function(item) {
+        return item * 2;
+    })
+```
+2. 印象深刻的
+```
+    function impartial(x, y, z) {
+        return x + y + z;
+    }
+    var partialFn = impartial.bind(this, 1, 2);
+    partialFn(10);
+```
+3. Pig Latin 重新默写

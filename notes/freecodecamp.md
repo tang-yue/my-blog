@@ -177,7 +177,7 @@ console.log(lol.writer);  // wut
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
     const foo = "bar";
-    export const bar = "foo";
+    export const foo = "bar"; // 输出上行
     export { capitalizeString, foo }
 ```
 14. Use * to import everything from a file
@@ -225,7 +225,7 @@ this regex can match the strings "ignorecase", "igNoreCase", "IgnoreCase".
     let testStr = "Repeat, RePeat, Repeat";
     let repeatRegex = /Repeat/gi;
     testStr.match(repeatRegex);
-    // Returns ["Repeat", "RePeat", "Repeat"] 这个仅仅是简写方式
+    // Returns ["Repeat", "RePeat", "Repeat"] 
 ```
 6. Wildcard Period
 if you wanted to match "hug", "huh", "hut", and "hum", you can use
@@ -280,9 +280,9 @@ Outside of a character set, the caret is used to search for patterns at the begi
 `\w` is equal to `[A-Za-z0-9_]`
 关于下面两种写法，返回值的比较
 ```
-    "The five boxing wizards jump quickly.".match(/\w/g); 
+    "The five boxing wizards jump quickly.".match(/\w+/g); 
     // return ["The", "five", "boxing", "wizards", "jump", "quickly"]
-    "The five boxing wizards jump quickly.".match(/\w+/g);
+    "The five boxing wizards jump quickly.".match(/\w/g);
     // return ["T", "h", "e", "f", "i", "v" ........]
 ```
 16. Match Everything But Letters and Numbers
@@ -615,6 +615,7 @@ bouncer([7, "ate", "", false, 9]);
     arr.sort(function(a, b) {
       return a - b;
     })
+    // 因为已经排完序了
     for(let i = 0; i < arr.length; i++) {
       if(num <= arr[i]) {
         return i;
