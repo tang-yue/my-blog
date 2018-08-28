@@ -133,6 +133,8 @@ indexOf 是数组和str 都有的方法吗？
 `arr.indexOf(searchElement[, fromIndex])`
 `str.indexOf(searchValue[,  fromIndex])`
 
+数组里面又嵌了一个数组，应该如何处理？
+
 
 
 
