@@ -271,3 +271,63 @@ str.substr(start[, length]);
     partialFn(10);
 ```
 3. Pig Latin 重新默写
+4. Convert HTML Entities
+我解决了这道题，思路来自其他的思路。
+character     entity
+`&`            `&amp;`
+`<`            `&lt;`
+`>`            `&gt;`
+`'`            `&apos;`
+`"`            `&quot;`
+
+```
+function convertHTML(str) {
+  return str.split("").map((item, index) => {
+    switch(item) {
+      case "&":
+        return "&amp;"
+        break;
+      case "<":
+        return "&lt;"
+        break;
+      case ">":
+        return "&gt;"
+        break;
+      case "'":
+        return "&apos;"
+        break;
+      case '"':
+        return "&quot;"
+        break;
+       default:
+       return item;
+    } 
+  }).join("");
+}
+convertHTML("Dolce & Gabbana");
+```
+
+5. Spinal Tap Case
+6. Diff Two Arrays
+7. Seek and Destroy
+8. Wherefore art thou
+最头疼的事情，莫过于，昨天会写的代码，今天，无论怎样都不会写了。
+这是越学越倒退呀。
+要重新写。
+其实返回的是数组里面的某一项。那么意思就是删除数组里面的某些项。
+所以就可以用filter。
+```
+  function whatIsInAName(collection, source) {
+    var arr = collection.filter(function(item) {
+      for(var i in source) {
+        if(source[i] != item[i]) {
+          return false;
+        }
+      }
+      return true;
+    })
+    return arr;
+  }
+```
+数组里面某一项一定是包含，传进来的这个object的，才会把这一项给返回出去。
+9. 我觉得DNA扑克牌的这个，可以很好的理解map.

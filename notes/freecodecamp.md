@@ -1032,6 +1032,58 @@ character     entity
 "              &quot;
 
 
+8月29日 16:28 分
+学习前端库 react
+1. Add Comments in JSX
+不用快捷建加，自己手动加，居然就不会了
+`{/* */}`
+2. Render HTML Elements to the DOM
+```
+  const JSX = (<div>Hello, world!</div>)
+```
+
+`ReactDOM.render(componentToRender, targetNode);`
+`ReactDOM.render(JSX, document.getElementById("challenge-node"));`
+
+3. Define an HTML Class in JSX
+class   变成了   className
+onclick  变成了   onClick
+变成了驼骆峰
+4. 似乎我的心里对箭头函数，总有些害怕，好似使用它，会给这个函数
+带来许多特性。
+5. Render a Class Component to the DOM
+`ReactDOM.render(<ComponentToRender />, targetNode)`
+6. Pass Props to a Stateless Functional Component
+
+```
+<APP>
+  <Welcome user="Mark" />
+</App>
+
+const Welcome = (props) => <h1>Hello, {props.user}</h1>
+
+const Welcome = (props) => { return (<h1>Hello, {props.user}</h1>)}
+```
+我觉得上述代码，可以完美的解决我曾经，遇到的传多参数应该如何传递。
+
+7. Use Default Props
+注意的是写法
+```
+  const ShoppingCart = (props) => {
+    return (
+      <div>
+        <h1>Shopping Cart Component{props.items}</h1>
+      </div>
+    )
+  }
+  ShoppingCart.defaultProps = {items: 0};
+  <ShoppingCart items={2} />  // 覆盖0
+  ShoppingCart.propTypes = { items: PropTypes.number.isRequired }
+```
+
+8月29日
+我是否是应该研究下  不用connect 连接，
+这个子组件是否还是会有dispatch 这个方法。
 
 
 

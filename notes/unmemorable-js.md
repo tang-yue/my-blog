@@ -137,6 +137,18 @@ indexOf 是数组和str 都有的方法吗？
 
 关于charAt和charCodeAt我自己还是有点模糊。
 
+filter用法
+以代码为列
+```
+  arr.filter((item) => !args.includes(item));
+  return arr;   // 原数组arr并没有被改变
+```
+和如下进行对比
+```
+  return arr.filter((item) => !args.includes(item));
+  // 返回的是筛选之后的数组
+```
+
 
 
 
