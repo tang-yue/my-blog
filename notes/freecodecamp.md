@@ -1085,8 +1085,32 @@ const Welcome = (props) => { return (<h1>Hello, {props.user}</h1>)}
 我是否是应该研究下  不用connect 连接，
 这个子组件是否还是会有dispatch 这个方法。
 
+8. Bind 'this' to a Class Method
 
+(1) add the necessary bindings in the constructor
+(2) render 里面统一用 this.(方法) 进行调用方法。
+(3) 该并不需要写成箭头函数，也没有e传参，也会有自带参数event
 
+遍历出来的input， 把所有的用户输入的值，储存起来，打包到一个变量（初始是用this.state）,
+最后submit的时候再把这个（this.state.某某）重新赋值给一个（this.state.某某2），这个值就
+可以发送给后端了。
 
+9. Pass State as Props to Child Components
+10. Pass a callback as Props
+在父级定义了一个方法，将这个方法传递给child，但是这个方法更改的this.state里头的值变化，是在父级的，将this.state.(某某) 可以再得传给你想用得任何子组件。
+11. 生命周期函数
+componentWillMount()
+在render 之前         
+componentDidMount()
+API calls, 所有设置state得改变会重新渲染组件，
+在组件被安装到DOM之后，进行调用
+componentWillReceiveProps()
+shouldComponentUpdate()
+componentWillUpdate()
+componentDidUpdate()
+componentWillUnmount()
+12. setTimeout 使用箭头函数，可以有效避免去绑定this值
+13. 原生事件监听怎么写
+···
 
 
