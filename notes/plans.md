@@ -4,3 +4,5 @@
 3. 阅读react 官网还没有看完
 4. umi 有空了解
 5. 等我有空再折腾VScode吧
+6. 分析 ant design pro 源码.
+7. 搭建个人博客，不用worldPress.
