@@ -7,7 +7,7 @@ shttps://javascript.info  该网站笔记
             .then(response => response.json())
             .catch(err => alert(err))
 ```
-我以前都没有写过上述的js代码。令我惊讶又惊奇
+<!-- 我以前都没有写过上述的js代码。令我惊讶又惊奇 -->
 
 https://javascript.info/promise-chaining#returning-promises
 
