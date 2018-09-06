@@ -151,6 +151,17 @@ filter用法
 
 正则里面写=， 出现问题，请问应该如何写等于号。
 
+```
+  var regex = \/=\g;   // 要这样单独写，然后`regex.test`， 连起来写的话，会出问题。
+```
+
+如何用this.setState 去改变对象里的某个key下的value 值。
+我好像总是遇到这样的问题。
+
+JSON.parse(value)  这个value值为什么样子，得到的值为数组。
+
+神奇  JSON.parse("[1,2,3]") //   [1,2,3]  
+
 
 
 
