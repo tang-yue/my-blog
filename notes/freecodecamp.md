@@ -1111,6 +1111,157 @@ componentDidUpdate()
 componentWillUnmount()
 12. setTimeout 使用箭头函数，可以有效避免去绑定this值
 13. 原生事件监听怎么写
-···
+同时注意究竟是如何写的。
+```
+  在react里面就是这样
+  添加事件监听
+  componentDidMount() {
+    document.addEventListener("click", this.handleKeyPress)
+  }
+  移除事件监听
+  componentWillDidMount() {
+    document.removeEventListener("keydown", this.handleKeyPress)
+  }
+```
 
+14. 一个组件的渲染过程
+从上往下
+```
+  componentWillReceiveProps(nextProps) {
+    console.log(this.props, nextProps);
+  }
+  componentWillUpdate() {
+  }
+  componentDidUpdate() {
+  }
+```
+一个组件的渲染过程 
+上面这道题，明明我已经做过了，为什么我
+却一点印象都没有呢？ 我觉得我太过悲哀。
+15. shouldComponentUpdate()
+```
+  shouldComponentUpdate(nextProps, nextState) {
+    if(nextProps.value%2 === 0) {
+      return true
+    }
+  }
+  componentWillReceiveProps(nextProps) {
+
+  }
+  componentDidUpdate() {
+
+  }
+  // 备注
+  shouldComponentUpdate 这个函数返回true的时候
+  componentWillReceiveProps  这个函数才会执行
+  componentDidUpdate 这个函数也才会执行
+```
+16. Add inline Styles in React
+```
+  const styles = {color: "red", fontSize: "70px"}
+  render() {
+    return (
+      <div style={styles}>
+      </div>
+    )
+  }
+```
+17. Render with an if/else Condition
+一种以前自己从来没有写过的写法
+```
+  render() {
+    if(this.state.display) {
+      return <div>存在</div>
+    } else {
+      return null;
+    }
+  }
+```
+18. User && for a more Concise Conditional
+
+```
+好久不用这个写法写了
+  { this.state.display && <div>展示</div>}
+```
+
+19. Render React on the Server with render ToString
+
+The renderToString() method is provided on ReactDOMServer, which is available here as a global object. The method takes one argument which is a React element. Use this to render App to a string.
+
+`ReactDOMServer.renderToString(<App/>)`
+
+下面开始学习  Redux
+
+1. Create a Redux Store
+```
+  const reducer = (state = 5) => {
+    return state;
+  }
+
+  const store = Redux.createStore(reducer)
+```
+
+2. Get State from the Redux Store
+
+```
+  const store = Redux.createStore(
+    (state = 5) => state
+  );
+
+  const currentState = store.getState();
+```
+
+3. Define a Redux Action
+
+```
+  const action = { type: "LOGIN" }
+```
+
+4. Define an Action Creator
+```
+  const action = {
+    type: "LOGIN"
+  }
+  const actionCreator = () => action;
+```
+
+5. Dispatch an Action Event
+```
+  store.dispatch( loginAction() )
+
+  store.dispatch({ type: "LOGIN" })
+```
+6. Handle an Action in the Store
+
+a reducer takes state and action as arguments,
+it always returns a new state.
+
+Another key principle in Redux is that state is read-only. In other words, the reducer function
+must always return a new copy of state and never
+modify state directly
+
+我抄了上面这些， 写下来究竟有什么用处呢， 我的大脑记住了吗？
+```
+  const reducer = (state = defaultState, action) => {
+    if(action.type === "LOGIN") {
+      return {login: true}
+    } return state;
+  }
+```
+
+7. Register a Store Listener
+```
+    store.subscribe(() => {count++})
+```
+
+每dispatch 一次， subscribe 里面的函数 就会执行一次
+下面学会调试吧
+
+8. Redux: Combine Multiple Reducers
+```
+  const rootReducer = Redux.combineReducers({
+    count: counterReducer,
+    auth: authReducer
+    })
+```
 

@@ -160,7 +160,20 @@ filter用法
 
 JSON.parse(value)  这个value值为什么样子，得到的值为数组。
 
-神奇  JSON.parse("[1,2,3]") //   [1,2,3]  
+神奇  JSON.parse("[1,2,3]") // 返回值为[1,2,3]
+
+```
+this.setState(state => ({
+  showWarning: !state.showWarning
+}))
+// 这段代码我也是写了好多次了，可是仍旧没有记住
+```
+
+
+9月11日，遇到的很奇怪的问题。
+关于for循环和forEach循环得内部执行机制是什么样子呢？
+
+
 
 
 
