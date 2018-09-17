@@ -449,12 +449,16 @@ XBack.listen(function(){
 `moment().format('L').split('/').join('-')`
 说明:2018/08/10  变成为  2018-08-10
 ### 关于网站加载慢的几个因素
-### 关于
-
-
-
-
-
+### 复制一份数组，但是不改变原数组
+默写一遍吧
+.concat()
+let newState = [].concat();
+.map()
+let newState = state.map((item) => item)
+.slice()
+let newState = state.slice(0)
+es6 方法
+let newState = [...state]
 
 
 

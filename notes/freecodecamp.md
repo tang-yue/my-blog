@@ -1265,3 +1265,61 @@ modify state directly
     })
 ```
 
+9. Send Action Data to the Store
+
+```
+  const notesReducer = (state ="Initial State", action) => {
+    switch(action.type) {
+      case ADD_NOTE:
+        state = action.text;
+        return state;
+      default:
+        return state;
+    }
+  };
+  const addNoteText = (note) => {
+    return { type: ADD_NOTE, text: note }
+  }
+
+  const store = Redux.createStore(notesReducer);
+
+  console.log(store.getState());
+  store.dispatch(addNoteText("Hello!"));  // 其实这里就是action
+  console.log(store.getState());
+```
+
+10. Use Middleware to Handle Asynchronous Actions
+
+```
+  const handleAsync = () => {
+    return function(dispatch) {
+      // 为什么这个地方 return 出来就带有 dispatch呢
+      dispatch(requestingData());
+    }
+
+    setTimeout(function() {
+      let data = {
+        users: ['Jeff', "William", "Alice"]
+      }
+    dispatch(receiveData(data))
+      }, 2500)
+  }
+
+  const store = Redux.createStore(
+    asyncDataReducer,
+    Redux.applyMiddleware(ReduxThunk.default)
+  )
+```
+
+11. Never Mutate State
+
+我觉得应该通过了，而不点通过，这样我就能保存自己的答案了
+
+12. Copy an Object with Object.assign
+
+Object.assign({}, obj1, obj2) 
+前面的{} 应该是固定的饿，它是不会改变的
+
+
+
+
