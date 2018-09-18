@@ -120,16 +120,6 @@ answer:
 
 这道题我居然不会写哦，下面有两种方法
 方法 一
-```
-var isToeplitzMatrix = function(matrix) {
-    for (var i = matrix.length - 1; i>0; i--) {
-        if(matrix[i].slice(1, matrix[i].length).join('') !== matrix[i-1].slice(0, matrix[i].length - 1).join('')) {
-            return false;
-        }
-    }
-    return true;
-};
-```
 
 ```
 var isToeplitzMatrix = function(matrix) {
@@ -143,8 +133,46 @@ var isToeplitzMatrix = function(matrix) {
 
 ```
 再默写一遍吧，我还是不知道究竟是哪里出错了。
-方法二
+
 
 566. Reshape the Matrix
+
+answer: 
+```
+   var matrixReshape = function(nums, r, c) {
+    if(nums.length * nums[0].length === r * c) {
+      let newNums = nums.reduce((total, item, index) => total.concat(item), []);
+         var output = []
+         for(let i = 0; i < r; i++) {
+             output.push(newNums.slice(i*c, (i+1)*c));
+         }
+         return output;
+    } else {
+        return nums;
+    }
+}; 
+```
+别人的答案：
+没有人比我的答案简单
+
+896. Monotonic Array
+
+answer:
+```
+    var isMonotonic = function(A) {
+  let B = A.slice(0);
+  A.sort((a,b) => a-b);
+  if(B.toString() === A.toString()) {
+      return true;
+  }
+  A.sort((a,b) => b-a);
+  if(B.toString() === A.toString()) {
+      return true;
+  }
+  return false; 
+};
+```
+别人的答案:
+ 别人的答案都没有我的简单
 
 
