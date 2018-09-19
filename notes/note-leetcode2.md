@@ -175,4 +175,145 @@ answer:
 别人的答案:
  别人的答案都没有我的简单
 
+888. Fair Candy Swap
+
+这道题先放在这里吧，
+我暂时还没有想到结果。
+太过浪费时间
+
+
+485. Max Consecutive Ones
+这道题，我没有写出来
+
+如果是1 那么就记录其值，并且累计。
+如果突然是为0了，那么就将值清空为0。
+
+将累计的最大值给存起来。
+
+`max = Math.max(count, max)` 
+// 当前值和最大值进行比较，并取出最大值
+
+283. Move Zeroes
+
+这个里面是不是有什么陷阱呢.
+splice 和 push 不能一块使用.
+使用splice的时候， 一般都连带i--,此时再加push
+的话，就会进入死循环。
+
+answer
+```
+var moveZeroes = function(nums) {
+    var count = 0;
+    for(let i = 0; i < nums.length; i++) {
+        if(nums[i] === 0) {
+            nums.splice(i, 1);
+            count++;
+            i--
+        }
+    }
+    for(let i = 0; i < count; i++) {
+        nums.push(0)
+    }
+};
+```
+
+别人的答案
+果然看别人的答案会很多的收获，
+果然还是应该要常复习才是
+
+方法一
+```
+var moveZeroes = function(nums) {
+  for(let i = 0; i < nums.length; i++) {
+    if(nums[i] === 0) {
+      nums.splice(i, 1);
+      nums.unshift(0)
+    }
+  }
+  nums.reverse();
+}
+```
+方法二
+```
+  var moveZeroes = function(nums) {
+    let len = nums.length;
+    for(let i = 0; i < len; i++) {
+        if(nums[i] === 0) {
+            nums.splice(i, 1);
+            nums.push(0);
+            i--;
+            len--;
+        }
+    }
+};
+```
+方法三
+```
+  var moveZeroes = function(nums) {
+    for(let i = nums.length -1; i >0; i++) {
+      if(nums[i] === 0) {
+        nums.splice(i,1);
+        nums.push(0)
+      }
+    }
+  }
+```
+
+448. Find All Numbers Disappeared in an array
+
+answer:
+```
+
+```
+
+169. Majority Element
+answer:
+```
+var majorityElement = function(nums) {
+    var max = 0;
+let result = nums.reduce((res,item) => {
+     if(res[item]) {
+         res[item] ++;
+     }else {
+         res[item] = 1;
+     }
+     max = Math.max(max, res[item]);
+     return res;
+   }, {})
+   var i; 
+   for(var k in result) {
+       if(result[k] === max) {
+           i = k;
+       }
+   }
+  return Number(i);
+};
+```
+
+别人的答案：
+```
+// 这代码写的是真好看
+var majorityElement = function(nums) {
+    const counts = {};
+    return nums.find((val) => {
+        counts[val] = (counts[val] || 0) + 1;
+        return counts[val] > nums.length / 2;
+    });
+};
+```
+
+我不知道是什么意思
+```
+var majorityElement = function(nums) {
+  return nums.sort()[Math.ceil(nums.length/2) -1]
+}
+```
+
+这个代码是真的简单
+```
+var majorityElement = function(nums) {
+  nums.sort();
+  return nums[parseInt(nums.length / 2)]
+}
+```
 

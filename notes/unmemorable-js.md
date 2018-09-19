@@ -211,8 +211,22 @@ this.setState(state => ({
 
 9月17日  今天我把这些内容都给复习了一遍
 
-
 如何交换两个值
+```
+t = a;
+a = b;
+b = t;
+```
+
+`array.from(new Set(["foo", window, "foo"])) // return ["foo", window]`
+
+
+reduce 方法一定要有 return 语句吗？
+
+遍历对象 `for(var k in obj)`
+遍历数组 `for(num of nums)`
+
+`Math.ceil(55.4) return 56`
 
 
 
