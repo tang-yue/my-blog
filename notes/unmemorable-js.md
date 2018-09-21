@@ -225,9 +225,32 @@ reduce 方法一定要有 return 语句吗？
 
 遍历对象 `for(var k in obj)`
 遍历数组 `for(num of nums)`
+遍历数组`for(var i in nums)`
 
 `Math.ceil(55.4) return 56`
 
+
+new Set 去重并不会改变原来的数组。
+
+我越来越觉得forEach 用法有点毛病
+
+717. 1-bit and 2-bit Characters
+
+167. Two Sum II - input array is sorted
+
+`str.slice(-1)  // 返回就是字符串的最后一位`
+
+indexOf 和 lastIndexOf 的用法，对于连续的重复元素
+并不适用，note: 连续
+
+如何判断一个值是否是连续的。
+遍历数组`s[i] !== s[i+1`] 那么这个地方，就是一个临界点
+
+如何快速生成一个数组
+
+sort 对于负数应该如何排列
+
+一个数的绝对值
 
 
 

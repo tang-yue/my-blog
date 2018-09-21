@@ -993,7 +993,7 @@ Missing letters
   let total = "abcdefghijklmnopqrstuvwxyz";
   let len = total.length;
   let s = total.slice(total.indexOf(str[0]), total.indexOf(str[len -1]));
-  for(let v of s) {
+  for(let v of s) { // 直接遍历total不就行了，我为什么把total复制一份，再遍历呢，何必多此一举呢
     if(str.indexOf(v) === -1) {
       return v;
     }
@@ -1119,7 +1119,7 @@ componentWillUnmount()
     document.addEventListener("click", this.handleKeyPress)
   }
   移除事件监听
-  componentWillDidMount() {
+  componentWillUnMount() {
     document.removeEventListener("keydown", this.handleKeyPress)
   }
 ```

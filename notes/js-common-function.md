@@ -31,3 +31,11 @@ function unique(arr) {
 }
 ```
 2. 字符串如何去重
+3. 快速生成一个从0-n的数组
+`Array.from(new Array(10).keys())`
+4. 关于sort的总结
+```
+   (1) arr.sort() 会改变原数组，sort 对于排序两位数，三位数，负数，并不起作用
+   (2) arr.sort((a,b) => a-b); 对于排序负数，两位数，三位数都是可以的
+   (3) arr.sort((a,b) => a>b); 可以排序字母
+```
