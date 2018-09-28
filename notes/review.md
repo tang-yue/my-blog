@@ -8,7 +8,7 @@
 
 ```
     const s = [5, 6,7];
-    s[2] = 45;
+    s[2] = 45;   //  如果是 s = [10,19,20,2] 这样的话就会报错
     console.log(s);   // return [5,6,45]
 ```
 3. `Object.freeze(obj); `  obj is frozen, you can no longer add, update, delete properties from it;
@@ -127,15 +127,16 @@ Q: Use capture groups in reRegex to match numbers that are repeated only three t
 ```
 
 #### 继续javascript部分
-1. `==`， `>`， `<`， `!==`， 都会尝试将值转换成类型进行比较。而严格操作符则不会。
+1. `==`， `>`， `<`， `!=`， 都会尝试将值转换成类型进行比较。而严格操作符则不会。
 
 2. `return count + (count > 0 ? " Bet": " Hold");`
 
 3. 随机数在(min, max) 包含min和max。请写你的代码
 
+ Math.random() * (max - min) + min    (0,1]
 4. use the parseInt Function
- `parseInt("007")` 输出值为
- `parseInt("a07")`  输出值为
+ `parseInt("007")` 输出值为 7
+ `parseInt("a07")`  输出值为 NAN
 
 ### 基础算法题
 1. 关于split的用法
@@ -152,7 +153,7 @@ Q: Use capture groups in reRegex to match numbers that are repeated only three t
     ["o", "l", "l", "e", "l"].join("");  // return "ollel"
     var ele = ["Fire", "Wind", "Rain"];
     ele.join();    // return "Fire,Wind,Rain"
-    ele.join(",");  // return "Fire, Wind, Rain"
+    ele.join(",");  // return "Fire,Wind,Rain"
     ele.join("");   // return "FireWindRain"
     ele.join("-");  // return "Fire-Wind-Rain"
 ```

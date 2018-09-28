@@ -103,6 +103,7 @@ arr.forEach(function(ele) {
 数字排序用如下：
 `arr.sort(function(a,b) {return a -b})`
 
+
 8月26日 12:06分
 
 今天又遇到了排序的问题。
@@ -234,9 +235,6 @@ new Set 去重并不会改变原来的数组。
 
 我越来越觉得forEach 用法有点毛病
 
-717. 1-bit and 2-bit Characters
-
-167. Two Sum II - input array is sorted
 
 `str.slice(-1)  // 返回就是字符串的最后一位`
 

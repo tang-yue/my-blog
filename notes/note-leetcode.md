@@ -153,10 +153,42 @@ var maxSubArray = function(nums) {
 
 9月17日  看着上述所记录的笔记，我只感觉到我的能力不足
 
+### 643. Maximum Average Subarray I
+
+我又遇到这个问题了。
+js 中整数最最小值。
+这个最小值我应该怎么写呢， 使用Number.MIN_VALUE = 5e-324;
+
+这个地方的最小值，我计算出来了，也还是不行的。
+
+-Number.MAX_VALUE
+
+-Infinity
+我都尝试过了，但是仍旧是报错的，可是我并不知道是为什么。
+我的逻辑按理说应该都是没有问题的，我并不知道究竟是哪里错了
+
+
+报错为时间执行限制。
+这样思考简直是浪费时间。
+
+我的错误的答案如下：
+```
 
 
 
+```
 
+别人的答案：
+```
+var findMaxAverage = function(nums, k) {
+  let max = -Infinity;
+  for(let i = 0; sum = 0; i < nums.length; i++) {
+    sum += nums[i] - (nums[i-k] || 0);
+    max = Math.max(max, sum);
+  }
+  return max;
+}
+```
 
 
 

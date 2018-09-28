@@ -90,7 +90,7 @@ var arrayPairSum = function(nums) {
 answer: 
 ```
     var transpose = function(A) {
-        var c = [];
+        var C = [];
         for(let i = 0; i < A[0].length; i++) {
             let B = [];
             for(let j = 0; j < A.length; j++) {
@@ -107,7 +107,7 @@ answer:
   var transpose = function(A) {
     let output = [];
     for(let i = 0; i < A[0].length ; i++) {
-        output[i] = []
+        output[i] = [] // 说明output数组里面的值仍旧是为数组
         for(let j = 0; j < A.length; j++ ) {          
             output[i][j] = A[j][i]
         }
@@ -250,7 +250,7 @@ var moveZeroes = function(nums) {
 方法三
 ```
   var moveZeroes = function(nums) {
-    for(let i = nums.length -1; i >0; i++) {
+    for(let i = nums.length -1; i >0; i--) {
       if(nums[i] === 0) {
         nums.splice(i,1);
         nums.push(0)
@@ -263,7 +263,19 @@ var moveZeroes = function(nums) {
 
 answer:
 ```
-
+var findDisappearedNumbers = function(nums) {
+    nums.sort((a,b) => a-b);
+    let len = nums.length;
+    let output = [];
+    
+    let count = nums[len-1] >= len ? nums[len-1] : len;
+    for(let i = 1; i <= count; i++) {
+        if(nums.indexOf(i) === -1) {
+            output.push(i);
+        }
+    }
+    return output;
+};
 ```
 
 169. Majority Element
@@ -323,7 +335,17 @@ var majorityElement = function(nums) {
 
 answer: 
 ```
-
+var containsDuplicate = function(nums) {
+    var counts = {};
+    for(let i = 0; i < nums.length; i++) {
+        if(counts[nums[i]]) {
+            return true;
+        } else {
+            counts[nums[i]] = 1;
+        }
+    }
+    return false;
+};
 ```
 
 其他人的做法
@@ -584,9 +606,6 @@ note：需要考虑nums.length 等于0 的情况
 
 
 
-
-
-
 别人的答案：
 ```
 var generate = function(numRows) {
@@ -608,5 +627,320 @@ var generate = function(numRows) {
     return outputs; 
 };
 ```
+
+```
+var generate = function(numRows) {
+    var outputs = [];
+    for(let i = 0; i < numRows; i++) {
+        let curArr = [i]; 
+        curArr[0] = 1, curArr[i] = 1;
+       //  outputs[i][0] = 1, outputs[i][i] = 1;   // 这里显示报错，大概是因为
+        // 两边的值都已经确定了，那么只剩下中间的值了, 所以是内部既然是一个数组，那么就应该定义一个数组。
+        for(let j=1; j < i; j++) {
+            curArr[j] = outputs[i-1][j-1] + outputs[i-1][j];
+        }
+        outputs.push(curArr);
+    }
+    return outputs;
+};
+```
+
+大部分我是能够写出来，但是我写出来都是大概，一点点的轮廓
+
+27. Remove Element
+answer:
+```
+ var removeElement = function(nums, val) {
+    // 我不知道是否不要修改原数组。
+    for(let i = 0; i < nums.length; i++) {
+       if(nums[i] === val) {
+          nums.splice(i,1);
+           i--;
+       }
+    }
+    return nums.length;
+  };
+```
+
+53. Maximum Subarray
+
+answer如下 
+```
+var maxSubArray = function(nums) {
+  for(let i =1; i < nums.length; i++) {
+    nums[i] = Math.max(nums[i], nums[i] + nums[i-1])
+  }
+  return Math.max(...nums);
+}
+```
+
+另外一种方法
+
+```
+var maxSubArray = function(nums) {
+  let cur = nums[0];
+  let res = nums[0];
+  for(let i = 1; i < nums.length; i++) {
+    if(cur < 0) {
+      cur = nums[i];  // 为什么cur小于0，就把nums[i]的值赋值给cur 呢
+    }
+    else {
+      cur += nums[i];
+    }
+    res = Math.max(res, cur);
+  }
+  return res;
+}
+```
+
+747. Largest Number At Least Twice of Others
+
+answer:
+```
+var dominantIndex = function(nums) {
+   let max = Math.max(...nums);
+   let maxIndex = nums.indexOf(max);
+   nums.sort((a,b) => a - b);
+   if(max < nums[nums.length -2] * 2) {
+       return -1;
+   }
+    return maxIndex;
+};
+```
+
+35. Search Insert Position
+
+answer:
+
+```
+var searchInsert = function(nums, target) {
+   let exist = nums.indexOf(target); 
+   if( exist !== -1) return exist;
+   nums.push(target);
+   nums.sort((a,b) => a-b);
+   return nums.indexOf(target);
+};
+```
+
+别人的答案都没有我的简单
+
+119. Pascal's Triangle II
+
+answer:
+```
+var getRow = function(rowIndex) {
+    let outputs = [];
+    for(let i = 0; i <=rowIndex; i++) {
+        let curArr = [i];
+        curArr[0] = 1; curArr[i] = 1;
+        for(let j = 1; j < i; j++) {
+            curArr[j] = outputs[i-1][j-1] + outputs[i-1][j];
+        }
+        outputs.push(curArr);
+    }
+    return outputs[rowIndex];
+};
+```
+你的目的就是去学习别人的优秀代码。
+如果你不看别人的优秀代码，又应该如何去学习呢。
+我发现我又开始飘了，又开始对待别人的代码，不认真看了
+
+别人的答案：
+
+你这样一直看，难道就能看出答案来了吗？
+
+别人的答案：
+我并不理解思路
+```
+var getRow = function(rowIndex) {
+    var row = [1];
+    
+    for(var i = 1 ; i <= rowIndex ; i++) {
+        for(var j = i; j > 0; j--) {
+            if(j === i)
+                row[j] = 1;
+            else
+                row[j] = row[j - 1] + row[j];
+        }
+    }
+    return row;
+};
+```
+
+724. Find Pivot Index
+
+answer:
+```
+var pivotIndex = function(nums) {
+    // 快速求和
+    let sum = nums.reduce((sum, item, index) => {
+        sum += item;  //  这两步可以精简为1步 => sum += item;
+        return sum;
+    }, 0)
+    
+    let halfSum = 0;
+    for(let i = 0; i < nums.length; i++) {
+        if(halfSum * 2 + nums[i] === sum) {
+            return i;
+        }
+        halfSum += nums[i];
+    }
+    return -1;
+};
+```
+
+关于for循环，return 出和i相关的值，尽量用i,而不是i+1 或i-1
+别人的答案：
+其实我也想到了 slice 和 reduce， 但是没有将其组合起来使用
+```
+var pivotIndex = function(nums) {
+    
+    for (let i = 0; i < nums.length; i++) {
+        
+        let leftSum = nums.slice(0, i).reduce((a, b) => a + b, 0)
+        let rightSum = nums.slice(i+1).reduce((a, b) => a + b, 0)
+        
+        if (leftSum === rightSum) { return i }    
+    }
+
+    return -1
+};
+```
+
+1. Two Sum
+
+answer:
+```
+var twoSum = function(nums, target) {
+    let output = [];
+    for(let i = 0; i < nums.length; i++) {
+        for(let j = i+1; j < nums.length; j++) {
+            if(nums[i] + nums[j] === target) {
+                output.push(i,j)
+            }
+        }
+    }
+    return output;
+};
+```
+我是用了最简单的嵌套循环
+别人的答案：
+这个答案比较好理解
+```
+const twoSum = (nums, target) => {
+  const map = {};
+  for(let i = 0; i < nums.length; i++) {
+    const another = target - nums[i];
+
+    if(another in map) {
+      return [map[another], i];
+    }
+    
+    map[nums[i]] = i;
+  }
+  return null;
+}
+```
+另外一个答案：
+```
+var twoSum = function(nums, target) {
+  let result = [];
+  nums.forEach((v, i, arr) => {
+    let k = nums.indexOf(target-v, i+1);
+    if(k !== -1) {
+      result.push(i);
+      result.push(k);
+    }
+  });
+  return result;
+}
+```
+
+26. Remove Duplicates from Sorted Array
+
+在原数组上改变去重
+
+不知道 es6方法去重会不会改变原数组？？
+事实证明并不会改变原数组。
+
+answer:
+```
+var removeDuplicates = function(nums) {
+     // 修改原数组而不重新复制一份。
+     let newArr = [];
+     for(let i = 0; i < nums.length; i++) {
+         if(newArr.indexOf(nums[i]) === -1) {
+             newArr.push(nums[i])
+         } else {
+             nums.splice(i, 1);
+             i--;
+         }
+     }
+    return nums.length;
+};
+```
+
+另外的答案
+最近感觉又不想刷leetcode
+```
+function removeDuplicates(arr) {
+  var i = 0;
+  for(var j=1; j < arr.length; j++) {
+    if( arr[i] != arr[j]) {
+      arr[i+1] = arr[j];
+      i = i + 1;
+    }
+  }
+  return i + 1;
+}
+```
+
+另一个答案：
+
+```
+var removeDuplicates = function(nums) {
+        for(var i=0;i<nums.length;)
+        {
+            if(nums[i+1]=== nums[i]) nums.splice(i, 1);
+            else i++;
+        }
+        return i;
+};
+```
+
+88. Merge Sorted Array
+直接去更改某个数组的长度，请问会不会改变原数组。
+
+前一个数组concat 后一个数组，请问前一个数组会发生变化吗？
+
+答案是不会的。
+
+answer:
+```
+var merge = function(nums1, m, nums2, n) {
+    nums1.length = m;
+    nums2.length = n;
+    nums1.push(...nums2)
+    nums1.sort((a,b) => a-b);
+};
+```
+
+别人的答案：
+```
+var merge = function(nums1, m, nums2, n) {
+  if(!n) return;
+  for(let i = 0; i < n; i++) {
+    nums1[m+i] = nums2[i];
+  }
+
+  nums1.sort((a,b) => a-b);
+}
+```
+
+我好像不太常用while 循环,一般都是用for
+
+
+
+
 
 

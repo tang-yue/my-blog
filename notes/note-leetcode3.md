@@ -1,5 +1,12 @@
 需要重新默写一遍的leetcode题目
 
+
+485. Max Consecutive Ones
+
+867. Transpose Matrix
+
+766. Toeplitz the Matrix
+
 830. Positions of Large Groups
 9月21日 我写这个函数有点疑惑，而且答案是错误的e。
 我暂时并没有想到比这个更简洁的方法
@@ -23,6 +30,14 @@ function unique(arr) {
 746. Min Cost Climbing Stairs
 
 重新写一遍
+
+53. Maximum Subarray
+
+重新写一遍
+
+118. Pascal's Triangle
+
+这道题也是需要重新写一遍的
 
 
 
