@@ -460,6 +460,36 @@ let newState = state.slice(0)
 es6 方法
 let newState = [...state]
 
+### 一个问题
+because its MIME type ('text/html') is not a
+supported stylesheet MIME type, and strict MIME
+checking is enabled.
+
+通过路由去点击一下，完全是可以展示页面的，但是
+我不知道为什么，刷新一下就会报这个错误。 
+
+### 获取scrollTop兼容各浏览器的方法
+window.pageYOffset
+属于window对象，IE9、firefox、chrome,opera
+均支持该方式获取页面滚动高度值，并且忽略Doctype
+定义规则。
+window.scrollY
+属于window对象，firefox、chrome，opera支持，IE不支持，忽略Doctype规则
+document.documentElement.scrollTop
+如果页面定义了doctype文档头，基本所有的浏览器都支持
+（）
+
+为了兼容，不管有没有DTD，可以使用如下代码:
+
+```
+var scrollTop = window.pageYOffset     // IE9+ 
+                || document.documentElement.scrollTop    // firefox
+                || document.body.scrollTop            // chrome
+                || 0;
+```
+
+
+
 
 
 

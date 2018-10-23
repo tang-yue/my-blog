@@ -34,3 +34,28 @@ let res = hello.replace(regex, "");
 str.substring(indexStart[, indexEnd]);
 str.substr(start[, length]);  // 包含start 位置上的元素
 ```
+
+12.
+```
+// 给array 加一个myMap 方法，该方法和array 本身的map方法有着同样的作用。
+
+let arr = [3,4,5];
+Array.prototype.myMap = function(callback) {
+    let newArr = [];
+    this.forEach((item) => {
+        newArr.push(callback(item))
+        })
+    return newArr;
+}
+
+let arr_new = arr.myMap(function(item) {
+        return item * 2;
+        })
+```
+
+13.
+function impartial(x, y, z) {
+    return x + y + z;
+}
+
+partialFn = impartial.bind(this, 1,2)
