@@ -7,3 +7,11 @@
 6. 分析 ant design pro 源码.
 7. 搭建个人博客，不用worldPress.
 8. 我觉得学习vue  一开始还是应该看视频学习
+9. 关于dva  我可以写哪些东西。
+
+（1）. 关于 save 和 saveData  数据存储的差别
+（2）.
+
+10. 把上传图片，用react 写一个demo出来
+
+11. 看看过去的react-demo 学习跳转路径这块的写法。
