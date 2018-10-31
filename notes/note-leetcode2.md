@@ -482,6 +482,7 @@ var largeGroupPositions = function(S) {
             if(index[1] - index[0] >= 2) {
                 res.push(index);
             }
+            // 无论是有没有相差3，此时此刻都是应该要重新开始的
             index = [i+1, i+1];
         }
     }

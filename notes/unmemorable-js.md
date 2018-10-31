@@ -3,7 +3,7 @@
 1. 正则只匹配数字和字母
 ```
   var re = /\w/g  
-  // note: 数字和字母的个数 和 var re = /\w+/g 这样的数字和字母的个数
+  // note: 数字和字母的个数 和 var re = /\w+/g   这样的数字和字母的个数
   是不一样的。  
 ```
 2. 去掉字符串的开头空格和末尾空格
@@ -13,7 +13,7 @@
 ```
 // 第一种
 var hello = ' hello world  ';
-var re = /\S.*\S/; // 匹配不要两头空格的内容
+var re = /\S.*\S/; // 匹配不要两头空格的内容， 点匹配任意字符。
 var result = hello.match(re);
 
 // 第二种
@@ -35,7 +35,7 @@ var result = hello.replace(re, '');
 
 5. array.splice(position, count of ele,  add elements)
 
-6. string 如何快速转为数组  str.split(",")
+6. string 如何快速转为数组  str.split(",");
 
 关于split转换string为数组，令我惊讶的地方。
 ```
@@ -122,7 +122,7 @@ str 删除元素和添加元素，该如何操作。 拼接
 (1) str.slice(p1, p2);   // 截取p1位置到p2位置上的元素
 同时 p1和p2 还可以是负数，代表从str的末尾端开始数
 
-元音字母是哪几个？
+元音字母是哪几个? aeiou
 
 正则`/ /`  这个里面是如何写变量的呢。
 用`var re = new RegExp("^\\d+$", "gim")`

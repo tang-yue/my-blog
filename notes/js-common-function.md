@@ -7,7 +7,7 @@ js 常用函数整理如下
 function unique(arr) {
     var res = [];
     for(let i = 0; i < arr.length; i++) {
-        if(res.indexOf(arr[i]) === -1) {
+        if(res.indexOf(arr[i]) === -1) { // 如果res里面没有这个值，那么就把这个值给push进去
             res.push(arr[i]);
         }
     }
@@ -16,9 +16,10 @@ function unique(arr) {
 ```
 方法二
 ```
+// 这个方法也是挺不错的，默写一遍用filter去重
 function unique(arr) {
     var res = arr.filter(function(item, index, arr) {
-        return arr.indexOf(item) === index;
+        return arr.indexOf(item) === index;  //  这里返回的是布尔值
     })
     return res;
 }
