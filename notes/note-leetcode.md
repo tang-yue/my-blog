@@ -173,24 +173,46 @@ js 中整数最最小值。
 
 我的错误的答案如下：
 ```
-
-
-
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var findMaxAverage = function(nums, k) {
+    // 取连续的四个数要求，和最大
+    var sum = -Infinity;
+    var len = nums.length;
+        for(let i = 0; i <= len-k; i++) {
+            var total = nums.slice(i,i+k).reduce((a,b) => a+b, 0);  
+            sum = Math.max(sum, total);   
+        }
+    return sum/k;    
+};
 ```
-
+可是我并不知道我究竟是哪里出错了。 
 别人的答案：
 ```
 var findMaxAverage = function(nums, k) {
   let max = -Infinity;
   for(let i = 0; sum = 0; i < nums.length; i++) {
     sum += nums[i] - (nums[i-k] || 0);
-    max = Math.max(max, sum);
+    if(i >= k-1)max = Math.max(max, sum);
   }
   return max;
 }
 ```
+11月1日 做的，但是仍旧是参照了他人
+11月1日 开始
+### 888. Fair Candy Swap
+自己做好的
 
+### 849. Maximize Distance to Closest Person
+自己做好的
 
+### 840. Magic Squares In Grid
+参考代码 https://blog.csdn.net/qq_30216191/article/details/82228083
+太麻烦了，真的是太麻烦了，太麻烦了，真的是太麻烦了。
+太麻烦了，真的是太麻烦了，太麻烦了，真的是太麻烦了。
 
 
 
