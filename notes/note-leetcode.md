@@ -214,11 +214,162 @@ var findMaxAverage = function(nums, k) {
 太麻烦了，真的是太麻烦了，太麻烦了，真的是太麻烦了。
 太麻烦了，真的是太麻烦了，太麻烦了，真的是太麻烦了。
 
+### 219 Contains Duplicate II
 
+记录一个值第一次出现的位置和第二次出现的位置。
+这道题我不会做。
+别人的答案如下：
+```
+var containsNearbyDuplicate = function(nums, k) {
+    let ind = {}, n = nums.length;
+    for (let i = 0; i < n; i++) {
+        if (nums[i] in ind && i - ind[nums[i]] <= k) {
+            return true;
+        }
+        ind[nums[i]] = i;
+    }
+    return false;
+};
+```
+### X of a Kind in a Deck of Cards
+ 最关键的地方在于我没有明白题目的意思，
+ 我并不知道究竟是怎么分组的。
+ 看gcd 是什么意思。最快速的方法是把别人的答案，自己再运行一遍。
 
+别人的答案
+// 抄写一遍答案
+```
+var hasGroupsSizeX = function(deck) {
+  var map = {};
+  for(var i = 0; i < deck.length; i++) {
+    if(typeof map[deck[i]] == 'undefined') {
+      map[deck[i]] = 1;
+    } else {
+      map[deck[i]] +=1;
+    }
+  }
+  var min = map[deck[0]];
+  for(var k in map) {
+    if(map[k] <= min) {
+      min = map[k];
+    }
+  }
+  var flag;
+  for(var i = 2; i <=min; i++) {
+      flag = true;
+      for(var k in map) {
+        if(map[k]%i != 0) {
+          flag = false;
+          break;
+        }
+      }
+      if(flag === true) {
+        return true;
+      }
+  }
+  return false;
+}
+```
 
+上述题目明天再重新默写一下
 
+### 605. Can Place Flowers
 
+这道题我做出来了 耶耶
 
+我的答案如下:
+```
+var canPlaceFlowers = function(flowerbed, n) {
+    var count = 0;
+    if(flowerbed.length <=2 && flowerbed[0] === 0 && n === 1) return true; 
+    if(flowerbed.length > 2) {
+         if(flowerbed[0] === 0 && flowerbed[1] === 0) count++;
+         if(flowerbed[flowerbed.length-1] === 0 && flowerbed[flowerbed.length-2] === 0) count++;
+    }
+   
+    for(let i = 2; i+2 < flowerbed.length; i++) {
+       if(flowerbed[i] === 0 && flowerbed[i-1] === 0 && flowerbed[i+1] === 0) {
+           i++;
+           count++;
+       } 
+    }
+    return count >= n;
+};
+```
 
+别人的答案如下：
+```
+var canPlaceFlowers = function(flowerbed, n) {
+  var count = 0;
+  var preve = 0;
+  var next = null;
+  for(var i = 0; i < flowerbed.length; i++) {
+    flowerbed[i+1] ? next = flowerbed[i+1] : next = 0;
+    if(flowerbed[i] == 0 && prev == 0 && next == 0) {
+      flowerbed[i] = 1;
+      count += 1;
+    }
+    prev = flowerbed[i];
+  }
+  return count >=n;
+}
+```
+// 如果这个值是第一个那么要补0，如果这个值是最后一个值也同样要补0
+
+### 581. Shortest Unsorted Continuous Subarray
+
+这道问题我做出来了。
+我的答案：
+```
+var findUnsortedSubarray = function(nums) {
+    // 问我要排序几个数，才能让整个nums看起来是一个升序
+    // 首先进行排序
+    let nums1 = [].concat(nums);
+    let first, last;
+    nums1.sort((a, b) => a-b);
+    for(var i = 0; i < nums.length; i++) {
+        if(nums[i] != nums1[i]) {
+            if(typeof first !== 'undefined') {
+                last = i;
+            } else {
+                first = i;
+            }
+        }
+    }
+    return typeof first !== 'undefined' ? last-first+1 : 0;
+};
+```
+别人的答案都不怎么样
+
+### 532. K-diff Pairs in an Array
+
+// 我只是想不明白，为什么我没有办法把重复的给去掉呢
+
+// 我去掉重复的方法是错误的，这让我觉得很纳闷。
+
+// 单个的重复，删不掉，才是关键。
+
+// 我发现如果数组里面的内容是数组的话，去重没有效果。
+11月11日，想出来了，有时候真的仅仅是一瞬间就想出来了
+
+我的答案如下：
+```
+var findPairs = function(nums, k) {
+    let output = 0;
+    let res = [];
+    for(let i = 0; i < nums.length; i++) {
+        for(let j = i+1; j < nums.length; j++) {
+            if(Math.abs(nums[i] -nums[j]) === k) {
+                if(res.indexOf(`(${nums[i]},${nums[j]})`) === -1) {
+                    output++;
+                    res.push(`(${nums[i]},${nums[j]})`, `(${nums[j]},${nums[i]})`);
+                }
+            }
+        }
+    }
+    return output;
+};
+```
+
+别人的答案
 
