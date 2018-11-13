@@ -248,8 +248,23 @@ indexOf 和 lastIndexOf 的用法，对于连续的重复元素
 
 sort 对于负数应该如何排列
 
-一个数的绝对值
+一个数的绝对值 Math.abs();
 
+11月11日
+splice   支持负数吗？  splice  删除元素又插入元素，最后返回值是什么。
+
+shift  从开头插入元素
+unshift 从开头删除元素
+
+你所理解上述是正确的吗？ 答案不是
+正确的答案是 shift 是删除元素，  而且仅仅是删除一个元素， unshift 那么就是从开头插入元素 unshift(1,2,3) 这样
+
+unshift的括号里面可以是数组吗？ 不可以， 需要用... 转化下
+
+arr.pop()     返回 值为删除的值
+arr.push()    返回 值为push后数组的长度
+arr.shift()   返回 值为删除的值
+arr.unshift() 返回 值为插入后数组的长度
 
 
 

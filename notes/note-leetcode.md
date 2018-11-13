@@ -372,4 +372,109 @@ var findPairs = function(nums, k) {
 ```
 
 别人的答案
+ 3, 1, 1, 5, 4, 3    k = 2;
+```
+var findPairs = function(nums, k) {
+  if(k < 0) return 0;
+  let set = new Set(), res = new Set();
+  for(let i = 0; i < nums.length; i++) {
+    if (set.has(nums[i] + k)) res.add(nums[i] +k);
+    if (set.has(nums[i] - k)) res.add(nums[i]);
+    // 你会发现上面两行，最后add进去的都是统一的较大值。
+    // 而不是有的add两个值当中的较小值，而有的add两个值当中的最大值
+    set.add(nums[i]);
+  }
+  return res.size;
+}
+```
+并不需要关心 set 或者 res 是否是数组，只要得出其长度就可以了
+value    set       res
+
+3        3
+1        3,1       3
+1        3,1       3
+5        3,1,5     3,5
+
+可以说是很巧，不太容易理解作者的思路，也很难想到。
+其余的答案都不怎么样。
+
+### 414 Third Maximum Number
+做出来了
+自己的答案：
+```
+var thirdMax = function(nums) {
+    nums.sort((a,b) => a-b);
+    let newCopy = Array.from(new Set(nums));
+    let len = newCopy.length;
+    return typeof newCopy[len-3] != 'undefined' ? newCopy[len -3] : newCopy[len -1]
+};
+```
+别人的答案：
+```
+var thirdMax = function(nums) {
+  let top3 = new Set();
+  for(let i = 0; i < nums.length; i++) {
+    top3.add(nums[i]);
+    if(top3.size > 3) {
+      top3.delete(Math.min(...top3));
+    }
+    // 只要大于3， 那么就删除其中的最小值。 
+  }
+  return top3.size < 3 ? Math.max(...top3) : Math.min(...top3);
+}
+```
+知识点:  new Set()   之后其运用的方法  add   delete 
+
+
+### 189. Rotate Array
+做出来了
+自己的答案:
+```
+var rotate = function(nums, k) {
+    // 仅仅就是把最后k位的数，给提到最开头的位置。
+    // arr.slice(0) 等于arr
+    let flag =  k%nums.length;
+    if (flag === 0) return nums;
+       nums.unshift(...nums.slice(-flag));
+       var i = 0;
+       while(i < flag) {
+        nums.pop();
+        i++;
+        }
+       return nums;
+};
+```
+别人的答案
+
+```
+var rotate = function(nums, k) {
+  let x = 0;
+  while(x < k) {
+    nums.unshift(nums.pop());
+    // 从末尾处删除的值，直接再添加到最前面
+    x++;
+  }
+}
+// 上述中k 等于 k % nums.length is better 
+```
+另外一种想法是把 nums.length - k 这些数从开头删除，然后添加到nums的最后
+
+### Non-decreasing Array
+// 凡事比别人多走一步，多努力一步，就能比别人多很多
+但是我还是不会。我觉得最主要的问题在于，在正好大于的那个地方，会有很多重复的值。
+这就导致很难弄。
+别人的答案：
+```
+const checkPossibility = (nums) => {
+  const left = nums.slice(0);
+  const right = nums.slice(0);
+  const i = nums.findIndex((a, i) => a > nums[i+1]);
+  if(-i) left.splice(i, 1);    // 删除了这个突出的值
+  if(-i) right.splice(i+1, 1); // 删除这个突出值的后面的值
+  return !left.some((a, i) => a > left[i + 1]) // 这个地方我想不通为什么不用i，而要用i+1，因为i这个值就是指 a这个值
+          || !right.some((a, i) => a > right[i + 1]) // 同样的这个地方也是
+}
+```
+我自己想是怎么都想不到的。真的是很难理解。
+知识点：   arr.findIndex
 
