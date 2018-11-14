@@ -201,6 +201,7 @@ var findMaxAverage = function(nums, k) {
   return max;
 }
 ```
+
 11月1日 做的，但是仍旧是参照了他人
 11月1日 开始
 ### 888. Fair Candy Swap
@@ -459,7 +460,7 @@ var rotate = function(nums, k) {
 ```
 另外一种想法是把 nums.length - k 这些数从开头删除，然后添加到nums的最后
 
-### Non-decreasing Array
+### 665 Non-decreasing Array
 // 凡事比别人多走一步，多努力一步，就能比别人多很多
 但是我还是不会。我觉得最主要的问题在于，在正好大于的那个地方，会有很多重复的值。
 这就导致很难弄。
@@ -477,4 +478,27 @@ const checkPossibility = (nums) => {
 ```
 我自己想是怎么都想不到的。真的是很难理解。
 知识点：   arr.findIndex
+抄一遍，背一遍，再默写两遍，这样应该就会很快记住了吧
 
+另外一个别人的答案：
+```
+const checkPossibility = nums => {
+  if(nums.length < 3) return true;
+  let oneMod = false;
+  for(let i = 0; i < nums.length; i++) {
+    if(i < nums.length -1 && nums[i] > nums[i + 1]) {
+      if(oneMod) return false;
+      oneMod = true;
+      if(i < nums.length -2 && nums[i] > nums[i+2] 
+        && i > 0 && nums[i-1] > nums[i+1]) { 
+          return false; 
+      }
+    }
+  }
+  return true;
+};
+```
+// 这个别人的答案，和我的思路类似，关键在于别人对自己的思路
+更加的确定，更加的清晰
+
+我最后还是想选择后一种进行记忆
