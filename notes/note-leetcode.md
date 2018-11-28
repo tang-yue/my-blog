@@ -215,6 +215,47 @@ var findMaxAverage = function(nums, k) {
 太麻烦了，真的是太麻烦了，太麻烦了，真的是太麻烦了。
 太麻烦了，真的是太麻烦了，太麻烦了，真的是太麻烦了。
 
+别人的答案：
+```
+var numMagicSquaresInside = function(grid) {
+    var rows = grid.length;
+    var cols = grid[0].length;
+    var count = 0;
+    if(rows < 3 || cols < 3) return 0;
+    for(let i = 0; i < rows -2; i++) {
+        for(let j = 0; j < cols -2; j++) {
+            count += isMagic(i, j, grid);
+        }
+    }
+    return count;
+}
+function isMagic(x, y, arr) {
+    var res = [];
+    for(let i = x; i < x + 3; i++) {
+        for(let j = y; j < y + 3; j++) {
+            if(arr[i][j] > 9 || arr[i][j] < 1) return 0;
+            res.push(arr[i][j]);
+        }
+    }
+    if(new Set(res).size !== res.length) return 0;
+    // 行
+    let r1 = res[0] + res[1] + res[2];
+    let r2 = res[3] + res[4] + res[5];
+    let r3 = res[6] + res[7] + res[8];
+    // 列
+    let c1 = res[0] + res[3] + res[6];
+    let c2 = res[1] + res[4] + res[7];
+    let c3 = res[2] + res[5] + res[8];
+    // 斜方向
+    let d1 = res[0] + res[4] + res[8];
+    let d2 = res[2] + res[4] + res[6];
+    if(r1 == r2 && r1 == r3 && r1 == c1 && r1 == c2 && r1 == c3 && r1 == d1 && r1 == d2) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+```
 ### 219 Contains Duplicate II
 
 记录一个值第一次出现的位置和第二次出现的位置。
@@ -232,7 +273,7 @@ var containsNearbyDuplicate = function(nums, k) {
     return false;
 };
 ```
-### X of a Kind in a Deck of Cards
+### 914 X of a Kind in a Deck of Cards
  最关键的地方在于我没有明白题目的意思，
  我并不知道究竟是怎么分组的。
  看gcd 是什么意思。最快速的方法是把别人的答案，自己再运行一遍。
@@ -459,6 +500,7 @@ var rotate = function(nums, k) {
 // 上述中k 等于 k % nums.length is better 
 ```
 另外一种想法是把 nums.length - k 这些数从开头删除，然后添加到nums的最后
+可惜我没有把答案给记录下来。
 
 ### 665 Non-decreasing Array
 // 凡事比别人多走一步，多努力一步，就能比别人多很多
@@ -502,3 +544,315 @@ const checkPossibility = nums => {
 更加的确定，更加的清晰
 
 我最后还是想选择后一种进行记忆
+
+11月14日 下午5点  开始 leetcode 的 String 部分
+
+######  leetcode 的 String 部分
+
+### 929. Unique Email Addresses
+我的答案：
+```
+var numUniqueEmails = function(emails) {
+
+  let newEmails1 = emails.map((ele) => {
+        return ele.split(/@/g)[1];
+    })
+  let newEmails2 = emails.map((ele) => {
+      return ele.split(/@/g)[0].split(/\+/g)[0].replace(/./g, '');
+    })
+    
+  let newEmails3 = newEmails2.map((ele, index) => {
+        return ele + newEmails1[index];
+    })
+    return new Set(newEmails3).size; 
+};
+
+```
+别人的答案： 这个答案写的真好,好在简洁明了
+```
+var numUniqueEmails = function(emails) {
+  var s = new Set();
+  for(var e of emails) {
+    var t = e.split('@');
+    s.add((t[0].split('+'))[0].replace(/\./g, '') + '@' + t[1]);
+  }
+  return s.size;
+}
+```
+
+### 709 ToLowerCase
+我的答案如下：
+```
+var toLowerCase = function(str) {
+  return str.toLowerCase();
+}
+```
+别人的思路，自己很容易理解的地方
+```
+var toLowerCase = function(str) {
+    return str.split('').map((ele, idx) => {
+    let v = str.charCodeAt(idx);
+    if(v >= 65 && v <=90) {
+      return String.fromCharCode(v+32);
+    } else {
+      return String.fromCharCode(v);
+    }
+  }).join('');
+};
+```
+
+### 804 Unique Morse Code Words
+
+我的答案：
+```
+var uniqueMorseRepresentations = function(words) {
+    var trans = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."];
+    return new Set(words.map((ele, idx) => {
+       return ele.split('').map((item, i) => {
+            return trans[ele.charCodeAt(i) - 'a'.charCodeAt(0)];
+        }).join('');
+    })).size;
+};
+```
+别人的答案也都是特别的让人觉得有学习的地方。
+
+### 657 Robot Return to Origin
+
+我的答案：
+```
+let count = {};
+    for(var p in moves) {
+      let k = moves[p];
+      count[k] = (count[k] || 0) + 1;  
+    }
+    return count["L"] === count["R"] && count["D"] === count["U"];
+```
+但是我的答案执行速度太慢了
+
+别人的答案：
+```
+var judgeCircle = function(moves) {
+    let x = 0, y = 0;
+    for (let move of moves) {
+        switch(move) {
+            case 'U': y++ ;break;
+            case 'D': y-- ;break;
+            case 'L': x-- ;break;
+            case 'R': x++ ;break;
+        }
+    }
+    return x === 0 && y === 0
+};
+```
+不禁感叹写的真好，因此去默写一遍吧
+
+### 557. Reverse Words in a String III
+
+我的答案：
+```
+var reverseWords = function(s) {
+  return s.split(" ").map((e, i) => {
+      return e.split('').reverse().join('');
+  }).join(" ");  
+};
+```
+好吧，貌似很多人，都想到了。这应该是比较简单的了，所以下面的
+都不需要看了。
+
+### 344. Reverse String
+我的答案：
+```
+var reverseString = function(s) {
+    return s.split('').reverse().join('');
+};
+```
+这应该是比较简单的答案了。所以别人的答案我就不会再去看了。
+
+### 893 Groups of Special-Equivalent Strings
+这道题，我先暂时的放一下
+
+### 521. Longest Uncommon Subsequence I
+我的答案：
+```
+var findLUSlength = function(a, b) {
+    let aLen = a.length;
+    let bLen = b.length;
+    if(aLen === bLen && a === b) return -1;
+    return aLen >= bLen ? aLen : bLen;
+};
+```
+这道题，比较简单。
+
+### 937. Reorder Log Files
+
+我的答案
+```
+var reorderLogFiles = function(logs) {
+let letterSum = 0;
+    for(let i = 0; i < logs.length; i++) {
+      if(isNaN(logs[i].split(' ')[1])) {
+        letterSum ++; 
+        logs.unshift(...logs.splice(i, 1)); 
+      }
+    }
+    let letterArr = logs.slice(0, letterSum);
+    let arr = [];
+    for(let i = 0; i < letterArr.length; i++) {
+      arr.push(letterArr[i].split(' ').slice(1).join(' '))
+    }
+    arr.sort(function(a,b){return a.localeCompare(b)});
+    let soterArr = [];
+    for(let i = 0; i < arr.length; i++) {
+      for(let j = 0; j < letterArr.length; j++) {
+        if(arr[i] === letterArr[j].split(' ').slice(1).join(' ')) {
+          soterArr.push(letterArr[j]);
+        } 
+      }
+    }
+    let result = logs.slice(letterSum)
+    result.unshift(...soterArr);
+    return result;
+}
+```
+
+别人的答案：
+```
+var reorderLogFiles = function(logs) {
+let letters = [];
+    let numbers = [];
+    let final = [];
+
+    logs.forEach(log => {
+        const arr = log.split(' ');
+        if (arr[1].match(/[0-9]/g)){
+            numbers.push(arr.join(' '))
+        } else {
+ //move ID to end of array prior to sorting
+            arr.push(arr.shift());
+            letters.push(arr)
+        }
+    })
+    // 记录另外一种数组排序法
+    letters.sort();
+    letters.forEach(arr => {
+ //move ID back to beginning
+        arr.splice(0,0,arr.pop())
+        final.push(arr.join(' '))
+    })
+    return final.concat(numbers);
+}
+```
+另外一个别人的答案：
+思路比较清晰
+```
+var reorderLogFiles = function(logs) {
+    let letter = [], digit = [];
+    for(let v of logs) {
+        if(v.split(" ")[1].charAt(0) >= '0' && v.split(" ")[1].charAt(0) <= '9'){
+            digit.push(v);
+        } else {
+            letter.push(v);
+        }
+    }
+    // 上述 for 循环的这个思路就比较清晰
+    letter.sort(function (a, b) {
+      // 我觉得这个地方的比较不是很合理
+        return a.split(" ")[1].localeCompare(b.split(" ")[1]) || a.split(" ")[2].localeCompare(b.split(" ")[2])
+    })
+    return letter.concat(digit);
+};
+```
+### 824. Goat Latin
+
+我的答案
+
+```
+var toGoatLatin = function(S) {
+   // 规则如下
+   // 如果是以元音字母开头，那么将ma添加到单词的尾部。
+   // 如果是辅音开头，则移动第一个字母到单词的最后，然后再添加ma
+   // 根据字符串，添加，单词在字符串的下标个a到字符串的末尾
+   return S.split(' ').map((ele, index) => {
+            let eleArr = ele.split('');
+            var vowel = ['a', 'e', 'i', 'o', 'u'];
+            if(vowel.indexOf(ele.charAt(0).toLowerCase()) !== -1) {
+            } else {
+                eleArr.push(eleArr.shift());
+            }
+            eleArr.push('ma')
+            for(let i = 0; i <= index; i++) {
+                eleArr.push('a');
+            }
+            return eleArr.join('');
+        }).join(' ');
+};
+```
+别人的答案：
+```
+function toGoatLatin(S) {
+  const arr = S.split(' ');
+  for(let i = 0; i < arr.length; i++) {
+    let word = arr[i];
+    if(['a', 'e', 'i', 'o', 'u'].includes(word[0].toLowerCase())) {
+      word += "ma";
+    } else {
+      word = `${word.slice(1)}${word.slice(0, 1)}ma`;
+    }
+    word += 'a'.repeat(i+1);  // 第一次见到还有repeat用法
+    arr[i] = word;  // 这样的思路是值得借鉴的
+  }
+  return arr.join(' ');
+}
+```
+别的答案都不怎么样。
+
+###  520 Detect Capital
+自己的答案：
+```
+var detectCapitalUse = function(word) {
+  if(word.charAt(0) >= "A" && word.charAt(0) <="Z") {
+    if(word.slice(1) === word.slice(1).toLowerCase() ||
+       word === word.toUpperCase()
+      ) return true;
+      else return false;
+  } else {
+      if(word === word.toLowerCase()) return true;
+      else return false;
+  }   
+};
+```
+
+别人的答案
+```
+var detectCapitalUse = function(word) {
+   if(word.toUpperCase()==word || word.toLowerCase()==word || word[0].toUpperCase()== word[0] && word.slice(1).toLowerCase()==word.slice(1)) return true
+    return false
+};
+```
+别人的答案是真精简。
+
+### 696 Count Binary Substrings
+我觉得下面需要写以下自己的思路
+我的答案：
+```
+
+```
+
+先放着放下吧
+
+### 788. Rotated Digits
+思路：
+```
+// 2， 5 6 9
+   // 0 1 8  个位数的时候，不能够有这些
+   // 要注意末尾为0的，
+   // 要注意1，8 这样的，比如11 88，这样就会得到重复，并不是符合我们的要求
+   // 这道题的思路是什么
+    // 十位数的时候， 10 11 12 13 14 15 16 17 18 19
+    // 12 15 16 18 19
+    // 21 22 25 26 28 29 
+    //  3 全部不可以
+    这道题真心好难呀，我做不出来
+```
+先去复习一下吧
+
