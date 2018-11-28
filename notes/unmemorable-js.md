@@ -460,6 +460,13 @@ function recursion(n) {
 
 [].slice.call(nodelist); 可以将其转化为数组
 
+神奇的地方， join 和 toString() 神奇的地方
+[1,2,3,[4,5,[3]],9].join().split(","); // ["1","2","3","4","5","3","9"]
+[1,2,[2,4,[5],8],0].toString().match(/\d/g); // 也能达到同样的上述效果
+
+
+
+
 
 
 

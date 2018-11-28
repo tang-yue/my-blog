@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        const flatten = (arr) => {
+            // let result = [];
+            // console.log(result, 'result result');
+            // arr.forEach((item) => {
+            //     if(Array.isArray(item)) {
+            //         console.log(result, 'result 第一个', item);
+            //         result = result.concat(flatten(item));
+            //         console.log(result, 'result 第二个');
+            //     } else {
+            //         result.push(item);
+            //     }
+            // })
+            // return result;
+            // return arr.join().split(',');
+            return arr.toString().match(/\d/g);
+        }
+        let last = flatten([1,[[2,3],4], 5]);
+        // 问题在于数字1 已经被遍历过了，而且也清空了，为什么还会有呢
+        console.log(last, 'last');  
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

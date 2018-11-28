@@ -299,6 +299,23 @@ const parseData = (data) => {
 }
 ```
 ### 数组拍平
+11月28日
+再一次的回顾这道题，我还是不知道应该怎么做。
+这道题我居然一点都不知道应该怎么写。
+别人的答案：
+```
+const flatten = (arr) => {
+  let result = [];
+  arr.forEach((item) => {
+    if(Array.isArray(item)) {
+      result = result.concat(flatten(item));
+    } else {
+      result.push(item);
+    }
+  })
+  return result;
+}
+```
 
 
 
