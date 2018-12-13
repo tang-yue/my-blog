@@ -855,4 +855,573 @@ var detectCapitalUse = function(word) {
     这道题真心好难呀，我做不出来
 ```
 先去复习一下吧
+12月4日   14:00 我再一次的看这道题，我仍旧还是不知道怎么做。
+并且对于以前被打断的记忆，我有些抵触感需要去回忆。
+并且已经达不到当初思考时的那种状态。
+
+### 917 Reverse Only Letters
+思路  首先要把字母的给摘出来，倒序
+然后将不是字母给按照原来的位置给插入进去。
+note: S 里面可能没有字母
+我的答案：
+```
+var reverseOnlyLetters = function(S) {
+    if(S.match(/[a-zA-Z]/g) === null) return S;
+    let arrLetters = S.match(/[a-zA-Z]/g).reverse();
+    for(var i in S) {
+        if(!/[a-zA-Z]/.test(S[i])) { arrLetters.splice(i,0,S[i]); }
+    }
+    return arrLetters.join('');    
+};
+```
+别人的答案：
+都需要很多行
+
+### 606 Construct String from Binary Tree
+这道题我不知道这个括号应该怎么处理。
+
+应该是我完全没有读懂题意
+
+别人的答案
+```
+const tree2str = root => {
+  // 递归的最后条件，满足了要退出去，否则就成了死循环。
+  if(!root) {
+    return '';
+  }
+  const val = root.val;
+  const left = tree2str(root.left);
+  const right = tree2str(root.right);
+
+  if(!left && !right) {
+    return `${val}`;
+  }
+
+  if(!right) {
+    return `${val}(${left})`;
+  }
+  
+  return `${val}(${left})(${right})`;
+}
+```
+为什么别人都能理解题目的意思，而我却不能理解。
+
+### 13 Roman to Integer
+
+刷leetcode 看一道不会一道，我很崩溃呀。
+当你要决定放弃的时候，再想一想。
+
+思路
+我是需要把 IX IV XL XC CD CM 给取出来。
+但是我忽略了一点，就是在这个字符串中可能有两个 IX IX.
+```
+"I":1,
+"V":5,
+"X":10,
+"L":50,
+"C":100,
+"D":500,
+"M":1000,
+```
+这道题我又做不出来了，郁闷。郁闷，郁闷。
+
+### 383. Ransome Note
+思路：
+1. ransomNote 里的每一个值在magazine里对应的都有且大于等于1个。
+每一个值都找到之后，然后再将这个值给删掉，直到所有的都能够找到，那么就满足条件。
+在理解题目的意思上我浪费了很多时间。
+我的答案：
+```
+var canConstruct = function(ransomNote, magazine) {
+   for(var s of ransomNote) {
+       let atIndex = magazine.indexOf(s);
+       if(atIndex === -1) {
+           return false;
+       }
+       let magazineArr = magazine.split("");
+       magazineArr.splice(atIndex, 1);
+       magazine = magazineArr.join("");
+   }
+    return true;
+};
+```
+
+Runtime： 3368 ms faster than 0.53%
+问题在于太慢了
+
+别人的答案：
+```
+var canConstruct = function(ransomNote, magazine) {
+  for(var s of ransomNote) {
+    if(s.indexOf(magazine) === -1) {
+      return false;
+    } else {
+      magazine = magazine.replace(s, "")
+    }
+  }
+  return true;
+}
+```
+
+### 387. First Unique Character in a String
+我的答案：
+```
+var firstUniqChar = function(s) {
+    for(let i = 0; i < s.length; i++) {
+        if(s.replace(s[i], "").indexOf(s[i]) === -1) {
+            return i;
+        }
+    }
+    return -1;
+};
+```
+
+runtime： 483ms  运行时间太长了
+我不能因为一两道题目太难了，而放弃继续下去，这样只会耽误时间。
+
+别人的答案：
+```
+var firstUniqChar = function(s) {
+  for(let i = 0; i < s.length; i++) {
+    if(s.indexOf(s[i]) === s.lastIndexOf(s[i])) {
+      // 我的印象里是有这样的代码，但是可能是缺乏实践，没有想起来用。
+      return i;
+    }
+  }
+  return -1;
+}
+```
+
+我觉得我主要是受上一题的影响。
+### 551 Student Attendance Record I
+
+我的答案：
+```
+var checkRecord = function(s) {
+    // 超过一个a  或者是有超过两个连续L 的
+    let aLen = s.match(/A/g) ? s.match(/A/g).length : 0;
+    if(aLen > 1) return false;
+    return s.match(/LLL/g) ? false : true;
+};
+```
+
+别人的答案：
+var checkRecord = function(s) {
+  return s.split("A").length <= 2 && s.indexOf("LLL") === -1;
+}
+
+### 541. Reverse String II
+思路: 将string, 每隔  k个数进行分割
+有时候我就在想，有没有什么办法可以不用遍历数组呢。
+
+我的答案：
+```
+var reverseStr = function(s, k) {
+    let arr = s.split("");
+    for(let i = k; i < arr.length; i=i+k) {
+        arr.splice(i,0,",");
+        i++;
+    }
+    let newArr = arr.join("").split(",");
+    for(let i = 0; i < newArr.length; i=i+2) {
+        newArr[i] = newArr[i].split("").reverse().join("");
+    }
+      return newArr.join("");
+};
+```
+
+Runtime: 136 ms, faster than 0.00%  太慢了
+
+把这道题下的答案都看下吧
+
+别人的答案：
+```
+var reverseStr = function(s, k) {
+  let res = "";
+  for(let i = 0; i < s.length; i += 2*k) {
+    res += s.slice(i,i+k).split("").reverse() + s.slice(i+k, i+k+k);
+    // 循环拼接
+  }
+  return res;
+}
+```
+别人的另一个答案：
+```
+var reverseStr = function(s, k) {
+    //1. string split
+    //2. chunk reverse
+    //3. join
+    var reg = new RegExp(`(\\S{${2*k}})`);
+    return s.split(reg).map((thunk)=>{
+      thunk = Array.from(thunk);
+      return thunk.splice(0,k).reverse().concat(thunk).join('');
+    }).join('')
+};
+```
+1、 如何用正则表达式，将字符串里的字母，每几个几个分配成一组。注意正则里面的括号。
+2、 str 如何快速转化成数组
+3、别人是这样颠倒前k个字母的顺序，并保持后k个字母不变得
+`thunk.splice(0,k).reverse().concat(thunk).join("")`
+
+### 925 Long Pressed Name
+思路:
+name 里面的每一个字母对应的在typed 里面应该是至少对应1个。才会满足条件。
+
+```
+var isLongPressedName = function(name, typed) {
+
+}
+```
+在尝试了三种方法以后，都出现了错误，我觉得我应该放弃这道题了。
+在这样的情况下，我觉得我可以看下答案。明天看吧。
+
+### 819. Most Common Word
+
+思路：首先将字符串里的单词给匹配出来。然后对这些单词的重复数进行排序。之后排除掉空格和banned变量的值。
+
+我的答案：
+```
+var mostCommonWord = function(paragraph, banned) {
+  let obj = {};
+      paragraph.toLowerCase().match(/\w+/g).map((ele) => {
+        obj[ele] = (obj[ele] || 0) + 1;
+      })
+      let arr = [];
+      for(var o in obj) {
+        arr.push({"name":o, "key": obj[o]});
+      }
+      arr.sort((a,b) => b.key - a.key);
+      for(let i = 0; i < arr.length; i++) {
+        if(!banned.includes(arr[i].name)) {
+          return arr[i].name;
+        }
+      }  
+};
+```
+别人的答案：
+```
+const mostCommonWord = (paragraph, banned) => {
+    const bset = new Set(banned);
+    const parr = paragraph.toLowerCase().split(/\W+/);
+    const counts = {};
+    for (const w of parr) {
+        counts[w] = (counts[w] || 0) + !bset.has(w);
+    }
+    return Object.entries(counts).reduce((res, arr) => arr[1] > res[1] ? arr : res, ['', -Infinity])[0];
+};
+```
+只不过是别人将我后面的那些代码都用成了一行来完成。
+
+别人的另一个答案：
+```
+var mostCommonWord = function(paragraph, banned) {
+    var ban = new Set(banned);
+    var words = paragraph.replace(/[!\?\'\,\;\.]/g, '').toLowerCase().split(' ');
+    var counts = words.reduce((obj, word) => {
+        if (!ban.has(word)) { obj[word] = obj[word] + 1 || 1; }
+        return obj;
+    }, {});
+    return Object.keys(counts).reduce((maxKey, key) => {
+        return counts[key] > counts[maxKey] ? key : maxKey;
+    }, Object.keys(counts)[0]);
+};
+```
+上述中别人的reduce 方法 Object.keys(counts)  真是用的恰到好处。
+正则表达式处得写法也是值得我学习得地方
+但是这个答案不可以通过。
+
+### 345. Reverse Vowels of a String
+思路： 第一个元音和倒数第一个元音，第二个元音和倒数第二个元音进行颠倒。
+先删除掉所有的元音然后将这些元音进行颠倒，之后再插入。
+
+我的答案:
+```
+var reverseVowels = function(s) {
+      // 我不知道要不要考虑大写。
+      var vowels = ["a", "e", "i", "o", "u","A","E", "I", "O", "U"];
+      var s_vowels = s.split("").filter((ele) => vowels.includes(ele)).reverse();
+      var count = 0, s_arr = s.split("");
+      for(let i = 0; i < s.length; i++) {
+        if(vowels.includes(s[i])) {
+          s_arr.splice(i,1,s_vowels[count]);
+          count++;
+        }
+      }
+      return s_arr.join("");
+};
+```
+runtime: 136ms  faster than 16.84%
+
+别人的答案:
+```
+var reverseVowels = function(s) {
+    if(s === null || s.length === 0) {
+        return s;
+    }
+    var chars = s.split('');
+    var low = 0;
+    var high = s.length - 1;
+    var vowels = "aeiouAEIOU";
+    var tmp;
+    while(low < high) {
+        while(low < high && vowels.indexOf(chars[low]) === -1) {
+            low++;
+        }
+        while(low < high && vowels.indexOf(chars[high]) === -1) {
+            high--;
+        }
+        tmp = chars[high];
+        chars[high] = chars[low];
+        chars[low] = tmp;
+        low++;
+        high--;
+    }
+    return chars.join('');
+};
+```
+只能说不错不错
+思路很清晰，
+
+### 459. Repeated Substring Pattern
+我得答案：
+```
+for(let i = 0; i < s.length; i++) {
+        if(s[i] === s.slice(-1)) {
+            let m = s.slice(0, i+1);
+            let reg = new RegExp(m, "g")
+            console.log(s.match(reg), s.match(reg).length, s.length/(i+1), i);
+            if(s.match(reg).length > 1 && s.match(reg).length === s.length/(i+1)) {
+              return true;
+            } 
+        }
+      }
+    return false;
+```
+runtime 1352 ms faster than 1.04%
+我在纠结是看别人的答案还是自己再想想
+别人的答案：
+```
+var repeatedSubstringPattern = function(s) {
+    if (s.length === 0 || s.length === 1) return false;
+    for (let i = 1; i <= s.length / 2; i++) {
+        if (s.length % i === 0 && s.slice(0, i).repeat(s.length / i) === s) {
+            return true;
+        }
+    }
+    return false;
+};
+```
+不用纠结一半的位置。
+提升速度的关键原因难道是减半，但是你要注意的是，我后面没有循环就return出去，不是起到相同的效果吗？
+
+### 38. Count and Say
+我的答案：
+```
+var countAndSay = function(n) {
+    var initial = "1";
+        for(let i = 2; i <= n; i++) {
+          initial = getValue(initial);
+        }
+    return initial;
+}
+var getValue = function(str) {
+    let res = "";
+    let count = 0;
+    for(let i = 0; i < str.length; i++) {
+      count++;
+      if(str[i] != str[i+1]) {
+       res = res + count + str[i];
+       count = 0;
+      }
+    }
+    return res; 
+}
+```
+runtime 52 ms   faster than 99.66%
+
+别人的答案：
+```
+var countAndSay = function(n) {
+  if(n === 1) { return "1";}
+  var say = function(str) {
+    var idx = 0;
+    var newStr = "";
+    while(idx < str.length) {
+      var occurrences = 1;
+      while(str[idx + 1] && str[idx + 1] === str[idx]) {
+        idx++;
+        occurrences++;
+      }
+      newStr += occurrences + str[idx];
+      idx++;
+    }
+    return newStr; 
+  }
+  return say(countAndSay(n-1));
+}
+```
+真的是perfect answer
+
+### 67. Add Binary
+我的答案：
+```
+var addBinary = function(a, b) {
+    let num = parseInt(a, 2) + parseInt(b, 2);
+    return num.toString(2);
+};
+```
+上述答案是错误的。
+如果num > 256  此时 toString(2) 就会出现问题了
+我的第二个答案:
+```
+var addBinary = function(a, b) {
+        let long_str = a.length > b.length ? a : b;
+        let short_arr = a.length  > b.length ? b.split("") : a.split("");
+        let len = short_arr.length;
+        while( len < long_str.length )  {
+         len = short_arr.unshift("0")
+        }
+        let res = [];
+        let n = 0;
+        for(let i = len-1; i >=0; i--) {
+          let s = parseInt(short_arr[i]); 
+          let l = parseInt(long_str[i]);
+          if(s + l + n === 2) {
+            if(i === 0) {
+              res.unshift("1","0");
+            } else {
+              res.unshift("0")
+            }
+            n = 1;
+            continue;
+          } else if(s + l + n === 3) {
+            if(i === 0) {
+              res.unshift("1","1");
+            } else {
+              res.unshift("1")
+            }
+            n = 1;
+          } else {
+            res.unshift((s + l + n).toString());
+            n = 0;
+          }
+        }
+        // return parseInt(res.join("")).toString();
+        return res.join("");  // 正确答案，因为第一位不可能是0
+      };
+```
+toString() 会出现问题。
+runtime 64 ms  faster than 51.04%
+我的第三个答案：
+```
+ var addBinary = function(a, b) {
+        let aLen = a.length;
+        let bLen = b.length;
+        let len = aLen > bLen ? aLen : bLen;
+        let res = [];
+        let p = 0;
+        for(let i = 1; i <= len; i++) {
+          let m = parseInt(a[aLen - i] ? a[aLen - i] : 0);
+          let n = parseInt(b[bLen - i] ? b[bLen - i] : 0);
+          if(m + p + n === 2) {
+            if(i === len) {
+              res.unshift("1","0");
+            } else {
+              res.unshift("0")
+            }
+            p = 1;
+          } else if(m + p + n === 3) {
+            if(i === len) {
+              res.unshift("1","1");
+            } else {
+              res.unshift("1")
+            }
+            p = 1;
+          } else {
+            res.unshift((m + p + n).toString());
+            p = 0;
+          }
+        }
+        return res.join("");
+      }
+```
+但运行时间没有一点提升。
+
+别人的答案:
+```
+var addBinary = function(a, b) {
+    var [carry, i, j, res] = [0, a.length - 1, b.length - 1, ""];
+    while(i >= 0 || j >= 0 || carry > 0) {
+        const bita = i >= 0 ? Number(a[i]) : 0;
+        const bitb = j >= 0 ? Number(b[j]) : 0;
+        const sum = bita + bitb + carry;
+        res = `${sum%2}${res}`;
+        carry = Math.floor(sum / 2);
+        i--; j--;
+    }
+    return res;
+};
+```
+思路是一样的，但这个答案是更为精简。
+第一行赋值的方法是值得借鉴的
+
+### 434. Number of Segments in a String
+
+我的答案:
+```
+var countSegments = function(s) {
+    if(s.trim().length === 0) return 0;
+    return s.trim().split(/\s+/g).length;
+};
+```
+runtime 52ms  faster than 37.21%
+我也可以写成一行。
+别人的答案：
+```
+var countSegments = function(s) {
+    return s.split(" ").filter(function(n){return n}).length;
+};
+```
+
+### 443 String Compression
+我的答案：
+```
+var compress = function(chars) {
+         let i = 0;
+           while(isNaN(chars[chars.length -1]) && i < chars.length) {
+             let counts = 1;
+             while(chars[i+1] && chars[i] === chars[i+1]) {
+                counts++;
+                chars.splice(i, 1);
+             }
+             if(counts !== 1) {
+               let  insert = String(counts).split(""); 
+               chars.splice(i+1,0,...insert);
+               i += insert.length;
+             }
+             i++;
+           }
+           return chars.length;
+        }
+```
+
+runtime 68ms faster than 59.78%
+
+### 20 Valid Parentheses
+暂时我还没有想到思路。
+
+### 680 Valid Palindrome II
+我的答案：
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -47,7 +47,7 @@ var result = hello.replace(re, '');
 请问position上的这个数，会不会被删除呢。
 ```
 let arr = [5,6];
-arr.splice(0,0,1,2,3,4);  // [],  注意 返回值为空数组
+arr.splice(0,0,1,2,3,4);  // [],  注意 返回值为空数组 因为返回的是删除的数组
 ```
 
 6. string 如何快速转为数组  str.split(",");
@@ -97,7 +97,7 @@ sort 会改变原数组的。
 
 13. 关于splice 
 `arr.splice(0,1)`  // 删除的是0位置上的数，不包含1位置上的数，返回的是数组
-`arr.splice(0)` // 删除的是0以及0之后的所有数。并不是0位置上的数,返回的是数组 这个用法可以借鉴一下
+`arr.splice(0)` // 删除的是0以及0之后的所有数。并不是0位置上的数,返回的是数组 这个用法可以借鉴一下，可以清除arr也可以复制arr。
 
 14. 关于push
 `book.push(bookName)`  返回的是book数组添加进bookName之后的数组的长度
@@ -341,7 +341,7 @@ count[k] = count[k] || 0 + 1;  //  下述无论存不存在都会将 1 赋值给
 charCodeAt的用法
 str.charCodeAt(index);
 
-请问哪一个用法能够得到一个字母的ASCII码m=值。
+请问哪一个用法能够得到一个字母的ASCII码 charCodeAt 值。
 
 string  是没有map用法的，即没有 str.map()
 
@@ -428,7 +428,7 @@ console.log(s);  // 'abcd'
 string.slice(1)
 要注意字符串也是有slice方法的
 
-`'abcdefg'.split("") === Array.from('abcdefg')`  效果是一样的
+`'abcdefg'.split("") === Array.from('abcdefg')` === [].slice.call("abcdefg")  效果是一样的
 
 怎么匹配数字和字母， `[a-zA-Z0-9]`   或者。\w
 
@@ -459,10 +459,254 @@ function recursion(n) {
 .item(index) 返回指定索引的节点
 
 [].slice.call(nodelist); 可以将其转化为数组
+同样Array.from(nodelist); 应该也是可以的
 
 神奇的地方， join 和 toString() 神奇的地方
 [1,2,3,[4,5,[3]],9].join().split(","); // ["1","2","3","4","5","3","9"]
+// join() 相当于 join(",")
 [1,2,[2,4,[5],8],0].toString().match(/\d/g); // 也能达到同样的上述效果
+
+保留两位小数  num.toFixed(2) 保留两位小数
+Math.floor() Math.round() Math.ceil() 请问这几个值得区别在哪里
+
+向 数字的偏小方向 取整
+Math.floor(23.89); // 23
+Math.floor(-3.01); // -4
+
+向 数字的偏大的方向 取整
+Math.ceil(10.01); // 11
+Math.ceil(-9.9);  // -9
+
+四舍五入法 取整
+Math.round(4.5); // 5
+Math.round(5.4); // 5
+
+如判断数字有几位数
+num.toString().length;
+
+如何判断是否是数组。iE9 +
+Array.isArray();
+总结的方法如下：
+```
+let arr = [1,3,5];
+
+1、
+arr instanceof Array;  // true
+
+2、
+Object.prototype.toString.call(arr) === "[object Array]";
+
+3、
+// 通用的判断数组的方法
+function isArray(object) {
+  retun object && typeof object === "object" && Array === object.constructor;
+}
+
+4、
+Array.isArray(arr);
+```
+
+dom 元素如何变成元素节点，如何从元素节点获得某个属性名的特定属性。
+
+Array.from(dom.children).map((item) => item.getAttribute(attr));
+
+几种append 的区别
+1、 appendChild()
+```
+var node = document.createElement("LI");                 // Create a `<li>`node
+var textnode = document.createTextNode("Water");         // Create a text node
+node.appendChild(textnode);
+document.getElementById("myList").appendChild(node);
+```
+2. jQuery 里面的append
+```
+$('.inner').append("<p>Test</p>")
+```
+
+清空html jQuery 方法
+$("#cats-list").html('');
+
+
+关于new Promise一定是有一个return 返回值吗？
+不需要，他们测试给得样列有点问题。
+
+请问函数的参数是...args, 那么我在函数内部能否用args 去代替...args。
+```
+function a(...args) {
+    console.log(...args); // 1 2 3 4 5 6
+    console.log(args); // [1,2,3,4,5,6]
+}
+a(1,2,3,4,5,6);
+```
+一目了然就可以看到上述得区别了
+
+string 有splice 方法吗？
+没有
+
+同样是遍历字符串，用for 循环和 for of ,发现 for of 所耗费时间更长。
+
+string.replace(s, "");
+仅仅会将string 里面的第一个变量s的值给替换成空字符串，其实替换成空字符串就是删掉的意思。
+于是我学会了一种新的改变字符串的方法。
+
+请问Array.splice 方法可以改变原数组吗？
+肯定会的啊.
+
+reverse() 方法仅仅是数组才有的吗? 是的
+
+string有 slice方法。
+
+巩固一下 substring, subStr
+```
+str.substring(indexStart[, indexEnd]) 和  slice的方法一样 包含前者而不包含后者
+str.substr(start[, length]) 
+
+var str = "Mozilla";
+str.substr(1, 2); // oz
+str.substr(2); // zilla
+```
+
+正则表达式两种写法
+```
+let regex = /\S/g;
+let regex = new RegExp(`\\s${}`, "g");
+```
+
+\s  和\S  的区别是在哪里？
+
+\s 匹配任何空白字符，包括空格，制表符，换页符等等。等价于
+[\f\n\r\t\v]
+
+\S 匹配任何非空白字符 [^\f\n\r\t\v]
+
+`arr.splice(0, 3).reverse().concat(arr)`  这行代码写的很妙。改变了原数组。
+
+应该是字符串，数组都可以用match(正则表达式) 这样的用法吧？
+
+仅仅是字符串。
+
+关于字符串和正则表达式的两种常见用法
+
+```
+let arrStr = "abcdefg";
+var reg = new RegExp(`(\\S{${2*2}})`, "g");
+
+console.log(arrStr.match(reg), "match");  // ["abcd"] 
+// 我应该记录下返回值
+console.log(arrStr.split(reg), "split");  // ["", "abcd", "efg"]
+```
+
+如何给字符串快速去重。
+
+如何快速获得obj的keys.
+
+```
+Object.keys(obj1);
+```
+
+new Set(arr); 有什么作用。
+转化成set 形式的数组，然后用set的方法。
+
+`return Object.entries(counts).reduce((res, arr) => arr[1] > res[1] ? arr : res, ['', -Infinity])[0];`
+
+第一次见到以这种形式，去return出对象里面，某个属性值的最小值。
+
+```
+const anObj = {100: "a", 2: "b", 7:"c"};
+Object.entries(anObj); // [["2", "b"], ["7", "c"], ["100", "a"]]
+```
+
+filter 用法 筛选出的数组请问和原数组的顺序也是保持一致的吗？
+
+arr.reverse()  会直接改变掉原数组的顺序吗？
+
+答案是会的。
+
+字符串一半的位置是在哪个位置。
+s.length / 2;   其实用到的时候，用的都是整数，所以不用纠结有小数位。
+
+今天遇到一个很奇怪的问题。
+```
+有一个字符串，s
+for(let i = 0; i <= s.length; i++) {
+  if(条件) {
+    return true;
+  }
+}
+
+for(let i = 0; i <= s.length/2; i++) {
+  if(条件) {
+    return true;
+  }
+}
+```
+其中条件会在 i < s.length/2 范围内就满足，请问
+上述代码执行时间，哪个短，还是一样长。 
+
+二进制是如何计算的
+110
+
+2的0次方 * 0 + 2的1次方 * 1 + 2的2次方 * 1 = 2 + 4 = 6
+
+如何将二进制转化成10进制整数。
+
+字符串 s = "abcdefg"; 请问 s[-1] 的值是多少？ 
+
+答案: undefined
+
+var [carry, i, j, res] = [0, a.length - 1, b.length - 1, ""];
+
+这个赋值方法是值得借鉴的。
+
+关于连续不连续，临界值的判断
+```
+ 方法一 if(str[i] != str[i+1]);
+ 方法二 while(str[i+1] && str[i+1] === str[i])
+ 第二种方法我不太常用
+```
+
+obj[word] = obj[word] + 1 || 1;
+上述用法只要记住就好了
+
+两个值颠倒，请问应该如何颠倒呢。
+```
+temp = a;
+a = b;
+b = temp;
+```
+字符串好像是没有办法颠倒两个位置的值的，而数组是可以的。
+```
+let s = "abcdefg";
+let  t;
+t = s[0];
+s[0] = s[5];
+s[5] = t;
+console.log(s); // abcdefg  并不会改变
+```
+
+```
+let s = ["a", "b", "c", "d", "e", "f", "g"];
+let t ;
+t = s[0];
+s[0] = s[5];
+s[5] = t;
+console.log(s); // ["f", "b", "c", "d", "e", "a", "g"] 会颠倒两个值
+```
+
+要注意if("")  和 if(" ") 的区别，所以还是用.length 去判断比较好。
+
+```
+var countSegments = function(s) {
+    return s.split(" ").filter(function(n){return n}).length;
+};
+```
+
+可以完全杜绝掉，全是空格的字符串。
+
+
+
+
+
 
 
 

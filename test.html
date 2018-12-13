@@ -4,25 +4,23 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <script>
-        const flatten = (arr) => {
-            // let result = [];
-            // console.log(result, 'result result');
-            // arr.forEach((item) => {
-            //     if(Array.isArray(item)) {
-            //         console.log(result, 'result 第一个', item);
-            //         result = result.concat(flatten(item));
-            //         console.log(result, 'result 第二个');
-            //     } else {
-            //         result.push(item);
-            //     }
-            // })
-            // return result;
-            // return arr.join().split(',');
-            return arr.toString().match(/\d/g);
+       var isValid = function(s) {
+        // 正确的顺序，必须包含开括号和闭括号
+       }
+
+       var validPalindrome = function(s) {
+        if(s.split("").reverse().join("") === s) return true;
+        if(s.length % 2 === 0) {
+            if(s.slice(0, s.length/2 -1).split("").reverse().join("") === s.slice(s.length/2 +1)) {
+                return true;
+            }
         }
-        let last = flatten([1,[[2,3],4], 5]);
-        // 问题在于数字1 已经被遍历过了，而且也清空了，为什么还会有呢
-        console.log(last, 'last');  
+        return false;
+       }
+       // "deeee" 请问这样的代码有什么特点
+       // deeeeaeeee
+       // 很显然这个不是简单的问题
+       console.log(validPalindrome("abia"))
     </script>
 </head>
 <body>

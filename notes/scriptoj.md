@@ -155,18 +155,17 @@ const plusFor = (name) => {
 
 看到 promise 我就会觉得头疼呀
 
-我的答案：
+别人的答案：
 ```
 const proposeToMissHan = (isOK) => {
-  return new Promise(function() {
-    setTimeout(function() {
-      if(isOK) {
-        resolve("ok");
-      } else {
-        reject("no");
-      }
-      }, 20)
-  })
+  return new Promise((resolve, reject) => {
+   setTimeout(() => {
+     if(isOK) {
+       resolve("ok");
+     } else {
+       reject("no");
+     }
+   }, 20)})
 }
 ```
 new Promise 包裹一个函数，函数里面又写了一个定时器函数
@@ -235,6 +234,7 @@ let newVar = variable.replace(re, '%');
 const toCamelCaseVar = (variable) => {
   return variable.replace(/_+[^_]/g, (...arg) => {
     // 这里我需要解释一下
+    // 值得注意的是，不同的正则表达式，后面的...args 是不一样的
     // arg[0] 代表被正则匹配的元素
     // arg[1] 代表被匹配的元素的最后一个元素在字符串中的位置
     if (arg[1]) {  // 正好可以忽略开头
@@ -316,7 +316,74 @@ const flatten = (arr) => {
   return result;
 }
 ```
-### cia
+### 34 操作 Cookie
+单例 是什么意思，
+一看到cookie,就觉得头晕了，心里就觉得自己不会。
+这个真的太难了，这个待会再看吧
+cookie 部分需要自己复习一下，这个还是看书吧。
+
+### 36 实现一个EventEmitter
+function 形式的函数如何修改成class形式
+```
+function Point(x, y) {
+  this.x = x;
+  this.y = y;
+}
+
+Point.prototype.toString = function() {
+  return '(' + this.x + ',' + this.y + ')';
+};
+
+var p = new Point(1,2); 
+```
+
+```
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+  toString() {
+    return '(' + this.x + "," + this.y + ')';
+  }
+}
+```
+别人的答案：
+```
+class EventEmitter {
+  constructor() {
+    this.messageBox = {};
+  }
+  on(type, handle) {
+    if(!this.messageBox.hasOwnProperty(type)) {
+      this.messageBox[type] = [];
+      handle && this.messageBox[type].push(handle);
+    } else {
+      handle && this.messageBox[type].push(handle);
+    }
+  }
+  emit(type, ...args) {
+    if(this.messageBox.hasOwnProperty(type)) {
+      const handleQueen = this.messageBox[type];
+      handleQueen.forEach((handle, index, arr) => {
+        handle(...args);
+      })
+    }
+  }
+  off(type, handle) {
+    if(this.messageBox.hasOwnProperty(type)) {
+      const handleQueen = this.messageBox[type];
+      if(handleQueen.includes(handle)) {
+        const atIndex = handleQueen.indexOf(handle);
+        handleQueen.splice(atIndex, 1);
+      }
+    }
+  }
+}
+```
+
+重新回归  leetcode 
+
 
 
 
