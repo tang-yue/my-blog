@@ -1411,7 +1411,146 @@ runtime 68ms faster than 59.78%
 暂时我还没有想到思路。
 
 ### 680 Valid Palindrome II
+我觉得我的思路不对，特殊情况并不是我想的那几种。
+应该是需要遍历考虑到每一个字符的。
+并不是说只有一个不对称是符合条件的，也并不是说只有一个不对称就符合条件。
+```
+如下:
+// ebeeba
+// abeebi
+
+如下有好多个不对称，但是删掉一个，也仍旧还是回文。
+ababae
+eababa
+```
+先放下吧，我还没有想到思路
 我的答案：
+
+### 14 Longest Common Prefix
+我的答案：
+```
+var longestCommonPrefix = function(strs) {
+    if(strs.length === 0 || strs[0].length === 0) return "";
+    let count = 0;
+    for(let i = 0; i < strs[0].length; i++) {
+      let set = new Set();
+      for(let j = 0; j < strs.length; j++) {
+        set.add(strs[j][i])
+      }
+      if(set.size === 1) {
+        count++;
+      } else {
+        return strs[0].slice(0, count);  
+      }
+    }
+    return strs[0].slice(0, count);
+};
+```
+runtime: 84ms， faster than 7.5%
+
+### 58 Length of Last Word
+我的答案：
+```
+var lengthOfLastWord = function(s) {
+    let arr = s.trim().split(" ");
+    return arr[arr.length -1].length;
+};
+```
+ 48ms  faster than 100%
+ 这道题比较简单
+
+### 686. Repeated String Match
+
+在尝试了 3次 submit 之后，都是 Time Limit Exceeded
+我决定自己休息一会。别灰心深呼吸，继续刷下一题，微笑脸。
+
+### 28. Implement strStr()
+```
+var strStr = function(haystack, needle) {
+    return haystack.indexOf(needle);
+};
+```
+
+这么简单。
+
+### 125. Valid Palindrome
+```
+var isPalindrome = function(s) {
+    let arr = s.toLowerCase().match(/\w/g);
+    return  arr ? arr.join("") === arr.reverse().join("") : true;
+};
+```
+runtime   80ms  faster than 38.18%
+
+### 859. Buddy Strings
+我的答案
+```
+var buddyStrings = function(A, B) {
+      let aLen = A.length;
+      let bLen = B.length;
+      if(aLen != bLen) return false;
+      if(A === B && Array.from(new Set(A.split(""))).length < A.length) return true;
+      let Aarr = [];
+      let Barr = [];
+      for(let i = 0; i < aLen; i++) {
+        if(A[i] !== B[i]) {
+          Aarr.push(A[i]);
+          Barr.push(B[i]);
+        }
+      }
+      return Aarr.length === 2 && Aarr.reverse().join("") === Barr.join("");
+      return false;  
+};
+```
+runtime 80 ms   faster than 82.29%
+
+String  easy 题 到此结束
+
+# 下面开始  Math 部分
+
+### 942 DI String Match
+
+对于这道题， 我觉得我应该坦然地面对我对于这道题，没有思路。
+对于超过我能力范围的题目，我都应该不必去强求。
+对于生命中的事情，无论喜悦与悲伤，我都要敞开胸怀给与赤诚的拥抱。
+第一题不会下一题
+
+### 728 Self Dividing Numbers
+
+我的答案：
+```
+var selfDividingNumbers = function(left, right) {
+   var res = [];
+    for(let i = left; i <= right; i++) {
+      res.push(i);
+      let  arr = String(i).split("");
+      for(let j = 0; j < arr.length; j++) {
+          if(i % Number(arr[j]) != 0) {
+            res.pop();
+            break;
+          }
+      }
+    }
+    return res;
+};
+```
+runtime 96ms faster than 11.74%
+
+### 883. Projection Area of 3D Shapes
+我完全的就是看不懂这道题。
+
+### 908. Smallest Range I
+没有思路
+
+### 868. Binary Gap
+
+
+
+
+
+
+
+
 
 
 
