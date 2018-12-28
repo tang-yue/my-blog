@@ -123,5 +123,149 @@ https://github.com/lidaguang1989/react-seed   参照这个项目
 
 
 
+12月17日
+
+搭建员工账号系统 笔记
+
+1、 elint   这个待会做
+
+https://cli.vuejs.org/zh/guide/installation.html
+
+https://juejin.im/post/5bf7d67c51882518805acb1a
+
+https://segmentfault.com/a/1190000016101954
+
+有必要写一下， node.js nvm  cnpm  npm 安装卸载，的详细攻略
+
+使用方向键没有反应 Use arrow keys
+
+按需引入  echarts
+
+vue.config.js  配置
+
+尝试  request  进一步的封装
+
+"babel-eslint": "^10.0.1",
+"eslint": "^5.8.0",
+"eslint-plugin-vue": "^5.0.0-0",
+
+
+<!-- 待会弄按需引入 -->
+
+<!-- 这些动效还是待会再加吧 -->
+
+
+
+如何让高度撑满全屏呢。 vue
+
+<!-- 测试环境的添加角色 接口好像有问题。 -->
+
+token 失效的时候应该跳转到登录页面。
+
+或许我很讨厌写css 是因为我从未从心底上去接纳它吧。
+
+让背景充满全屏，vue的做法
+html,body,#app {
+  height: 100%;
+}
+但是当出现滚动条的时候
+背景并没有充满整个屏幕。
+
+如何区分不同的router-view
+
+关于登录这一块，我需要重新看看源码。
+现在先自己手写吧
+
+别忘了我的纯js是很厉害的
+
+input 去掉聚焦时的颜色
+
+input {
+    outline: none;
+}
+
+input聚焦时， 光标的颜色如何定义 
+
+input {
+    caret-color: auto;
+}
+
+input.custom {
+    caret-color: red;
+}
+
+
+
+登录接口有问题，
+
+当我输入了不正确的密码和用户名时，却没有返回
+相对应的errcode. 
+
+
+
+git pull origin master --allow-unrelated-histories
+
+
+将现在的这些写成路由的形式。
+
+为什么刚登录进去的时候，有一块的
+css样式没有加载出来。
+
+
+               {/*<div class="nickname">{{nickname ? nickname: ''}}</div>*/}
+
+
+我仅仅是在想 为什么点击了会没有反应。
+
+
+关于 vue 项目， 里面的public下
+文件是我自己生成的吗？
+
+vue 项目引入外界的js,css文件应该在哪里引入呢。
+
+// 需要用到一个svg
+因此我接下来在学习svg
+
+
+这个待会再折腾，我需要把其他的给做完。
+
+// 解决
+
+
+
+12月24日
+待做的问题 
+如何使用 vuex, 将数据存储起来，然后多个
+views下的路由可以全局使用。
+
+
+#### 接下来需要做的。
+进入一个页面就有选中的一个menu 的状态。
+
+如何把上一次的modal里的数据，彻底清空，不残留
+
+解决 svg 问题。
+
+需要的是很耐心很耐心的看教程， 就能解决问题。
+
+1. 在 src/components/ 下创建 SvgIcon 组件
+
+我并没有用组件的形式去解决 svg 的问题。
+
+仅仅是用了最简单方式
+
+https://segmentfault.com/a/1190000012213278
+
+将一个方法写成vuex 的形式。
+
+如何使用 vuex 的步骤如下。
+
+现在遇到的问题是
+
+我照着别人的代码敲了一遍，但是没有效果。
+我看了教程，没有很理解。看了一个小demo发现
+和我想得不太一样。
+于是我只能再去看一份教程。
+
 
 

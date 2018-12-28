@@ -717,6 +717,51 @@ x.toString(2);
 js 中  2的几次方如何写。
 
 
+vue 中 v-show 请问可以是个变量吗？
+
+#### 搭建vue 项目笔记
+1、 如何判断是pc端还是移动端
+```
+// 判断是否是pc
+isPC() {
+  var userAgentInfo = navigator.userAgent;
+  var Agents = ["Android", "iPhone", 'SymbianOS', "Windows Phone","iPad", "iPod"];
+  var flag = true;
+  for(var v = 0; v < Agents.length; v++) {
+    if(userAgentInfo.indexOf(Agents[v]) > 0) {
+      flag = false;
+      break;
+    }
+  }
+  return flag;
+}
+// 只要写出相反的情况就可以了
+```
+
+如何去掉 ul  li 样式，我觉得这是我要记住的
+body的margin 样式去不掉是怎么回事
+
+一边有弧度  border-radius: 左上角，右上角，右下角，左下角
+
+鼠标有小手出现 cursor: pointer;
+
+让层级低一点 z-index
+
+请问p标签里面有<br>，我应该如何将其写在数据里面呢。
+
+动态style
+`v-bind:style="{ color: item.color, background: item.backgrondColor}"`
+
+发现写background-color 会报错,  写成backgroundColor
+
+
+background: url() no-repeat center/80%;
+
+position 是紧紧接着background-size 所以连接起来就是 center/80%;
+
+如何鼠标移进图片的时候，图片实现放大效果
+
+
 
 
 
