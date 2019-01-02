@@ -10,6 +10,8 @@ my-blog
 
 [抓包工具fiddler的使用](https://github.com/tang-yue/my-blog/blob/master/conclusions/fiddler-course.md)
 
+[react上传图片到oss](https://github.com/tang-yue/my-blog/blob/master/conclusions/react-oss-upload.md)
+
 [学习es6笔记](https://github.com/tang-yue/my-blog/blob/master/learn-es6)
 
 [leetcode笔记](https://github.com/tang-yue/my-blog/blob/master/notes/note-leetcode.md)
@@ -18,5 +20,5 @@ my-blog
 
 [工作新知识1](https://github.com/tang-yue/my-blog/blob/master/sources/work-new-knowledge1.md)
 
-
+[工作新知识2](https://github.com/tang-yue/my-blog/blob/master/sources/work-new-knowledge2.md)
 

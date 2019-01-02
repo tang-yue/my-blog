@@ -761,6 +761,27 @@ position 是紧紧接着background-size 所以连接起来就是 center/80%;
 
 如何鼠标移进图片的时候，图片实现放大效果
 
+`redirect.startsWith('/invitation')`
+返回布尔值，字符串redirect 是否以'/invitation'开头
+
+```
+const obj = { name:'tangyue', age:26 };
+const { name = '' } = obj;
+obj;   // {name:"tangyue", age:26}
+name; // "tangyue"  取出了name值
+const { like = '' } = obj;
+obj;  // {name:'tangyue', age:26}
+like; // ''  初始化了like值
+```
+
+```
+import * as service from '../services/user';
+// 使用时就是比如 service.getUserInfo
+```
+
+
+
+
 
 
 
