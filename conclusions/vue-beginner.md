@@ -112,79 +112,10 @@ module.exports = {
 }
 ```
 
-研究request 封装
-
 如果要用less 需要安装 
 less-loader 和 less
 
 它是否是用了什么组件呢
-
-
-
-       {
-                  "title":"做孩子理科思维的启蒙", "content":`
-          作为数学学渣，未来孩子的功课辅导方面一定是有缺陷的。幸好遇到了核桃编程，万万
-          没想到，一个看上去普通的小游戏，居然已经包含了动作与循环、负数、克隆、变量等知识点在里边。\n
-          孩子作业中的问题，老师也会在批改中一一指出，但又不直接点出解决之道。所以小朋友还得再仔细检查
-          一遍，自己去发现其中的错漏。这个过程无疑又锻炼了逻辑思维能力，想敷衍含糊是不可能的，借此培养起认真仔细的态度是必然的。`
-          "avatar":"//img-hetao.oss-cn-beijing.aliyuncs.com/assets/%08pc-official/Group%2021%20Copy%202.png", "parent":"8岁孩子·一涵的妈妈",
-          "color": "#FDDE02", "background-color": "#2c3e50" 
-                },
-                {
-                  "title": "让孩子学会自主学习", "content":`
-          让孩子学核桃编程，一方面是满足他想学的欲望，另一方面是想锻炼他的自主学习能力。\n
-          在开始编程之前，他是一个学习依赖性极强、碰上难题就一脸懵逼的孩子。而在这个课程中，
-          除了帮助孩子进入课程，其他我完全置之不理。孩子把课程视频拿出来反复看，练习到不用
-          跟随视频也可以自己做出来作业，最后顺利完成了属于自己的毕业作品。 \n
-          这个作品是他跨越了无数的障碍，理解了什么叫按自己的想法去实现后的结果，更是他第一
-          次一路遇到难题而没有放弃的见证。`, "avatar": "//img-hetao.oss-cn-beijing.aliyuncs.com/assets/%08pc-official/Group%202%20Copy.png", 
-          "parent": "7岁孩子·朱越的妈妈", "color": "#fff", "background-color": "#4dc5c0"
-                },
-                {
-                  "title":"做孩子理科思维的启蒙", "content":`
-          作为数学学渣，未来孩子的功课辅导方面一定是有缺陷的。幸好遇到了核桃编程，万万
-          没想到，一个看上去普通的小游戏，居然已经包含了动作与循环、负数、克隆、变量等知识点在里边。\n
-          孩子作业中的问题，老师也会在批改中一一指出，但又不直接点出解决之道。所以小朋友还得再仔细检查
-          一遍，自己去发现其中的错漏。这个过程无疑又锻炼了逻辑思维能力，想敷衍含糊是不可能的，借此培养起认真仔细的态度是必然的。`
-          "avatar":"//img-hetao.oss-cn-beijing.aliyuncs.com/assets/%08pc-official/Group%2021%20Copy%202.png", "parent":"8岁孩子·一涵的妈妈",
-      "color": "#FDDE02", "background-color": "#2c3e50"
-                },
-                {
-                  "title": "让孩子学会自主学习", "content":`
-          让孩子学核桃编程，一方面是满足他想学的欲望，另一方面是想锻炼他的自主学习能力。\n
-          在开始编程之前，他是一个学习依赖性极强、碰上难题就一脸懵逼的孩子。而在这个课程中，
-          除了帮助孩子进入课程，其他我完全置之不理。孩子把课程视频拿出来反复看，练习到不用
-          跟随视频也可以自己做出来作业，最后顺利完成了属于自己的毕业作品。 \n
-          这个作品是他跨越了无数的障碍，理解了什么叫按自己的想法去实现后的结果，更是他第一
-          次一路遇到难题而没有放弃的见证。`, "avatar": "//img-hetao.oss-cn-beijing.aliyuncs.com/assets/%08pc-official/Group%202%20Copy.png", 
-          "parent": "7岁孩子·朱越的妈妈", "color": "#fff", "background-color": "#4dc5c0"
-                },
-                {
-                  "title":"做孩子理科思维的启蒙", "content":`
-          作为数学学渣，未来孩子的功课辅导方面一定是有缺陷的。幸好遇到了核桃编程，万万
-          没想到，一个看上去普通的小游戏，居然已经包含了动作与循环、负数、克隆、变量等知识点在里边。\n
-          孩子作业中的问题，老师也会在批改中一一指出，但又不直接点出解决之道。所以小朋友还得再仔细检查
-          一遍，自己去发现其中的错漏。这个过程无疑又锻炼了逻辑思维能力，想敷衍含糊是不可能的，借此培养起认真仔细的态度是必然的。`
-          "avatar":"//img-hetao.oss-cn-beijing.aliyuncs.com/assets/%08pc-official/Group%2021%20Copy%202.png", "parent":"8岁孩子·一涵的妈妈",
-          "color": "#FDDE02", "background-color": "#2c3e50"
-                }
-
-
-
-
-                <swiper :options="swiperOption2" v-for="swiper in swiperMain">
-                    <swiper-slide>
-                        <div></div>
-                    </swiper-slide>
-               </swiper>
-
-
-<swiper :options="swiperOption2" >
-  <swiper-slide v-for="item in swiperMain" :key="item.title">
-      <div></div>
-  </swiper-slide>
-</swiper>
-
 
 两个swiperOption 会相互影响，请问我应该如何解决呢.
 

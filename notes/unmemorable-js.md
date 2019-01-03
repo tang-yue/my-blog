@@ -779,7 +779,66 @@ import * as service from '../services/user';
 // 使用时就是比如 service.getUserInfo
 ```
 
+如何去掉边框样式  border-style: none
 
+去掉outline样式  outline: none
+
+vue 中 数据里面的p标签内容，如何换行 
+
+`<p v-html="item.content"></p>`
+
+关于window.location 的几种方式
+
+1、导航到一个新页面
+window.location.assign("http://www.mozilla.org");
+window.location = "https://www.mozilla.org"
+
+2、强制从服务器重新加载当前页面
+window.location.reload(true);
+
+3、用replace() 方法重新加载页面
+var initialPage = window.location.pathname;
+window.location.replace('http://example.com/#' + initialPage );
+
+4、获取查询参数
+window.location.search.substr(1).split('&');
+返回值列如：["value=haha", "key=lalal"]
+然后进行筛选就可以了
+
+5、window.location.pathname
+举列 https://example.com/pathname?key=value
+那么此时pathname 为 pathname
+
+6. window.location.hostname;
+同上面的举列
+那么此时hostname 为  example.com
+
+JSON.stringify() 和 JSON.parse() 的区别
+
+JSON.stringify() 方法转化js对象或值为json字符串
+
+
+```
+JSON.parse('{}') // {}
+JSON.parse('true') // true
+JSON.parse('"foo"') // "foo"
+JSON.parse('[1, 5, "false"]') // [1, 5, "false"]
+JSON.parse('null') // null
+```
+
+关于headers
+```
+let headers = response.headers;
+headers.get(name)// 注意是用get取出值
+
+var myHeaders = new Headers();
+myHeaders.append('Content-Type', 'image/jpeg');
+myHeaders.get('Content-Type'); // Returns 'image/jpeg'
+```
+
+请问什么是域名呢
+
+zh.wikipedia.org 中  zh 是三级域名， wikipedia是二级域名，.org为最顶级的域名
 
 
 
