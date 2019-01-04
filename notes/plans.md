@@ -22,6 +22,13 @@
 
 研究request 封装
 
+对于react里面
+this.renderForm()
+this.resquestData.bind(this)
+直接就是this.click
+请问这三种情况，我应该是什么时候使用哪一种。
+我对此并不是很清楚。
+
 
 
 

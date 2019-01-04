@@ -3,5 +3,6 @@
 默写 fetch  request 封装
 
 ```
-// 
+// 重新默写一遍fetch request  封装
+import fetch from 
 ```

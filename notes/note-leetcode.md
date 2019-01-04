@@ -1,11 +1,11 @@
 ## array
 
-### Array Partition I
+### 561. Array Partition I
 
 1. array.sort() 对于负数的排序会出错，应改成`array.sort(function(a,b) { return a-b });`
 2.`Math.min(...array.slice(n, n+2))`   将内部的数组转化成值形式
 
-### Reshape the Matrix
+### 566. Reshape the Matrix
 
 用到了这个平铺数组
 
@@ -16,13 +16,13 @@ var flattened = [[0, 1], [2, 3], [4, 5]].reduce(
 );
 ``` 
 
-### Toeplitz Matrix
+### 766. Toeplitz Matrix
 
 让我再写一遍，我可能还是会写错的
 
 
 
-### Move Zeroes
+### 283. Move Zeroes
 
 splice
 用法
@@ -39,28 +39,28 @@ arr.slice([begin[, end]])
 
 从后向前循环，不能从前向后循环，从前向后循环会报错的。
 
-### Position of Large Groups
+### 830. Position of Large Groups
 
 重新再写一遍吧
 
-### Majority Element
+### 169. Majority Element
 
 一个数组里面有重复数字元素仍旧是会排序的。
 
 返回也是排序后的数组，sort() 会更改掉原数组。
 
-### Degree of an Array
+### 697. Degree of an Array
 
 一个数组里面有重复的元素，重复次数最多的最短长度
 
-### Maximum Product of Three Numbers
+### 628. Maximum Product of Three Numbers
 
 arr.sort();  sort 会改变原数组
 sort() 并不会排序两位数，三位数。
 arr.sort(function(a, b) {return a - b;});
 arr.sort((a, b) => a - b);
 
-### Longest Continuous Increasing Subsequence
+### 674. Longest Continuous Increasing Subsequence
 连续增长数的长度
 
 最近脑袋被卡死了，leetcode 看着就觉得很是乏味。
@@ -79,24 +79,24 @@ for(let i = 0; i < nums.length; i++) {
     }
 }
 ```
-### Degree of an Array
+### 697. Degree of an Array
 只是觉得我得方法是如此得low。
 // 这道题是我照别人抄的
 
-### transpose-matrix
+### 867. transpose-matrix
 这道题我觉得我又需要去抄别人了。
 这道题，这么简单，但是我去抄了别人的。
 可耻，重新默写吧
 
-### Max Area of Island
+### 695. Max Area of Island
 这道题我觉得我也同样是写不出来的。
 https://leetcode.com/problems/max-area-of-island/discuss/127909/100-JavaScript-solution
 
-### Best Time to Buy and Sell Stock
+### 121. Best Time to Buy and Sell Stock
 
 哈哈， 这道题我做出来了
 
-### 118.Pascal triangle 
+### 118. Pascal triangle 
 这道题我又做不出来了
 ```
 var generate = function(numRows) {
@@ -256,7 +256,7 @@ function isMagic(x, y, arr) {
     }
 }
 ```
-### 219 Contains Duplicate II
+### 219. Contains Duplicate II
 
 记录一个值第一次出现的位置和第二次出现的位置。
 这道题我不会做。
@@ -273,7 +273,7 @@ var containsNearbyDuplicate = function(nums, k) {
     return false;
 };
 ```
-### 914 X of a Kind in a Deck of Cards
+### 914. X of a Kind in a Deck of Cards
  最关键的地方在于我没有明白题目的意思，
  我并不知道究竟是怎么分组的。
  看gcd 是什么意思。最快速的方法是把别人的答案，自己再运行一遍。
@@ -440,7 +440,7 @@ value    set       res
 可以说是很巧，不太容易理解作者的思路，也很难想到。
 其余的答案都不怎么样。
 
-### 414 Third Maximum Number
+### 414. Third Maximum Number
 做出来了
 自己的答案：
 ```
@@ -502,7 +502,7 @@ var rotate = function(nums, k) {
 另外一种想法是把 nums.length - k 这些数从开头删除，然后添加到nums的最后
 可惜我没有把答案给记录下来。
 
-### 665 Non-decreasing Array
+### 665. Non-decreasing Array
 // 凡事比别人多走一步，多努力一步，就能比别人多很多
 但是我还是不会。我觉得最主要的问题在于，在正好大于的那个地方，会有很多重复的值。
 这就导致很难弄。
@@ -580,7 +580,7 @@ var numUniqueEmails = function(emails) {
 }
 ```
 
-### 709 ToLowerCase
+### 709. ToLowerCase
 我的答案如下：
 ```
 var toLowerCase = function(str) {
@@ -601,7 +601,7 @@ var toLowerCase = function(str) {
 };
 ```
 
-### 804 Unique Morse Code Words
+### 804. Unique Morse Code Words
 
 我的答案：
 ```
@@ -616,7 +616,7 @@ var uniqueMorseRepresentations = function(words) {
 ```
 别人的答案也都是特别的让人觉得有学习的地方。
 
-### 657 Robot Return to Origin
+### 657. Robot Return to Origin
 
 我的答案：
 ```
@@ -668,7 +668,7 @@ var reverseString = function(s) {
 ```
 这应该是比较简单的答案了。所以别人的答案我就不会再去看了。
 
-### 893 Groups of Special-Equivalent Strings
+### 893. Groups of Special-Equivalent Strings
 这道题，我先暂时的放一下
 
 ### 521. Longest Uncommon Subsequence I
@@ -806,7 +806,7 @@ function toGoatLatin(S) {
 ```
 别的答案都不怎么样。
 
-###  520 Detect Capital
+###  520. Detect Capital
 自己的答案：
 ```
 var detectCapitalUse = function(word) {
@@ -831,7 +831,7 @@ var detectCapitalUse = function(word) {
 ```
 别人的答案是真精简。
 
-### 696 Count Binary Substrings
+### 696. Count Binary Substrings
 我觉得下面需要写以下自己的思路
 我的答案：
 ```
@@ -859,7 +859,7 @@ var detectCapitalUse = function(word) {
 并且对于以前被打断的记忆，我有些抵触感需要去回忆。
 并且已经达不到当初思考时的那种状态。
 
-### 917 Reverse Only Letters
+### 917. Reverse Only Letters
 思路  首先要把字母的给摘出来，倒序
 然后将不是字母给按照原来的位置给插入进去。
 note: S 里面可能没有字母
@@ -877,7 +877,7 @@ var reverseOnlyLetters = function(S) {
 别人的答案：
 都需要很多行
 
-### 606 Construct String from Binary Tree
+### 606. Construct String from Binary Tree
 这道题我不知道这个括号应该怎么处理。
 
 应该是我完全没有读懂题意
@@ -906,7 +906,7 @@ const tree2str = root => {
 ```
 为什么别人都能理解题目的意思，而我却不能理解。
 
-### 13 Roman to Integer
+### 13. Roman to Integer
 
 刷leetcode 看一道不会一道，我很崩溃呀。
 当你要决定放弃的时候，再想一想。
@@ -993,7 +993,7 @@ var firstUniqChar = function(s) {
 ```
 
 我觉得我主要是受上一题的影响。
-### 551 Student Attendance Record I
+### 551. Student Attendance Record I
 
 我的答案：
 ```
@@ -1063,7 +1063,7 @@ var reverseStr = function(s, k) {
 3、别人是这样颠倒前k个字母的顺序，并保持后k个字母不变得
 `thunk.splice(0,k).reverse().concat(thunk).join("")`
 
-### 925 Long Pressed Name
+### 925. Long Pressed Name
 思路:
 name 里面的每一个字母对应的在typed 里面应该是至少对应1个。才会满足条件。
 
@@ -1383,7 +1383,7 @@ var countSegments = function(s) {
 };
 ```
 
-### 443 String Compression
+### 443. String Compression
 我的答案：
 ```
 var compress = function(chars) {
@@ -1407,10 +1407,10 @@ var compress = function(chars) {
 
 runtime 68ms faster than 59.78%
 
-### 20 Valid Parentheses
+### 20. Valid Parentheses
 暂时我还没有想到思路。
 
-### 680 Valid Palindrome II
+### 680. Valid Palindrome II
 我觉得我的思路不对，特殊情况并不是我想的那几种。
 应该是需要遍历考虑到每一个字符的。
 并不是说只有一个不对称是符合条件的，也并不是说只有一个不对称就符合条件。
@@ -1426,7 +1426,7 @@ eababa
 先放下吧，我还没有想到思路
 我的答案：
 
-### 14 Longest Common Prefix
+### 14. Longest Common Prefix
 我的答案：
 ```
 var longestCommonPrefix = function(strs) {
@@ -1448,7 +1448,7 @@ var longestCommonPrefix = function(strs) {
 ```
 runtime: 84ms， faster than 7.5%
 
-### 58 Length of Last Word
+### 58. Length of Last Word
 我的答案：
 ```
 var lengthOfLastWord = function(s) {
@@ -1508,14 +1508,14 @@ String  easy 题 到此结束
 
 # 下面开始  Math 部分
 
-### 942 DI String Match
+### 942. DI String Match
 
 对于这道题， 我觉得我应该坦然地面对我对于这道题，没有思路。
 对于超过我能力范围的题目，我都应该不必去强求。
 对于生命中的事情，无论喜悦与悲伤，我都要敞开胸怀给与赤诚的拥抱。
 第一题不会下一题
 
-### 728 Self Dividing Numbers
+### 728. Self Dividing Numbers
 
 我的答案：
 ```
