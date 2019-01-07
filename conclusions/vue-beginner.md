@@ -1,3 +1,5 @@
+-- 写于12月20日，  -- 更新于 1月7日
+
 用vue 搭建 简单后台
 
 ### 构建vue项目
@@ -26,7 +28,7 @@ vue.config.js 文件
 module.exports = {
     baseUrl: '/my-app',
     // 你的应用被部署在 https://www.my-app.com/my-app/， 默认是'/'
-    outputDir: 'dist/fe-staff',
+    outputDir: 'dist/example',
     // 生产环境构建文件的目录
     lintOnSave: true,
     // 需要安装eslint-loader ，预处理错误，将lint错误输出为编译警告
