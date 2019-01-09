@@ -127,3 +127,70 @@ HTTP状态码 401，400 代表什么意思。
 400表示 错误的请求方式
 
 401表示 请求资源命令必须验证
+
+如何去掉边框样式  border-style: none
+
+去掉outline样式  outline: none
+
+vue 中 数据里面的p标签内容，如何换行 
+
+`<p v-html="item.content"></p>`
+
+
+动态的  src
+<img :src="item.backgroundImage" alt="image"/>
+
+span 的background 可以有两个url如下
+
+```
+span {
+  url(), url()
+}
+```
+
+// 遇到的vue情况继续在这里写
+
+vue 如何写内联样式
+
+vue 如何写内联的伪元素样式呢
+
+
+`<div :class="{'top': true, [styleColor]: !!styleColor}"></div>`
+简直是神用法。
+注意这里的styleColor 也是变量, 如果这个变量存在，那么就存在这个变量class样式，否则就不存在。
+
+`&` 代表的是平级
+
+```
+window.onscroll = function(){
+      //变量scrollTop是滚动条滚动时，距离顶部的距离
+      var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+      //变量windowHeight是可视区的高度
+      var windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      //变量scrollHeight是滚动条的总高度
+      var scrollHeight = document.documentElement.scrollHeight||document.body.scrollHeight;
+               //滚动条到底部的条件
+               if(scrollTop+windowHeight==scrollHeight){
+                //写后台加载数据的函数
+          console.log("距顶部"+scrollTop+"可视区高度"+windowHeight+"滚动条总高度"+scrollHeight);
+              }   
+        }
+```
+
+鼠标移动上去由加底变框，由中间向两边
+[参考链接](https://570109268.iteye.com/blog/2411832)
+
+获取元素并给该元素添加class类名。
+`document.getElementByTagName('div').classList.add('effect')`
+
+z-index 究竟是越大越在上面，还是越大越在下面。
+
+越大越在上面
+
+`transform: translateX(-50%)` 这个代码表示什么意思。
+[参考](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_translatex)
+移动横轴上的位置
+`transition: width 1s ease-out;` 这个代码表示什么意思。
+[参考](https://developer.mozilla.org/en-US/docs/Web/CSS/transition)
+
+vue  懒加载

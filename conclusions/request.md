@@ -73,3 +73,81 @@ import { fetch } from "../../xxx/xx.js";
 cosnt res = yield call(fetch, obj)  // dva 中使用
 // res 即为接口返回值
 ```
+
+
+### 基于axios得请求封装
+[参考链接](https://juejin.im/post/5ae432aaf265da0b9c1063c8)
+```
+import axios from "axios";
+import Cookie from "js-cookie";
+
+const api = axios.create({
+    baseURL: '',
+    timeout: 50000
+})
+
+api.interceptor.request.use((req) => {
+    req.headers.authorization = Cookie('token');
+    return req;
+}, (err) => Promise.reject(err));
+
+api.interceptor.response.use((res) => {
+    if(res.status === 401) {
+        return res;
+    } else {
+        return res;
+    }
+}, (err) => Promise.reject(err));
+
+export function request(url, options) {
+    return new Promise((resolve, reject) => {
+    api({
+        url,
+        ...options
+        })
+        .then((res) => {
+            if(res) {
+                if(res && res.data) {
+                    resolve(res.data);
+                } else {
+                    resolve(res);
+                }
+            }
+        })
+        .catch((err) => {
+            reject(err);
+        });
+    })
+}
+```
+
+```
+接口文件
+import { request } from "../utils/request.js";
+import qs from "qs";
+// get 举列
+export async function user(params) {
+    return request(`/example/v1/user/fetch?${qs.stringify(params)}`);
+}
+
+// post 举列
+export async function post(params) {
+    return request(`/example/v1/exam/ex`, {
+        method: "post",
+        data: params
+    })
+}
+```
+
+```
+// 在vue项目中使用
+import { post } from '@/services/user.js';
+
+post(obj).then((res) => {
+       if(res.errCode === 0) {
+        ......
+       } else {
+        .....
+       }
+    })
+```

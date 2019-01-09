@@ -15,13 +15,16 @@ npm uninstall vue-cli -g 删除不掉旧版本。
 #### 问题二
 遇到了热更新停滞的问题，在其他电脑上访问不正常，在自己电脑上访问正常。
 
+#### 问题三
+如果要用less 需要安装 less-loader 和 less
 
-从零开始搭建 vue 项目
+
+### 从零开始搭建 vue 项目
 
 
 我修改的地方
 
-vue.config.js 文件
+#### vue.config.js 文件
 参考 https://segmentfault.com/a/1190000015801427
 [vue cli3 配置](https://cli.vuejs.org/zh/config/#babel)
 ```
@@ -75,6 +78,7 @@ module.exports = {
 };
 ```
 
+#### .eslintrc.js  文件
 将 package.json 文件中的eslintConfig配置迁移到新建的.eslintrc.js 文件中
 ```
 module.exports = {
@@ -114,35 +118,16 @@ module.exports = {
 }
 ```
 
-如果要用less 需要安装 
-less-loader 和 less
+#### axios request 封装
+见[request 封装](https://github.com/tang-yue/my-blog/blob/master/conclusions/request.md)
 
-它是否是用了什么组件呢
 
-两个swiperOption 会相互影响，请问我应该如何解决呢.
 
-swiper 点击按钮 如何去掉点击时的样式。
 
-如何去掉边框样式  border-style: none
 
-去掉outline样式  outline: none
 
-vue 中 数据里面的p标签内容，如何换行 
 
-`<p v-html="item.content"></p>`
 
-段首缩进  如何实现
-
-动态的  src
-<img :src="item.backgroundImage" alt="image"/>
-
-span 的background 可以有两个url如下
-
-```
-span {
-  url(), url()
-}
-```
 
 
 
