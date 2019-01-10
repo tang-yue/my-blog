@@ -383,11 +383,13 @@ export default Mask;
 如何使用mask 这个组件,  maskContent 传入一个纯组件，又传入一个关闭的函数。
 只要在maskContent里面写上你在蒙层上面想写的内容就可以了。
 ```
- {Mask(this.maskContent.bind(this),this.close.bind(this))}
+ {Mask(maskContent,close)}
+ {Mask(this.maskContent.bind(this), this.close.bind(this))} // 这里等同于上述
 ```
 
 ### 204(No Content)
-服务器成功处理了请求，但不需要返回任何实体内容，204响应禁止包含任何消息体。浏览器收到该响应后不应产生文档视图的变化。
+服务器成功处理了请求，但不需要返回任何实体内容，204响应禁止包含任何消息体。
+浏览器收到该响应后不应产生文档视图的变化。
 
 ### 抓包
 所有的抓包不成功都是因为教程不完整。
@@ -552,7 +554,6 @@ https://blog.csdn.net/wyk304443164/article/details/72733946
 这里我觉得比较关键的是图片的宽度和父级绝对定位的bottom的大小。
 ```
 
-第三个关于背景撑满内容高度
 
 ### 关于渲染
 昨天犯了一个很大的错误

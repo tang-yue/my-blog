@@ -194,3 +194,23 @@ z-index 究竟是越大越在上面，还是越大越在下面。
 [参考](https://developer.mozilla.org/en-US/docs/Web/CSS/transition)
 
 vue  懒加载
+
+如何去掉a active选中时的背景样式
+```
+// 移动端
+-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+-webkit-user-select: none;
+-moz-user-focus: none;
+-moz-user-select: none;
+```
+
+vue 如何运行时改掉端口号
+```
+"scripts": {
+    "serve": "vue-cli-service serve  --port 10080",
+}
+```
+
+如何将背景颜色给去掉。
+`background-color:transparent; `
+许久不用真的是都忘记了。

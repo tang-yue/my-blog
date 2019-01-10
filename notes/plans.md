@@ -46,6 +46,15 @@ header 部分，通过传参的方式，更改样式。其中涉及到伪元素�
 最笨的办法也同样是走不通。
 
 走不通了，怎么办，难道我只能看别人的答案？看别人的答案。
+全部的大致过一下 css3， 主要是太多了
+看js高程需要巩固的内容如下
+1、navigator 全部  userAgent注意下
+2、可以通过window.addEventListener监听事件
+resize, DOMContentLoaded, 除了这些，还有哪些复杂的。
+window.addEventListener(事件，执行的而函数，false)
+
+
+background 分析
 
 
 
