@@ -37,7 +37,7 @@ var re = new RegExp("^\\d+" + v + "$", "gim");
 5.
 const s = [4,5,7];
 s[2] = 45;
-console.log(s);
+console.log(s); // 4 5 45
 
 6.
 let obj = {
@@ -45,7 +45,7 @@ let obj = {
 	b: "b"
 } 
 Object.freeze(obj);
-此时此刻，无论如何去修改obj， obj都是更改不了的。
+此时此刻，无论怎么去修改obj， obj都是更改不了的。
 
 7.
 重新默写一遍。

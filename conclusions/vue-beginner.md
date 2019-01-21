@@ -121,8 +121,66 @@ module.exports = {
 #### axios request 封装
 见[request 封装](https://github.com/tang-yue/my-blog/blob/master/conclusions/request.md)
 
+#### vue 构建移动端项目
+vue 构建移动端项目，究竟需要注意些什么？
 
+##### 移动端适配问题
+`<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">`
 
+[参考](https://www.w3cplus.com/mobile/vw-layout-in-vue.html)
+[vue.config.js 中的postcss-loader配置](https://cli.vuejs.org/zh/config/#css-loaderoptions)
+[postcss使用方法](https://github.com/michael-ciniawsky/postcss-load-config)
+[实战参考这篇文章](https://juejin.im/post/5bfa9e8de51d452c6061ecaa)
+
+##### 一个项目既展示在pc上，又展示在手机端，请问应该如何做好移动端适配
+[rem布局](https://segmentfault.com/a/1190000007350680)
+将如下代码添加到放到HTML的header标签中。
+```
+<script>!function(e){function t(a){if(i[a])return i[a].exports;var n=i[a]={exports:{},id:a,loaded:!1};return e[a].call(n.exports,n,n.exports,t),n.loaded=!0,n.exports}var i={};return t.m=e,t.c=i,t.p="",t(0)}([function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=window;t["default"]=i.flex=function(normal,e,t){var a=e||100,n=t||1,r=i.document,o=navigator.userAgent,d=o.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i),l=o.match(/U3\/((\d+|\.){5,})/i),c=l&&parseInt(l[1].split(".").join(""),10)>=80,p=navigator.appVersion.match(/(iphone|ipad|ipod)/gi),s=i.devicePixelRatio||1;p||d&&d[1]>534||c||(s=1);var u=normal?1:1/s,m=r.querySelector('meta[name="viewport"]');m||(m=r.createElement("meta"),m.setAttribute("name","viewport"),r.head.appendChild(m)),m.setAttribute("content","width=device-width,user-scalable=no,initial-scale="+u+",maximum-scale="+u+",minimum-scale="+u),r.documentElement.style.fontSize=normal?"50px": a/2*s*n+"px"},e.exports=t["default"]}]);  flex(false,100, 1);</script>
+
+```
+
+vue-cli3 中使用 postcss-pxtorem, 将px 转成rem
+[参考文章](https://blog.csdn.net/qq_31393401/article/details/82353267)
+1、yarn add postcss-pxtorem
+2、在vue.config.js 中配置
+
+```
+module.exports = {
+    css: {
+        loaderOptions: {
+            postcss: {
+                plugins: [require('postcss-pxtorem')({ rootValue: 100, propList: ["*"] })]
+            }
+        }
+    }
+}
+```
+
+vue-cli3 中使用 postcss-px2rem
+[参考文章](https://blog.csdn.net/u013778905/article/details/84994451)
+yarn add postcss-px2rem
+在vue.config.js 添加如下：
+```
+const px2rem = require("postcss-px2rem");
+const postcss = px2rem({
+    remUnit: 100  
+    // 需要注意的事是，这里每修改一次值，都需要重新启动服务器
+});
+
+module.exports = {
+    css: {
+        loaderOptions: {
+            postcss: {
+                plugins: [
+                    postcss
+                ]
+            }
+        }
+    }
+}
+```
+ 现在所要做的是，移动端转rem， 但是pc端不转rem.
 
 
 

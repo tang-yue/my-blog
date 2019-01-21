@@ -214,3 +214,24 @@ vue 如何运行时改掉端口号
 如何将背景颜色给去掉。
 `background-color:transparent; `
 许久不用真的是都忘记了。
+
+为什么给button 写上样式`float:'right'` 之后它的其他样式都失效了。
+并且onClick也不起作用了。
+还原真实场景
+```
+<Button style={{ float: "right" }}></Button>
+<StandTable {...props} />  // 一个table组件
+```
+此时此刻，看到按钮正处于，页面的最右端。但是事实上已经被下面这个
+table 组件给包裹了。如果给button加上样式，margin-bottom: 20px;
+点击效果和鼠标效果，仍旧是没有反应的。
+但是如果给 table 组件加上 margin-top: 20px.样式效果就起作用了。
+
+window.addEventListener(事件（string）, 方法, false)
+
+https://blog.csdn.net/wyk304443164/article/details/71538853
+关于网页转成二维码
+
+
+
+

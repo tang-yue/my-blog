@@ -54,8 +54,12 @@ resize, DOMContentLoaded, 除了这些，还有哪些复杂的。
 window.addEventListener(事件，执行的而函数，false)
 
 
-background 分析
+css background 的一连串的属性的分析。
 
+关于document.documentElement.xxxx 和 document.body.xxxx
+有很多这样的属性，需要分析下
+
+如何写好盒模型，有哪些别人的经验，心得。
 
 
 

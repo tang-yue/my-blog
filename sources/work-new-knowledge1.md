@@ -197,7 +197,7 @@ console.log(uniqueProducts); // [8, 9, 10, 11]
 ```
 4、from
 
-`var arr2 = Array.from(arr);`
+`var arr2 = Array.from(arr); // 并不会去重` 
 
 5、an easy way to copy Array and Objects：
 
@@ -584,10 +584,13 @@ https://www.aliyun.com/jiaocheng/25343.html
 已经遇见过两次了。
 
 ### 关于自适应字体
+[参考连接](https://segmentfault.com/a/1190000004705207)
 ```
+html 的fontSize 是什么，根据页面宽度自己设置的。
 export default function winResize(doc, win) {
     let docEl = doc.documentElement,
       resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+      // 判断 orientationchange 是否是window 的全局属性
       recalc = function () {
         const clientWidth = docEl.clientWidth;
         if (!clientWidth) return;
@@ -598,6 +601,8 @@ export default function winResize(doc, win) {
     win.addEventListener(resizeEvt, recalc, false);
     doc.addEventListener('DOMContentLoaded', recalc, false);
   }
+  // orientationchange: The orientationonchange event is fired when the orientation of the device has changed.  设备的方向改变的时候
+  // resize：The resize event fires when the document view(window) has been resized 文档视图调整大小的时候
 ```
 
 ### 加hash值的问题
@@ -668,7 +673,6 @@ TweenOne
 
 ### react-生命周期
 执行顺序 先DidMount 再render。。。。
-
 
 
 try again

@@ -85,8 +85,6 @@ import { Player } from 'video-react';
 ### nvm的安装以及使用
 [nvm](http://bubkoo.com/2017/01/08/quick-tip-multiple-versions-node-nvm/)
 
-### 判断是否是微信环境
-mobile-detect    npm 包   安装 MobileDetect
 ### 获取样式兼容的方式
 ```
 getStyle(obj,name) {
@@ -222,7 +220,7 @@ XBack.listen(function(){
   background: url(//img.pipacoding.com/assets/pc/landingpage2.0/my/standard_0.png) no-repeat 0px center;
 }
 ```
-#### 全局定义，分开引用
+#### 全局定义，分开引用 （重点）
 ```
 @imgUrl: "//img.pipacoding.com/assets/pc/landing3.0/";
 @color_back_gray: rgba(240, 240, 240, 1);
@@ -262,7 +260,7 @@ XBack.listen(function(){
 ### 复制一份数组，但是不改变原数组
 默写一遍吧
 .concat()
-let newState = [].concat();
+let newState = [].concat(state);
 .map()
 let newState = state.map((item) => item)
 .slice()
@@ -279,7 +277,7 @@ checking is enabled.
 我不知道为什么，刷新一下就会报这个错误。 
 
 ### 获取scrollTop兼容各浏览器的方法
-window.pageYOffset
+w.pageYOffset
 属于window对象，IE9、firefox、chrome,opera
 均支持该方式获取页面滚动高度值，并且忽略Doctype
 定义规则。

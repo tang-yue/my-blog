@@ -9,29 +9,101 @@
 `function({shareData}) { return()}`  在return的前面又定义了function b()函数，那么我在return里面如何引用这个function函数.
 首先要明确的是shareData，这个值在b函数里面是可以获取到的，因此并不需要通过传参的方式给它传进去。
 在return里面只需要这样`{shareData? b():null}` 调用就可以实现。
+举列说明：
+```
+function a() {
+    function b() {
+        console.log('bbbb');
+    }
+    return b();
+}
+
+// 执行
+a();
+onClick = {() => editItem()} // 其实这样就和上面的很类似
+```
 第二种
 关于纯组件
 要绑定this值的几种方式
 首先纯组件是长这样的。
 ```
-class Form extends Component {
-	handle1() {
-
-	},
+class App extends Component {
 	handle2(string) {
 
 	},
 	handle3() {
 
 	},
+	handle4 = () => {
+
+	}
 	render() {
+		const handle5 = function(str) {
+
+		}
+		const handle6 = (str) => {
+
+		}
 		return (
+			// 以下的下面写的函数都是要执行的
 			<div>
-				{this.handle2(string)}
-				{this.handle3.bind(this)}
+				{this.handle2(string)} // 写的很好，very good
+				{this.handle3()}
+				{this.handle4()}
+				{handle5('你好')}
 			</div>
+			// 以下的下面写的函数都是我在点击按钮的时候，执行的
+			<button onClick={() => this.handle2('Hello world')}></button>
+			<button onClick={this.handle3.bind(this)}></button>
+			<button onClick={this.handle3}></button>
+			// 突然发现{this.handle3}也是可以的，要不然你可以用箭头函数打印下this，
+			// 会发现有handle3函数
+			<button onClick={this.handle4}></button>
+			<button onClick={() => handle5('hhh')}></button>
+			<button onClick={() => handle6('test')}></button>
 		)
 	}
+}
+export default App;
+```
+第三种 关于非纯组件funciton 开头 
+相对来说就比较简单了，如下：
+```
+import React from 'react';
+
+export default function Test() {
+    function test() {
+        console.log('test function');
+        return <span>test function</span>
+    }
+
+    const test1 = () => {
+        console.log('test1');
+        return <span>test1</span>
+    }
+    const test2 = function(str) {
+        console.log(str);
+        return <span>{str}</span>
+    }
+    const test3 = (s) => {
+        console.log(s);
+        return <span>{s}</span>
+    } 
+    return (
+        <div>
+            <div>
+                Test folder
+                {test()}
+                {test1()}
+                {test2('test2')}
+                {test3('test3')}
+            </div>
+            <button onClick={test}>test</button>
+            <button onClick={test1}>test1</button>
+            <button onClick={() => test2('test2')}>test2</button>
+            <button onClick={() => test3("test3")}>test3</button>
+        </div>
+    )
 }
 ```
 3. 关于flex 布局下
