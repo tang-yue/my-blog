@@ -4,40 +4,44 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <script>
-    var binaryGap = function(N) {
+    // var binaryGap = function(N) {
       
-      var power = function(str) {
-       if (N - parseInt(str, 2) == 0) return; 
-      }
-      while(Math.pow(2, i) > N) {
+    //   var power = function(str) {
+    //    if (N - parseInt(str, 2) == 0) return; 
+    //   }
+    //   while(Math.pow(2, i) > N) {
        
-      }  
-      return power(binaryGap(N))
-    }
+    //   }  
+    //   return power(binaryGap(N))
+    // }
     
 
-    var transformBinary = function(num) {
-      if(num === 0) return "";
-      let i = 0;
-      var binary = function(str) {
-        while(Math.pow(2, i) < num) {
-          i++;
-        }
-        // return 1
-      }
-      // 我找不到临界条件
-      return binary(transformBinary(num-Math.pow(2,i)))  
+    // var transformBinary = function(num) {
+    //   if(num === 0) return "";
+    //   let i = 0;
+    //   var binary = function(str) {
+    //     while(Math.pow(2, i) < num) {
+    //       i++;
+    //     }
+    //     // return 1
+    //   }
+    //   // 我找不到临界条件
+    //   return binary(transformBinary(num-Math.pow(2,i)))  
+    // }
+    //   if(A.lg)
+    // };
+    //   console.log(smallestRangeI([1,3,6], 3));
+
+    function selectText() {
+      const input = document.getElementById('text-box');
+      input.focus();
+      input.select();
+      document.
     }
-
-
-
-
-      if(A.lg)
-    };
-      console.log(smallestRangeI([1,3,6], 3));
     </script>
 </head>
 <body>
-    
+     <input type="text" id="text-box" size="20" value="Hello world!">
+     <button onclick="selectText()">Select text</button>
 </body>
 </html>

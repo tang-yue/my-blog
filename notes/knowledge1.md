@@ -183,6 +183,8 @@ window.onscroll = function(){
 获取元素并给该元素添加class类名。
 `document.getElementByTagName('div').classList.add('effect')`
 
+移除某个元素的类名
+`document.getElementById("myDIV").classList.remove("mystyle");`
 z-index 究竟是越大越在上面，还是越大越在下面。
 
 越大越在上面
@@ -229,9 +231,154 @@ table 组件给包裹了。如果给button加上样式，margin-bottom: 20px;
 
 window.addEventListener(事件（string）, 方法, false)
 
-https://blog.csdn.net/wyk304443164/article/details/71538853
+[参考链接](https://blog.csdn.net/wyk304443164/article/details/71538853)
 关于网页转成二维码
+yarn add qrcode.react
+```
+import QRcode from qrcode.react;
+
+<QRcode size={150} value={url} />
+```
 
 
+input 明文，如何改为密文
+`<input type="password" placeholder="请输入密码" />`
 
 
+如何做点击复制一段内容
+[参考链接](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/execCommand)
+
+用js获取某个js类
+```
+function getClass(classname) {
+  if(document.getElementsByClassName) {
+    return document.getElementsByClassName(classname);
+  } else {
+    var results = new Array();
+    var eles = document.getElementsByTagName("*");
+    for(var i = 0; i < eles.length; i++) {
+      if(eles[i].className.indexOf(classname) !== -1) {
+        results[results.length] = eles[i];
+      }
+    }
+    return results;
+  }
+}
+```
+
+删除某个标签的某个属性。
+```
+var el = document.querySelector('.nav');
+el[0].removeAttribute('style');
+```
+
+1月28日     vue 问题
+今天发现一个很奇怪的问题，我在created，直接用代码如下：
+```
+export default {
+  data() {
+
+
+    },
+  created() {
+    userQuery({
+      type: 'get',
+      params: params
+    }).then((res) => {
+        ......
+    })
+  },
+
+}
+```
+页面什么的都已经是渲染出来了，控制台也是没有任何的报错。
+但是这个请求却并没有发。后经改动，改成如下这样成功发起请求。
+```
+export default {
+  data() {
+
+    },
+  created() {
+    this.getData();
+  },
+  methods: {
+    getData() {
+      userQuery({
+        type: 'get',
+        params: params
+      }).then((res) => {
+        ......
+      })
+    }
+  }
+}
+```
+至于原因我还没有了解清楚。
+
+
+1月29日  遇到的vue问题
+```
+<template>
+  <div @click="get"></div>
+</template>
+export default {
+  data() {
+
+  },
+  methods: {
+    get() {
+      userQuery({
+        type: 'get',
+        params: params
+        }).then((res) => {
+          console.log('这里会后执行'); // 后执行
+        })
+        console.log('这里会先执行'); // 先执行
+    }
+  }
+}
+
+// 如上是因为是因为异步的
+```
+
+1月31日  vue 问题， 不同于react的地方
+关于vue
+```
+// xxx.vue 文件
+<template>
+  <div>
+    <span>{{ moment(123456789210010)}}</span>
+  </div>
+</template>
+
+
+import moment from 'moment';
+```
+// 如上这样的代码就会直接报错
+`[Vue warn]: Property or method 'moment' is not defined on the instance but referenced during render.`
+针对如上的解决办法如下
+```
+// xxx.vue 文件
+<template>
+  <div>
+    <span>{{ handleMoment(123456789210010) }}</span>
+  </div>
+</template>
+
+<script>
+import moment from 'moment';
+
+export default {
+  name: '',
+  data() {
+
+  },
+  methods: {
+    handleMoment(timestamp) {
+      return moment(timestamp).format('L').split('/').join('-');
+    }
+  }
+}
+</script>
+// 将其写成方法，放在methods里面，然后render的时候，只需要调用该方法得到结果，然后渲染出来就好了
+```

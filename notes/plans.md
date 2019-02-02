@@ -62,7 +62,10 @@ css background 的一连串的属性的分析。
 如何写好盒模型，有哪些别人的经验，心得。
 
 
+关于rem布局，有点不太理解。
+关于移动端，究竟设置根节点html的font-size的大小为多少正合适。
 
+关于要给pxtorem, 写个pxtorem-exclude npm包。  这个很重要。
 
 
 

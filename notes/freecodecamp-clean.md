@@ -2,8 +2,6 @@
 10月30日 已经是全部的复习完了。
 题目 Wherefore art thou
 
-
-
 1. str.replace(regxp);  并不会改变字符串str，它的返回值应该赋值为一个新的变量。
 
 2. 关于正则replace带有变量的写法。
@@ -211,7 +209,6 @@ componentDidUpdate
     myHouse.hasOwnProperty(numBedrooms);  // return true
     myHouse.hasOwnProperty(numBathroom); //  return false
     myHouse.constructor === House;     // return true, 要被显现定义，才会返回true,没有显现定义并不是默认就是，会返回false
-
     myHouse inherits its prototype from the Bird constructor function
     House.prototype.isPrototypeOf(myHouse) // return true
     Object.prototype.isPrototypeOf(House.prototype) // return true

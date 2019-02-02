@@ -13,6 +13,8 @@ npm uninstall vue-cli -g 删除不掉旧版本。
 解决方法， 手动找到安装的vue，将其删除。用npm install 安装
 
 #### 问题二
+1月22日 记录
+难道没有人，觉得，vue的热更新存在很严重的问题吗？
 遇到了热更新停滞的问题，在其他电脑上访问不正常，在自己电脑上访问正常。
 
 #### 问题三
@@ -181,6 +183,63 @@ module.exports = {
 }
 ```
  现在所要做的是，移动端转rem， 但是pc端不转rem.
+
+ 最后通过如下代码:
+ 
+```
+const px2rem = require('postcss-px2rem-exclude');
+ const postcss = px2rem({
+    remUnit: 32,  // 基准大小 baseSize，需要和rem.js中相同
+    exclude: /no_modules|pc/i
+})
+
+module.exports = {
+    css: {
+        loaderOptions: {
+            postcss: {
+                plugins: [
+                    postcss
+                ]
+            }
+        }
+    }
+}
+```
+
+移动端动态设置html的font-size的大小。
+为什么，不同的移动端设备dpr像素比（物理像素比上css像素）不同，12px大小的字体在pc端，不小，但是到了
+移动端，却变得非常小得原因，移动端设备得dpr往往大于pc端。通过如下代码设置：
+```
+// 在utils 下新建文件rem.js
+(function(doc, win) {
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function() {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+        };
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+```
+
+```
+在main.js 中引入
+import './utils/rem.js';
+```
+
+##### vue-awesome-swiper 组件，根据不同得状态，实现可以滚动和不可以滚动。
+
+动态修改了对象options，但是， swiper却并不会重新渲染这个新得options.
+
+最后通过给swiper-slide 加上swiper-no-swiping，class类解决，
+[参考](https://www.swiper.com.cn/api/swiping/39.html)
+
+
+
+
 
 
 
