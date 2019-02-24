@@ -15,7 +15,7 @@ min-width: -moz-max-content;
 
 1、首先在iconfont 网，找到自己的图标，添加入库，在自己的项目中使用，
 选择symbol，下载图标，选择svg下载。
-2、将iconfont.js 文件添加至项目，然后在对应的需要使用的view层，引用。
+2、将iconfont.js 文件添加至项目，然后在对应的需要使用的view层引用，再使用。
 
 ```
 import '../assets/iconfont.js';
@@ -100,7 +100,7 @@ methods: {
           left: 50%;
           bottom: 0;
           border-radius: 10px;
-          transform: translateX(-50%);  
+          transform: translateX(-50%); // 向左移动自身长度的一半  
         }
         &.effect:after{
           width: 100%;
@@ -118,3 +118,11 @@ methods: {
 做到的呢。
 我终于明白了，这个不是蒙层，而仅仅是多加的一层透明度。
 对于这道题，我不明白自己究竟是哪个方面知识的不足。
+
+关于postcss-px2rem-exclude 和 postcss-px2rem两者是有区别的。感觉是有很多的坑。
+
+2月12日，学习vscode。 下载下来，然后并没有学。
+
+问题9: 请问vue 本地运行的css样式效果，和线上运行的css样式效果是有所区别的，
+请问这到底是为什么呢。
+

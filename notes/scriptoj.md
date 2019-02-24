@@ -384,6 +384,19 @@ class EventEmitter {
 
 重新回归  leetcode 
 
+2月14日
+重新刷scriptOJ上的面试题。
+
+简单算法部分
+
+### 95 Virtual DOM (二)
+const ul = h('ul', {id: 'list', style: 'color: red'}, [
+  h('li', {class: 'item'}, ['Item 1']),
+  h('li', {class: 'item'}, ['Item 2']),
+  h('li', {class: 'item'}, ['Item 3'])
+])
+
+
 
 
 

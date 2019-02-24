@@ -20,6 +20,7 @@ isPC() {
 ```
 
 如何去掉 ul  li 样式，我觉得这是我要记住的
+list-style: none;
 body的margin 样式去不掉是怎么回事
 
 一边有弧度  border-radius: 左上角，右上角，右下角，左下角
@@ -29,6 +30,10 @@ body的margin 样式去不掉是怎么回事
 让层级低一点 z-index
 
 请问p标签里面有<br>，我应该如何将其写在数据里面呢。
+```
+var obj = document.getElementById('p');
+obj.innerHTML; // 这个就是要给别人的数据
+```
 
 动态style
 `v-bind:style="{ color: item.color, background: item.backgrondColor}"`
@@ -41,6 +46,8 @@ background: url() no-repeat center/80%;
 position 是紧紧接着background-size 所以连接起来就是 center/80%;
 
 如何鼠标移进图片的时候，图片实现放大效果
+`.prev:hover { transform: scale(1.5)}`
+
 
 `redirect.startsWith('/invitation')`
 返回布尔值，字符串redirect 是否以'/invitation'开头
@@ -88,7 +95,7 @@ window.location.search.substr(1).split('&');
 
 5、window.location.pathname
 举列 https://example.com/pathname?key=value
-那么此时pathname 为 pathname
+那么此时pathname 为 /pathname
 
 6. window.location.hostname;
 同上面的举列
@@ -98,7 +105,7 @@ JSON.stringify() 和 JSON.parse() 的区别
 
 JSON.stringify() 方法转化js对象或值为json字符串
 
-
+JSON.parse() 则是相反，去掉引号。
 ```
 JSON.parse('{}') // {}
 JSON.parse('true') // true
@@ -144,7 +151,7 @@ span 的background 可以有两个url如下
 
 ```
 span {
-  url(), url()
+  background: url(), url()
 }
 ```
 
@@ -156,6 +163,7 @@ vue 如何写内联的伪元素样式呢
 
 
 `<div :class="{'top': true, [styleColor]: !!styleColor}"></div>`
+`<div :class="{'moveRight': scope.row.deleteStatus === '2'}"></div>`
 简直是神用法。
 注意这里的styleColor 也是变量, 如果这个变量存在，那么就存在这个变量class样式，否则就不存在。
 
@@ -167,7 +175,7 @@ window.onscroll = function(){
       var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
       //变量windowHeight是可视区的高度
       var windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
-      //变量scrollHeight是滚动条的总高度
+      //变量scrollHeight是网页正文全文高
       var scrollHeight = document.documentElement.scrollHeight||document.body.scrollHeight;
                //滚动条到底部的条件
                if(scrollTop+windowHeight==scrollHeight){
@@ -185,9 +193,7 @@ window.onscroll = function(){
 
 移除某个元素的类名
 `document.getElementById("myDIV").classList.remove("mystyle");`
-z-index 究竟是越大越在上面，还是越大越在下面。
-
-越大越在上面
+z-index 越大越在上面。
 
 `transform: translateX(-50%)` 这个代码表示什么意思。
 [参考](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_translatex)
@@ -338,7 +344,7 @@ export default {
   }
 }
 
-// 如上是因为是因为异步的
+// 如上是因为异步的
 ```
 
 1月31日  vue 问题， 不同于react的地方
@@ -381,4 +387,144 @@ export default {
 }
 </script>
 // 将其写成方法，放在methods里面，然后render的时候，只需要调用该方法得到结果，然后渲染出来就好了
+```
+
+
+关于在less里面
+```
+:global {
+  .ant-modal {
+    .ant-modal-content {
+        min-width: 500px;
+    }
+    .modalForm {
+      min-width: 500px;
+      .ant-form-item {
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+
+// 上述这一段css代码，在本地是完全没有执行，在测试环境上却执行了。
+```
+
+重新渲染组件
+https://segmentfault.com/q/1010000006090379
+代码如下：
+```
+<component v-if="isRender"></component>
+this.isRender = false;
+this.$nextTick(function() {
+  this.isRender = true;
+  })
+```
+校验邮箱，校验手机号
+
+
+css 里面的 @keyframes 是什么意思，有哪些用法。
+[参考 w3schools](https://www.w3schools.com/css/css3_animations.asp) 
+```
+.show-animation {
+  animation: showAnimation 0.3s ease-in-out;
+}
+
+@keyframes showAnimation {
+  from {
+    transform: scale(0.4);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+```
+
+`@click.stop.prevent = "close"` 是什么意思？
+
+[参考](https://vuejs.org/v2/guide/events.html)
+点击的时候，阻止事件冒泡和默认事件。
+
+vue 中关于绑定class的几种方式。
+（1）Object Syntax
+```
+v-bind:class='{ active: isActive, 'text-danger': hasError }'
+
+data: {
+  isActive: true,
+  hasError: false
+}
+```
+
+```
+<div v-bind:class="classObject"></div>
+
+data: {
+  isActive: true,
+  error: null
+},
+computed: {
+  classObject: function () {
+    return {
+      active: this.isActive && !this.error,
+      'text-danger': this.error && this.error.type === 'fatal'
+    }
+  }
+}
+```
+
+（2）Array Syntax
+```
+v-bind:class="[{ active: isActive }, errorClass]"></div>
+
+样式 为 active 和 errorClass 变量的值
+
+data: {
+  isActive: true,
+  errorClass: 'text-danger'
+}
+```
+
+
+vue 中关于绑定style的几种方式
+
+```
+<div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px'}"></div>
+
+data: {
+  activeColor: 'red',
+  fontSize: 30
+}
+```
+
+```
+<div v-vind:style="styleObject"></div>
+
+data: {
+  styleObject: {
+    color: 'red',
+    fontSize: '13px'
+  }
+}
+```
+
+```
+<div v-bind:style="{baseStyle, overridingStyles}"></div>
+```
+
+vue 里面复制文字到粘贴板
+[v-copy npm包](https://www.npmjs.com/package/v-copy)
+只要看一下就会用了。
+
+vue 中 transition 和 component 的用法是什么?
+
+```
+<transition name="fade" mode="in-out">
+</transition>
+```
+仅仅是起到一个动画的形式吧
+
+动态的component，根据不同的条件渲染不同的组件。
+[参考](https://vuejs.org/v2/guide/components.html#Dynamic-Components)
+```
+<component :is="pageType"></component>
 ```

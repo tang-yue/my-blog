@@ -9,6 +9,8 @@
 8. 我觉得学习vue  一开始还是应该看视频学习
 9. 关于dva  我可以写哪些东西。
 
+10. 学习一下 promise 
+
 （1）. 关于 save 和 saveData  数据存储的差别
 （2）.
 
@@ -66,6 +68,8 @@ css background 的一连串的属性的分析。
 关于移动端，究竟设置根节点html的font-size的大小为多少正合适。
 
 关于要给pxtorem, 写个pxtorem-exclude npm包。  这个很重要。
+
+要给 vue 里面的列表展示，写成组件的时候
 
 
 
