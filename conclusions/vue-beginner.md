@@ -18,7 +18,10 @@ npm uninstall vue-cli -g 删除不掉旧版本。
 遇到了热更新停滞的问题，在其他电脑上访问不正常，在自己电脑上访问正常。
 
 #### 问题三
-如果要用less 需要安装 less-loader 和 less
+如果要用less 需要安装 less-loader 和 less.
+
+之后就是 ` <style lang="less"></style>` 这个代码得要加上。
+其余的不需要任何的配置。
 
 
 ### 从零开始搭建 vue 项目

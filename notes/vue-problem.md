@@ -1,14 +1,13 @@
 问题1， 解决，没有滚动条时，背景充满全屏
 有滚动条时，背景颜色却没有撑满的问题。
 
-给最外层设置背景颜色的div加样式：
 ```
-// 宽
-min-width: max-content;
-min-width: -moz-max-content;
-// 高
-min-height: max-content;
-min-width: -moz-max-content;
+// 这是一个总的div
+.layout {
+  <!-- display: flex; -->
+  <!-- background-color: #eee; -->
+  min-height: 100vh;  // 只要这一条就足够了，想想也还真神奇。
+}
 ```
 
 问题2，vue项目如何引入svg
@@ -125,4 +124,5 @@ methods: {
 
 问题9: 请问vue 本地运行的css样式效果，和线上运行的css样式效果是有所区别的，
 请问这到底是为什么呢。
+通过百度查询，执行不同css样式文件的顺序不一样。
 

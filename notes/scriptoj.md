@@ -396,6 +396,31 @@ const ul = h('ul', {id: 'list', style: 'color: red'}, [
   h('li', {class: 'item'}, ['Item 3'])
 ])
 
+ES6 新增特性练习题
+
+### 91 数组拍平
+you can't use yield inside of the inner function.
+
+这就是为什么，
+```
+for(...) {
+  yield v;
+}
+``` 
+是可以的。
+而
+forEach 和 map 是不可以的
+
+### 90 判断两个Set是否相同
+如何从new set的对象里取出值。
+const set1 = new Set([1,2,3]);
+用set1去取值。
+遍历，如下遍历
+for(let item of set1) {
+  
+}
+set1的长度怎么取
+
 
 
 

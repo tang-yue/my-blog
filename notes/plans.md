@@ -72,4 +72,42 @@ css background 的一连串的属性的分析。
 要给 vue 里面的列表展示，写成组件的时候
 
 
+关于vue搭建移动端，的几种方式。需要自己写出脚手架。
+第一种方法
+步骤一
+在./public/index.html 入口文件的head 部分加上如下代码：
+```
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+```
+
+步骤二
+在./src/main.js 文件中 执行需要的一些初始化内容
+
+utils/index.js
+```
+// rem 布局   html font-size初始化
+(function initSize(doc, win) {
+    var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            var _w = doc.documentElement.clientWidth || doc.body.clientWidth
+            _w = _w > 640 ? 640 : _w
+            var _size = _w / 750 * 100
+            _size = _size < 60 ? _size : 60
+            doc.documentElement.style.fontSize = _size + 'px'
+        };
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window)
+```
+在main.js 中引入 上述文件` import '@/utils/index'`
+
+步骤三
+这样写的话，在样式里那么就是该写 rem的时候，写rem， 该写px的时候，写px就好了。
+
+
+// vue 常用的现成的组件
+1、vant
+2、iview
+3、element-ui
+
 
