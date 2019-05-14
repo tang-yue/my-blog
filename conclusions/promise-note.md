@@ -3,8 +3,7 @@
 （1) In its most basic terms, a promise is an object that defines a method called then.
 在它的最基本的含义里， promise 是一个定义了then方法的对象。
 
-（2）
-The promise object represents a value that may be available some time in the future.
+（2) The promise object represents a value that may be available some time in the future.
 
 （3）promise 对象代表一个值，在未来的某个时刻是可获得的。
 
@@ -45,8 +44,8 @@ promise.then(function(onFulfilled) {
 
 ### 3、 Reject a promise
 
-（1）promise 被rejected, 理论上暗示了，这个值不会在被promise 成功的获取。
-promise 提供了一个方法去通过这个阻止成功执行的特殊的错误。
+（1）promise 被rejected, 理论上暗示了，这个值不会在被promise 成功的获取。promise 提供了一个方法去通过这个阻止成功执行的特殊的错误。
+
 （2）一旦promise 被rejected, 它从不可能被fulfilled(也不会再一次rejected)。
 
 代码举列:
@@ -84,8 +83,7 @@ promise.then(console.log, onRejected);  // I FIRED
 
 ### 5、Always asynchronous
 
-es2015 规范声明，promise 不得在他们被创建的时间循环的同一个点，执行他们的resolution/rejection函数。
-这也就消除了，因执行顺序不同，而导致不同结果的可能性。
+es2015 规范声明，promise 不得在他们被创建的时间循环的同一个点，执行他们的resolution/rejection函数。这也就消除了，因执行顺序不同，而导致不同结果的可能性。
 
 代码说明：
 ```
@@ -103,10 +101,7 @@ console.log('MAIN PROGRAM');   // 先打印出
 
 ES2015 规范定义了一些，可以使promise的创建和工作，更快，更容易。
 
-第一个就是.catch， 我们已经知道怎样去处理promise的rejection，---通过
-.then 方法的第二个参数。然而有时候，你仅仅想处理rejection,并不需要成功。
-在这些实例中，因为onFulfilled 回调是可选的，因此，你可以用null代替。然而
-一个更容的方式，达到这个是使用.catch。
+第一个就是.catch， 我们已经知道怎样去处理promise的rejection，---通过.then 方法的第二个参数。然而有时候，你仅仅想处理rejection,并不需要成功。在这些实例中，因为onFulfilled 回调是可选的，因此，你可以用null代替。然而一个更容易的方式，达到这个是使用.catch。
 
 第二个就是 Promise.resolve和 Promise.reject.
 
@@ -211,12 +206,11 @@ parsePromised(process.argv[2]).then(null, onReject)
 
 ### 10、 An important rule
 
-#####（1）promise 被设计去模仿同步控制流。
-#####（2）如果他们中的任何一个抛出意外，这个意外，将会从栈中冒出来，直到
+（1）promise 被设计去模仿同步控制流。
+（2）如果他们中的任何一个抛出意外，这个意外，将会从栈中冒出来，直到
 它被一个catch 块捕捉，或者触碰到将要被抛出的全局上下文。
-#####（3）由于promise 从它被拒绝，返回，它将会寻找下一个拒绝处理程序处理它。promise 从不resolve 超过一个
+（3）由于promise 从它被拒绝，返回，它将会寻找下一个拒绝处理程序处理它。promise 从不resolve 超过一个
 
- 
  ```
  doStuff()
   .then(doMoreStaff)
