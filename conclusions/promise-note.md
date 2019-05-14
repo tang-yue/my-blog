@@ -1,15 +1,13 @@
-学习promise笔记
-
 ### 1、Warm up  
 
-（1）In its most basic terms, a promise is an object that defines a method called then.
+#####（1）In its most basic terms, a promise is an object that defines a method called then.
 在它的最基本的含义里， promise 是一个定义了then方法的对象。
 
-（2）The promise object represents a value that may be available some time in the future.
+#####（2）The promise object represents a value that may be available some time in the future.
 
-（3）promise 对象代表一个值，在未来的某个时刻是可获得的。
+#####（3）promise 对象代表一个值，在未来的某个时刻是可获得的。
 
-（4）Promises make writing performant, asynchronous code much easier and more fun promise 使得写高性能，异步代码，更容易和更有趣。
+#####（4）Promises make writing performant, asynchronous code much easier and more fun promise 使得写高性能，异步代码，更容易和更有趣。
 
 代码举列:
 ```
@@ -20,18 +18,18 @@ setTimeout(function() {
 
 ### 2、Fulfill a promise
 
-（1）promise 有重要的内部属性，它的状态。fulfilled,  rejected, 或者是pending（这是一种promise等待变成fulfilled或者rejected的状态）。
+#####（1）promise 有重要的内部属性，它的状态。fulfilled,  rejected, 或者是pending（这是一种promise等待变成fulfilled或者rejected的状态）。
 
-（2）有时候，你将会听到的resolved，从现在开始，你可以对待它作为fulfilled 或者 rejected的意义。
+#####（2）有时候，你将会听到的resolved，从现在开始，你可以对待它作为fulfilled 或者 rejected的意义。
 
-（3）大多promises 被 new Promise(executor), executor 是一个回调函数，格式 function (fulfill, reject).在executor 里面，无论是fulfill,或者 reject 被调用，都意味着操作的结束。多于，promises, fulfilling，意味着操作的成功完成，并输出一个值。为了传递这个值，调用fulfill函数的时候，把这个值，作为第一个参数。
+#####（3）大多promises 被 new Promise(executor), executor 是一个回调函数，格式 function (fulfill, reject).在executor 里面，无论是fulfill,或者 reject 被调用，都意味着操作的结束。多于，promises, fulfilling，意味着操作的成功完成，并输出一个值。为了传递这个值，调用fulfill函数的时候，把这个值，作为第一个参数。
 
- (4) 在上节课，我们提到，promises有then属性方法。它是操纵promises和他们值的主要方式。它有两个可选的回调参数
+##### (4) 在上节课，我们提到，promises有then属性方法。它是操纵promises和他们值的主要方式。它有两个可选的回调参数
 onFulfilled 和 onRejected. 当promise 是 fulfilled 时候，对应 onFulfilled。 当promise 是rejected 对应 onRejected.  当fulfill方法被调用在executor里，带着一个值，promise 内部将会传递它，并且then触发第一次回调，带着相同的值。
 
-（5）在实践中，你可以调用then属性函数多次，为了做复杂的事情，带着promise的这个值。 更平常的， 你可以做他们在所有相同的onFulfilled调用中，这将允许你更容易控制这个逻辑流。
+#####（5）在实践中，你可以调用then属性函数多次，为了做复杂的事情，带着promise的这个值。 更平常的， 你可以做他们在所有相同的onFulfilled调用中，这将允许你更容易控制这个逻辑流。
 
-（6）如果你调用 fulfill函数在executor 没有一个参数，这个onFulfilled 回调，将仍会被触发， 但是这些回调的参数将是undefined。 
+#####（6）如果你调用 fulfill函数在executor 没有一个参数，这个onFulfilled 回调，将仍会被触发， 但是这些回调的参数将是undefined。 
 
 代码举列：
 ```
@@ -46,9 +44,9 @@ promise.then(function(onFulfilled) {
 
 ### 3、 Reject a promise
 
-（1）promise 被rejected, 理论上暗示了，这个值不会在被promise 成功的获取。
+#####（1）promise 被rejected, 理论上暗示了，这个值不会在被promise 成功的获取。
 promise 提供了一个方法去通过这个阻止成功执行的特殊的错误。
-（2）一旦promise 被rejected, 它从不可能被fulfilled(也不会再一次rejected)。
+#####（2）一旦promise 被rejected, 它从不可能被fulfilled(也不会再一次rejected)。
 
 代码举列:
 ```
@@ -212,11 +210,10 @@ parsePromised(process.argv[2]).then(null, onReject)
 
 ### 10、 An important rule
 
-（1）promise 被设计去模仿同步控制流。
-（2）如果他们中的任何一个抛出意外，这个意外，将会从栈中冒出来，直到
+#####（1）promise 被设计去模仿同步控制流。
+#####（2）如果他们中的任何一个抛出意外，这个意外，将会从栈中冒出来，直到
 它被一个catch 块捕捉，或者触碰到将要被抛出的全局上下文。
-（3）由于promise 从它被拒绝，返回，它将会寻找下一个拒绝处理程序处理它。
- promise 从不resolve 超过一个
+#####（3）由于promise 从它被拒绝，返回，它将会寻找下一个拒绝处理程序处理它。promise 从不resolve 超过一个
 
  
  ```
@@ -364,3 +361,6 @@ function loadScript('/my/script.js', callback) {
 
 说明:  1-13 为 [promise课程](https://github.com/stevekane/promise-it-wont-hurt)笔记。
 14--15 为 [js文档](https://javascript.info/async) 笔记
+
+
+
