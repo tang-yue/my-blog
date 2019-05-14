@@ -1,13 +1,13 @@
-基于每天我都不知道自己究竟是学习了什么。我要求自己写每日总结。
-10月31日
- 做了一道牛客的题目。
- 刷6道 以前觉得比较难的leetcode题目。
-11月1日
-做了2道之前做过的leetcode题目，并理解。额外书籍 《当下的力量实践手册》
-另外勉强做了4道，以前没有做过的leetcode 题目。
-又10天过去了。
-11月12日
-额外书籍  《一生的学习》
-由于内心对自己低质量产出的羞愧，所以我并没有记录下，自己每天究竟是在做了些什么。
+```
+function delay(ms) {
+  return new Promise(function(resolve, rejct) {
+    setTimeout(() => resolve(), ms)
+    })
+}
+```
 
-
+```
+function showCircle() {
+  
+}
+```

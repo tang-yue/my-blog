@@ -828,4 +828,13 @@ if(oldVersion !== version) {
 用正则表达式进行判断。
 var reg = /^[0-9]{1}\.\d+$/
 
-如何判断字符串里含有8位数字呢，正则
+如何判断字符串里含有8位数字呢，正则。
+
+找到url里的key-value 值
+```
+var theRequest = {};
+const search = location.search;
+if(search.indexOf("?") !== -1)
+```
+
+代码执行顺序， regular code, then promise handing, then everything else, like events etc

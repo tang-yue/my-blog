@@ -34,5 +34,7 @@ my-blog
 
 [vue 初学者](https://github.com/tang-yue/my-blog/blob/master/conclusions/vue-beginner.md)
 
+[promise 笔记](https://github.com/tang-yue/my-blog/blob/master/conclusions/promise-note.md)
+
 
 

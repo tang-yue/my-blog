@@ -44,6 +44,7 @@ let obj = {
 } 
 Object.freeze(obj);
 此时此刻，无论怎么去修改obj， obj都是更改不了的。
+无论是obj,新增一个值，还是修改obj的某个属性。
 
 7.
 重新默写一遍。
@@ -76,12 +77,12 @@ console.log(sum(1,2,3));
 "The five boxing wizards jump quickly.".match(/\w/g);
 // return ["T", "h", "e", "f", "i", "v", "e", "b", "o", "x"]
 
-12. 移除开头和结尾
+12. 移除开头和结尾的空白字符串
 正则表达式  `/^\s*|\s*$/g `
+举列说明: ' this is amazing '.replace(/^\s*|\s*$/g, ''); // 'this is amazing'
 
 13. 
-像相等操作符，大于操作符和大于等于操作符，小于操作符，小于等于操作符将转换数据类型的值进行比较,
-而严格操作符则不会。
+像相等操作符，大于操作符和大于等于操作符，小于操作符，小于等于操作符将转换数据类型，之后的值进行比较,而严格操作符则不会。
 
 14.
 split的用法
@@ -110,18 +111,18 @@ str.substr(start, len); // 包含start 位置上的元素
 
 16.
 在数组原型上，加一个myMap方法
-// 为什么我不能够默写出来，而要一直一直的看答案，我不能够原谅你
+// 为什么我不能够默写出来，而要一直一直的看答案。
 
 let s = [2,3,4];
 Array.prototype.myMap = function(callback) {
 	let newArray = [];
 	this.forEach(function(ele) {
-		newArray.push(ele);
+		newArray.push(callback(ele));
 	})
 	return newArray;
 }
 
-let new_s = s.map((item) => item * 2)
+let new_s = s.myMap((item) => item * 2)
 
 17. 记忆比较深刻的
 
@@ -136,7 +137,7 @@ fn(10);   // return 12
 	var str = "ADTGDC";
 	function pairElement(str) {
 		return str.split("").map((item) => {
-			if(item = "A") {
+			if(item === "A") {
 				return ["A", "T"];
 			} else if(item === "T") {
 				return ["T", "A"];

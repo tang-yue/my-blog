@@ -720,6 +720,18 @@ js 中  2的几次方如何写。
 
 如何在数组的某个地方，插入某个值
 
+input 去掉聚焦时的颜色
+
+input {
+    outline: none;
+}
+
+str.substr(start, len);    //  包含 start  上的位置
+str.substring(indexStart, indexEnd); // 包含indexStart位置上的，不包含indexEnd 位置上的
+str.substring(indexStart) // 从indexStart 位置开始，到末尾
+
+除去 元音和数字 /^[aeiou0-9]/
+
 
 
 

@@ -421,10 +421,216 @@ for(let item of set1) {
 }
 set1的长度怎么取
 
+### 87 判断美元符号格式
+用的是正则。正则没写出来。常规的逻辑也没有写出来。
+
+正则答案：
+`const isUSDFormat = (str) => (/^\$([1-9]\d{0,2}(,\d{3})*|0)(\.\d{2})?$/).test(str);`
+
+### 86 字体高亮函数
+
+请你完成highlight 函数，可以把模版字符串中的插入内容替换掉，并且
+插入文档以后显示红色。
+
+模版字符串
+
+不会写，不会写
+
+[模版字符串](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/template_strings)
+
+myTag`that ${ person } is a ${ age }`;
+神奇的是，这里居然连个括号都不用加。加括号反倒是错误的了。
+
+### 84 自动绑定实列方法
+
+不会写，不会写啊，啊啊啊
+
+new proxy 是什么东西啊。
+
+在Javascript的类当中，类实列如果不通过实列进行调用，方法中的this
+就不会指向实列。
+```
+class Person {
+  constructor (name) {
+    this.name = name
+  }
+  sayHi () {
+    console.log(`I am ${this.name}.`)
+  }
+}
+
+const jerry = new Person('Jerry')
+jerry.sayHi()   // ==> 不会报错，this 指向了jerry
+const sayHi = jerry.sayHi
+sayHi()   // => 报错
+```
+[Reflect get的用法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/get)
+
+参考答案
+```
+const autoBind = (ToBindClass) => {
+  return function(...args) {
+    const self = new ToBindClass(...args);
+    return new Proxy(self, {
+      get(target, key) {
+        const val = Reflect.get(target, key)
+        if(typeof val === 'function') return val.bind(target)
+        else return val
+      }
+    })
+  }
+}
+```
+
+# 83 filter map
+
+不会写，不会写
+
+别人的参考答案。
+```
+Map.prototype.filterKeys = function(fn) {
+  return new Map([...this].filter(([k, v]) => fn(k)));
+}
 
 
+Map.prototype.filterValues = function(fn) {
+  return new Map([...this].filter(([k, v]) => fn(v)));
+}
+```
 
+# 79 灵魂交换
+不会，不会，不会
 
+别人的参考答案：
+```
+const exchange = (a, b) => {
+  const aProto = Object.getPrototypeOf(a);   // Object.getPrototypeOf() method returns the prototype
+  const bProto = Object.getPrototypeOf(b);
+  Object.setPrototypeOf(a, bProto);      
+  // Object.setPrototypeOf() method sets the prototype of a specified object to another object
+  Object.setPrototypeOf(b, aProto);
+}
+```
 
+# 76 属性闪烁
+不会
+完成一个flikeProps方法，接受一个对象作为参数。可以把该
+对象的不可遍历属性变成可遍历属性；把可遍历属性变成不可遍历属性。
+
+参考答案
+```
+const flikerProps = (obj) => {
+  for (let [k, v] of Object.getOwnPropertyNames(obj).entries()) {
+    console.log([k, v], '[k, v]');
+    Object.defineProperty(obj, v, {
+      enumerable: !Object.getOwnPropertyDescriptor(obj, v).enumerable
+      })
+  }
+}
+```
+example：
+```
+const obj = {
+  a: 1,
+  b: 2
+}
+
+Object.getOwnPropertyNames(obj)   // ["a", "b"]
+
+Object.getOwnPropertyNames(obj).entries() // Array Iterator {} 
+// Array.prototype.entries(), The entries() method returns a new
+// Array Iterator object that contains the key/value pairs for each index in the array
+// 其实类似于这样 [[0, 'a'],[1, 'b']]
+```
+
+Object.defineProperty() 这个主要是做什么呢。
+答： The static method Object.defineProperty() defines a new property directly on an object,
+or modifies an existing property on an object, and returns the object.
+
+example:
+```
+const object1 = {};
+
+Object.defineProperty(object1, 'property1', {
+  value: 42,
+  writable: false
+});
+
+object1.property1 = 77;
+
+// throws an error in strict mode， 没有任何的反应
+
+console.log(object1.property1); // 42
+```
+
+Object.getOwnPropertyDescriptor() 的主要作用是什么？
+答： The `Object.getOwnPropertyDescriptor()` method returns a property descriptor
+for an own property(that is, one directly present on an object and not in the object's prototype chain)
+of a given object.
+
+example:
+```
+const object1 = {
+  property1: 42
+}
+
+const descriptor1 = Object.getOwnPropertyDescriptor(object1, 'property1');
+
+console.log(descriptor1.configurable); // true
+
+console.log(descriptor1.value);  // 42
+```
+
+for ... of ... 一般是遍历什么呢。 对象是不可以的
+
+### 73 数组的空位填充
+
+如何判断数组里的这个是空位，还是本身就是一个undefined呢
+有哪个属性，可以检测到这样的属性呢。
+不会写，
+参考答案
+```
+const fillEmpty = (arr) => {
+  for(let i = 0; i < arr.length; i++) {
+    if(!(i in arr)) {
+      arr[i] = 'Hello'
+    }
+  }
+}
+```
+
+```
+  // map，forEach 都会跳过empty的位置，但是for循环不会
+  const arr = [ , , undefined, null, 2, 4];
+  arr.forEach((item, index) => console.log(index));
+  // 2
+  // 3
+  // 4
+  // 5
+  arr.map((item, index) => console.log(index));
+  // 2
+  // 3
+  // 4
+  // 5
+```
+
+### 72 使用 generator 模拟async/await
+不会呀，上帝呀
+
+参考答案:
+```
+const wrapAsync = (generatorFn) => {
+  return (...args) => {
+    return new Promise((resolve, reject) => {
+      const g = generatorFn(...args);
+      function go(result) {
+        if(result.done) {
+          
+        }
+      }
+      })
+  }
+}
+```
 
 
