@@ -7,12 +7,12 @@
 勾选CaptureHTTPS CONNECTs，点击Actions，
 勾选Decrypt HTTPS traffic和Ignore servercertificate errors两项，点击OK（首次点击会弹出是否信任fiddler证书和安全提示，直接点击yes就行）
 
-![fiddler-course1](http://p7fhyq5kf.bkt.clouddn.com/fiddler-course1-min.png)
+![fiddler-course1](./../images/fiddler/fiddler-course1-min.png)
 #### 2.配置fiddler允许远程连接
  
  上一步窗口中点击Tools->TelerikFiddler Options->Connections，勾选allow remote computers to connect，默认监听端口为8888（下图Fiddler listens on port就是端口号），若端口被占用可以设置成其他的，配置好后要重新启动fiddler，如下图：
 
-![fiddler-course1](http://p7fhyq5kf.bkt.clouddn.com/fiddler-course2-min.png)
+![fiddler-course1](./../images/fiddler/fiddler-course2-min.png)
 
 点击完成之后，PC端配置完成，接下来开始配置手机端，以安卓为例，iOS方法同安卓；
 ### 二. 对手机端进行参数配置
@@ -23,20 +23,20 @@
 
 #### 1.第一步：手机和电脑连接同一个网络，打开手机浏览器，输入http://ip:端口号，点击前往；见下图
 
-![fiddler-course1](http://p7fhyq5kf.bkt.clouddn.com/fiddler-course3-min.png)
+![fiddler-course1](./../images/fiddler/fiddler-course3-min.png)
 
 #### 2. 第二步：前往之后会跳转到证书下载页，见下图：
          点击FiddlerRootcertificate下载证书；
 
-![fiddler-course1](http://p7fhyq5kf.bkt.clouddn.com/fiddler-course4-min.png)
+![fiddler-course1](./../images/fiddler/fiddler-course4-min.png)
 #### 3.第三步：点击下载之后，安装证书并起个名字，随便写就行，点击确定；
-![fiddler-course1](http://p7fhyq5kf.bkt.clouddn.com/fiddler-course5-min.png)
+![fiddler-course1](./../images/fiddler/fiddler-course5-min.png)
 #### 4.第四步：要求设置一个手机密码，自己设置一个，记住密码就行，最后不用了去系统-安全-密码中去掉即可；
-![fiddler-course1](http://p7fhyq5kf.bkt.clouddn.com/fiddler-course6-min.png)
+![fiddler-course1](./../images/fiddler/fiddler-course6-min.png)
 #### 5.第五步：更改手机无线网的代理
          手机系统设置-无线网-点击高级，代理选择手动，主机名就是fiddler的电脑ip地址，端口号，就是fiddler的端口号，与浏览器中ip：端口号保持一致，点击确定即可，
 
-![fiddler-course1](http://p7fhyq5kf.bkt.clouddn.com/fiddler-course7-min.png)
+![fiddler-course1](./../images/fiddler/fiddler-course7-min.png)
 
 #### 6.操作手机，电脑fiddler中会显示一些http信息，成功；
 
