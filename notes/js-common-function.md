@@ -73,3 +73,7 @@ var newState = JSON.parse(JSON.stringify(state))
 ```
 var newState = state.map(item => item)
 ```
+
+### 按照某个值，进行去重
+
+将对象的某个属性对应的值，合成一个数组。

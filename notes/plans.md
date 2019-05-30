@@ -17,6 +17,9 @@
 10. 把上传图片，用react 写一个demo出来
 
 11. 看看过去的react-demo 学习跳转路径这块的写法。
+
+12. 整理vue项目脚手架
+
 9. 学习VScode 应该对很多东西，保持强烈的好奇。
 
 10月10日 以后
@@ -109,5 +112,7 @@ utils/index.js
 1、vant
 2、iview
 3、element-ui
+
+
 
 

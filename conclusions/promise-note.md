@@ -1,3 +1,5 @@
+-- 写于5月14日
+
 ### 1、Warm up  
 
 （1) In its most basic terms, a promise is an object that defines a method called then.

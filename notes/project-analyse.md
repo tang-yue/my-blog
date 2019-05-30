@@ -54,3 +54,22 @@ import { getUser } from './utils/cookie'
 ```
 
 关于移动端，px 如何相对应的转成rem;
+
+
+2019 年  5月16日
+
+我的github项目，自己做的。
+
+首先得要有一个主页。 然后导航。
+
+
+一个既兼容移动端又兼容pc端的vue脚手架，需要包含的哪些东西。
+
+1、首先安装router， 添加router.js和store.js
+2、vue.config.js 配置
+3、.eslintrc.js  配置
+4、.eslintignore 添加
+5、 store 的使用
+
+
+content="width=device-width,initial-scale=1.0"

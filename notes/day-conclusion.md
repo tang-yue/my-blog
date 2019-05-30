@@ -1,13 +1,3 @@
-```
-function delay(ms) {
-  return new Promise(function(resolve, rejct) {
-    setTimeout(() => resolve(), ms)
-    })
-}
-```
-
-```
-function showCircle() {
-  
-}
-```
+5月29日
+我觉得我现在似乎缺少了，一种敏感，对于自己的所思所想所做的敏感。
+这种敏感变得越来越少，没有了每日的所总结。所记录，日复一日的不知所为的过着。

@@ -732,6 +732,8 @@ str.substring(indexStart) // 从indexStart 位置开始，到末尾
 
 除去 元音和数字 /^[aeiou0-9]/
 
+第三次遇到 获取url上的参数，并解析。
+window.location.search.substr(1).split('&');
 
 
 
