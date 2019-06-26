@@ -59,7 +59,7 @@ arr.splice(0,0,1,2,3,4);  // [],  注意 返回值为空数组 因为返回的�
   "hello".split(",")   // return ["hello"]
   "hello".split()     // return ["hello"]
   "hello".split("")   // return ["h","e","l","l","o"]
-  "How4are8yue".split(/\d/); // return ["How","are","you"]
+  "How4are8you".split(/\d/); // return ["How","are","you"]
 ```
 
 ```
@@ -384,7 +384,7 @@ isNaN(b); // true;
 var a = 10;
 isNaN(a); // false;
 ```
-但是需要注意的是如果 b是一个空串或一个空格, isNaN将把c当作数字0来处理，所以检查不严谨。
+但是需要注意的是如果 b是一个空串或一个空格, isNaN将把b当作数字0来处理，所以检查不严谨。
 
 arr.splice(0, 1) ,,, 这样去删除一个值的时候，请问返回值是什么。 // [arr[0]]
 
@@ -611,7 +611,7 @@ new Set(arr); 有什么作用。
 
 `return Object.entries(counts).reduce((res, arr) => arr[1] > res[1] ? arr : res, ['', -Infinity])[0];`
 
-第一次见到以这种形式，去return出对象里面，某个属性值的最小值。
+第一次见到以这种形式，去return出对象里面，某个属性值最小的属性。
 
 ```
 const anObj = {100: "a", 2: "b", 7:"c"};
@@ -651,6 +651,10 @@ for(let i = 0; i <= s.length/2; i++) {
 2的0次方 * 0 + 2的1次方 * 1 + 2的2次方 * 1 = 2 + 4 = 6
 
 如何将二进制转化成10进制整数。
+
+var a = 1010;
+alert(a.toString(2)); //转成二进制 
+alert(parseInt( "101110100 ",2)) ;//转成十进制
 
 字符串 s = "abcdefg"; 请问 s[-1] 的值是多少？ 
 
@@ -718,7 +722,7 @@ x.toString(2);
 
 js 中  2的几次方如何写。
 
-如何在数组的某个地方，插入某个值
+如何在数组的某个地方，插入某个值 splice
 
 input 去掉聚焦时的颜色
 
