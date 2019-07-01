@@ -735,6 +735,26 @@ str.substring(indexStart) // 从indexStart 位置开始，到末尾
 第三次遇到 获取url上的参数，并解析。
 window.location.search.substr(1).split('&');
 
+将switch 方法再重新默写一遍。
+
+
+关于字母和汉字，转换为字符长度的问题。 因为放在一个div里，字母和汉字所占的长度不一样。
+
+只要字符串里数字
+
+
+
+让一个div 居中
+
+```
+让外部有个div,并给其宽度，让内部再有一个div,也给一个宽度，再加上margin: 0 auto。
+```
+
+
+true && false || false   // 关于这样的代码的执行方式
+
+
+哪个是返回删除数组里的某个元素。
 
 
 

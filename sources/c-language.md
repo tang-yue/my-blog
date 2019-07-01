@@ -59,6 +59,7 @@ int main() {
 }
 ```
 别人的正确答案:
+
 ```
 #include <stdio.h>
 #include <math.h>
@@ -188,6 +189,13 @@ int main() {
     }
 }
 ```
+#include <stdio.h>
+#include <math.h>
+int main() {
+    
+}
+
+
 别人的答案：
 ```
 #include <stdio.h>
