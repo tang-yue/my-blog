@@ -6,15 +6,15 @@ my-blog
 
 2017年
 
-2017年6月 [jQuery的demo的问题总结](https://github.com/tang-yue/my-blog/blob/master/conclusions/jQuery-demo-problem.md)
+[jQuery的demo的问题总结](https://github.com/tang-yue/my-blog/blob/master/conclusions/jQuery-demo-problem.md) （6月）
 
-2017年12月 [小程序总结](https://github.com/tang-yue/my-blog/blob/master/conclusions/weChat-small-program-development.md)
+[小程序总结](https://github.com/tang-yue/my-blog/blob/master/conclusions/weChat-small-program-development.md) （12月）
 
 2018年
 
-2018年4月 [抓包工具fiddler的使用](https://github.com/tang-yue/my-blog/blob/master/conclusions/fiddler-course.md)
+[抓包工具fiddler的使用](https://github.com/tang-yue/my-blog/blob/master/conclusions/fiddler-course.md) （4月）
 
-[react上传图片到oss](https://github.com/tang-yue/my-blog/blob/master/conclusions/react-oss-upload.md)
+[react上传图片到oss](https://github.com/tang-yue/my-blog/blob/master/conclusions/react-oss-upload.md) （6月）
 
 [学习es6笔记](https://github.com/tang-yue/my-blog/blob/master/learn-es6)
 
@@ -22,18 +22,19 @@ my-blog
 [做题笔记 1](https://github.com/tang-yue/my-blog/blob/master/notes/note-leetcode2.md)
 [做题笔记 2](https://github.com/tang-yue/my-blog/blob/master/notes/note-leetcode3.md)
 [做题笔记 3](https://github.com/tang-yue/my-blog/blob/master/notes/note-leetcode4.md)
-[小知识点笔记](https://github.com/tang-yue/my-blog/blob/master/notes/unmemorable.md)
+[小知识点笔记](https://github.com/tang-yue/my-blog/blob/master/notes/unmemorable.md) （8月至12月）
 
-3月9日至5月26日 [工作新知识1](https://github.com/tang-yue/my-blog/blob/master/sources/work-new-knowledge1.md)
+[工作新知识1](https://github.com/tang-yue/my-blog/blob/master/sources/work-new-knowledge1.md) （3月9日至5月26日） 
 
-5月26日至8月15日 [工作新知识2](https://github.com/tang-yue/my-blog/blob/master/sources/work-new-knowledge2.md)
+[工作新知识2](https://github.com/tang-yue/my-blog/blob/master/sources/work-new-knowledge2.md) （5月26日至8月15日）
 
 2019年
 
-1月7日至--- [request 封装](https://github.com/tang-yue/my-blog/blob/master/conclusions/request.md)
-12月20日至1月7日 [vue 初学者](https://github.com/tang-yue/my-blog/blob/master/conclusions/vue-beginner.md)
+[request 封装](https://github.com/tang-yue/my-blog/blob/master/conclusions/request.md) （1月7日）
 
-5月14日至--- [promise 笔记](https://github.com/tang-yue/my-blog/blob/master/conclusions/promise-note.md)
+[vue 初学者](https://github.com/tang-yue/my-blog/blob/master/conclusions/vue-beginner.md) （12月20日至1月7日）
+
+[promise 笔记](https://github.com/tang-yue/my-blog/blob/master/conclusions/promise-note.md) （5月14日）
 
 
 
