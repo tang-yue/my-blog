@@ -10,6 +10,7 @@ isPC() {
   var flag = true;
   for(var v = 0; v < Agents.length; v++) {
     if(userAgentInfo.indexOf(Agents[v]) > 0) {
+      // 只要有这些，就说明是移动端了
       flag = false;
       break;
     }
@@ -32,7 +33,7 @@ body的margin 样式去不掉是怎么回事
 请问p标签里面有<br>，我应该如何将其写在数据里面呢。
 ```
 var obj = document.getElementById('p');
-obj.innerHTML; // 这个就是要给别人的数据
+obj.innerHTML; // 这个就是要给别人的数据，应该是把br标签也直接给别人吧
 ```
 
 动态style
@@ -90,7 +91,7 @@ window.location.replace('http://example.com/#' + initialPage );
 
 4、获取查询参数
 window.location.search.substr(1).split('&');
-返回值列如：["value=haha", "key=lalal"]
+返回值列如：["key=value", "key=value"]
 然后进行筛选就可以了
 
 5、window.location.pathname
@@ -131,7 +132,7 @@ zh.wikipedia.org 中  zh 是三级域名， wikipedia是二级域名，.org为�
 
 HTTP状态码 401，400 代表什么意思。
 
-400表示 错误的请求方式
+400表示 错误的请求方式, 一般是参数出现了错误。
 
 401表示 请求资源命令必须验证
 
@@ -185,7 +186,7 @@ window.onscroll = function(){
         }
 ```
 
-鼠标移动上去由加底变框，由中间向两边
+鼠标移动上去由加底变框，由中间向两边，这个百度前端作业里面有，里面所有的题目都再重新做一遍吧。
 [参考链接](https://570109268.iteye.com/blog/2411832)
 
 获取元素并给该元素添加class类名。

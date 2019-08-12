@@ -7,6 +7,7 @@
 设置宽度html, body, #app, 和最父级为100%。
 同时,`<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">`,如果还是出现左右晃动的情况，那么应该是，
 某个标签元素的宽度太宽了，需要单独设置宽度，将其不超过html的宽度。
+在某种特殊情况下，还可以用overflow:hidden 进行将其超出部分给隐藏掉。
 
 background-size 有三种选择 contain（是根据高度） cover (是根据宽度) 100%
 

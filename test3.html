@@ -1,17 +1,31 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  <style>
+  </style>
 </head>
 <body>
-  
+  <div></div>
 </body>
 <script>
-      // window.onload = function() {
-        // window.localStorage.setItem("activityId", 20);
-      // }
+function orbitalPeriod(arr) {
+  var GM = 398600.4418;
+  var earthRadius = 6367.4447;
+  var pi = Math.PI;
+  return arr.map((obj) => {
+    let r = Math.pow(obj['avgAlt']+earthRadius, 3);
+    let v = 4*Math.pow(pi, 2);
+    let m = r * v / GM;
+    obj['orbitalPeriod'] = Math.round(Math.pow(m, 0.5));
+    delete obj['avgAlt'];
+    return obj;
+  })
+}
 
-      document.cookie = "test1=hello"
+console.log(orbitalPeriod([{name: "iss", avgAlt: 413.6}, {name: "hubble", avgAlt: 556.7}, {name: "moon", avgAlt: 378632.553}]))
+
+
+  
 </script>
 </html>

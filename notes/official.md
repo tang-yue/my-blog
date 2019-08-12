@@ -1,7 +1,6 @@
 学习公司的vue 项目。
 所有的一切都是从模仿，记忆开始。
 我觉得现在改端口号这些，都是在浪费时间。
-先做正事。唯一害怕的就是太懒。
 
 
 1. 问题1
@@ -86,7 +85,7 @@ var scrollTop = window.pageYOffset
 我觉得应该是有一些关键的常用的地方。
 background-size: cover;
 background-size: 100% 100%;
-background-size: 
+background-size: contain
 
 
 

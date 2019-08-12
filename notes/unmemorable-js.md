@@ -115,8 +115,6 @@ arr.forEach(function(ele) {
 
 参考http://imweb.io/topic/565cf7253ad940357eb99881
 
-字母排序用如下：
-`arr.sort(function(a,b) {return a>b})` 其中的原理是什么呢
 数字排序用如下：
 `arr.sort(function(a,b) {return a -b})`
 
@@ -156,7 +154,7 @@ var re = new RegExp("^\\d+" + v + "$", "gim");
       str.replace(before, after);    // 这个才是正确的写法
   }
 ```
-将一个字符串的第一个值转大写，其余是小写，最优雅的写法是什么样子？
+将一个字符串的第一个值转大写，其余保持不变，最优雅的写法是什么样子？
 
 str.charAt(index) 这个代表取出index 位置上的数。
 
@@ -698,7 +696,9 @@ s[0] = s[5];
 s[5] = t;
 console.log(s); // ["f", "b", "c", "d", "e", "a", "g"] 会颠倒两个值
 ```
+/////////////
 
+后面的这些，是后增加的。
 要注意if("")  和 if(" ") 的区别，所以还是用.length 去判断比较好。
 
 ```
@@ -715,8 +715,13 @@ var countSegments = function(s) {
 
 parseInt(str, radix) 将其他进制转化为10进制数
 
+parseInt('11', 2);  二进制的11 转化为10进制的3  // 3
+
 x.toString(2);
 但是 x 是有值限制的， x < 256
+有吗？有吗？
+
+分析 toString() 方法
 
 如何用js 函数法， 将十进制转成 2进制？
 
@@ -730,11 +735,21 @@ input {
     outline: none;
 }
 
+去掉a 标签的下划线
+
+a {
+  text-decoration: none;
+}
+
 str.substr(start, len);    //  包含 start  上的位置
 str.substring(indexStart, indexEnd); // 包含indexStart位置上的，不包含indexEnd 位置上的
 str.substring(indexStart) // 从indexStart 位置开始，到末尾
 
-除去 元音和数字 /^[aeiou0-9]/
+22. 创建一个正则表达式， 匹配所有的字符，除去元音和数字
+<!-- 答案:   /^[aeiou0-9]/g -->
+上述答案是错误的，上述匹配的是除去开头是元音和数字的。 注意是开头
+正确的答案是 /[aeiou0-9]/g 
+
 
 第三次遇到 获取url上的参数，并解析。
 window.location.search.substr(1).split('&');
@@ -756,44 +771,144 @@ window.location.search.substr(1).split('&');
 
 
 true && false || false   // 关于这样的代码的执行方式
+结果是为true 吗？ 真的是吗？
+最后结果为false
 
 
 哪个是返回删除数组里的某个元素。
+pop(从末尾删除)
+push(从末尾增加)  
+shift(从开头删除)  
+unshift(从开头增加)
+
+最后答案应该是splice吧， 会直接改变掉数组
+
+7月10日  新增
+
+toString 的用法是怎样的
+要多尝试，而不是是一下子没有想起来就去百度。这样的习惯不好。
+
+如何判断某个给定的值是否是字符
+
+typeof str === 'String' || str instanceof String
+
+你没有看到是或者的关系吗？这也就代表了我们不应该只用一种方法就判定一切。
+也就是说 typeof str === 'String' // false 不代表不是字符串
+同样地，str instanceof String // false 不代表不是字符串
+
+而后一种的主要运用场景是如下 针对的是new String() 用法
+
+```
+var simpleStr = 'This is a simple string';
+
+var myString = new String();
+
+var newStr = new String('String created with constructor');
+
+simpleStr instanceof String;  // return false
+
+myString instanceof String;
+
+newStr instanceof String;
+```
 
 
+连简单的递归函数都不会写，难道你不觉得汗颜吗.
+
+7月12日  新增
+
+`[34].join('/')`  你觉得会在34后面加一个 '/' 吗？
+不会
+
+说说以下几个前缀，代表什么意思。
+-moz-  代表 FireFox 火狐 浏览器
+-ms- 代表 IE 浏览器
+-webkit- 代表 safari、chrome 浏览器
+-o-  代表 opera 浏览器
+
+a[i]++
+a[i] // 试问此时此刻 a[i] 有在原来的基础上加1吗？
+是的
+
+new Date()   如何获取到几号中的几
+```
+var date = new Date();
+data.getDate(); //  几
+date.getDay();  // 获取到的周，，，，需要注意的是周日是0
+```
 
 
+'56'.split('.')  // 会发生什么 为 ['56']
+
+'45.'.split('.')   // 会发生什么 为 ['45', '']
+
+<!-- 整数部分每隔四位分割一下。 -->
+
+将1234567890.89301 的整数部分分割下。（它可能本身就是整数）
+
+arr.join('')   和   arr.join()   的区别
+
+第一个是无逗号拼接，第二个是逗号拼接
+
+if('0') {
+  console.log('请问执行这里了吗？');  // 最后还是基础不牢
+}
+
+执行了呀
 
 
+校验是否是正整数  ？？
+你认为的快速方法。
+其实这个正则是比较简单的。
+```
+/^[1-9][0-9]*$/.test(100); // true
+
+```
+
+如何将不是数字，，即如何匹配非数字。
+'1asw32we3d4rf5t'.split(/\d/g).join('');
+
+如何快速去掉，字符串的最后一个字符。
+请写下你的最好的方法。
+
+```
+var str = 'string';
+var str = str.slice(0, str.length-1);
+```
+更简便的方法
+substr 和 subString 有什么区别
+
+str.substring(indexStart[, indexEnd]);
+
+str.substr(start[, length]);
+
+单纯的substring 和substr 会改变原字符串吗？
+
+答案： 不会
+
+数组的颠倒函数，会改变原数组吗？  答案是会
+
+用 this.state 的时候，先取值，然后再赋值， 然后再打印刚刚已经取过的值，请问取到值是赋值之后的吗？还是赋值之前的呢？
+
+const 和 let 一样也是局部变量
+
+safari  不支持这样的获取时间戳方式
+var stringTime = "2014-07-10 10:21:12";
+var timestamp2 = Date.parse(new Date(stringTime));
 
 
+        <StandardTable
+          selectedRows={3}
+          loading={loading}
+          data={data}
+          columns={columns}
+          rowKey={record => record.id}
+          onChange={this.requestData.bind(this)}
+        />
 
+遍历对象是用什么？
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+将小写字母转化成大写，的单词是如何拼写的。
 
 
 

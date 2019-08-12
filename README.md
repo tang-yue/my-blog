@@ -36,5 +36,7 @@ my-blog
 
 [promise 笔记](https://github.com/tang-yue/my-blog/blob/master/conclusions/promise-note.md) （5月14日）
 
+[freecodecamp中级算法笔记](https://github.com/tang-yue/my-blog/blob/master/conclusions/freecodecamp-intermediate-algorithm.md)
+
 
 
