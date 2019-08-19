@@ -910,5 +910,8 @@ var timestamp2 = Date.parse(new Date(stringTime));
 
 将小写字母转化成大写，的单词是如何拼写的。
 
+\W 表示什么意思 /\W/ or /[^A-Za-z0-9_]/  注意有下划线
+\w 匹配数字和字母包括下划线[0-9a-zA-Z_]
+
 
 

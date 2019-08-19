@@ -134,6 +134,12 @@ getDay()  如果是周日的话，getDay() 仍旧是为0
 
 dev-cost-data-display     刘凡的需求，，数据展示二期 分支
 
+api接口地址，https://confluence.corp.hetao101.com/pages/viewpage.action?pageId=74449250
+
+需求文档: https://confluence.corp.hetao101.com/pages/viewpage.action?pageId=73007264
+
+
+
 dev-fix-bug-user-composition  修复用户量渠道构成 的一个bug
 
 投放录用比 8月12日 上线  即下周一
@@ -141,5 +147,9 @@ dev-fix-bug-user-composition  修复用户量渠道构成 的一个bug
 转化率及ROI数据看板  8月19日 提测 
 
 发货地址收集页面，要增加一个activityId 查询和列表里展示activityId 待上线
+
+dev-improve-export-excel-function  订单页--激活码页-导出功能优化
+
+返现订单处理需求 https://confluence.corp.hetao101.com/pages/viewpage.action?pageId=83230831
 
 
