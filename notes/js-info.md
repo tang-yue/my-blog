@@ -11,11 +11,6 @@ https://javascript.info  该网站笔记
 
 https://javascript.info/promise-chaining#returning-promises
 
-下面是 javascript Algorithms and Data Structures Projects
-
-连个简单正则表达式都不会写。Usually you will use this syntax if only one value is being exported from a file.
-那些我写了很多遍，仍旧记不住的js语法。
-
 8月23日  
 
 ### 学习generators笔记
@@ -336,7 +331,10 @@ Object.assign(User.prototype, sayHiMixin);
 new User("Dude").sayHi();
 ```
 
-new Proxy
+### Proxy and Reflect
+
+
+
 
 
 

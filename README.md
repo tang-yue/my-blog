@@ -22,7 +22,7 @@ my-blog
 [做题笔记 1](https://github.com/tang-yue/my-blog/blob/master/notes/note-leetcode2.md)
 [做题笔记 2](https://github.com/tang-yue/my-blog/blob/master/notes/note-leetcode3.md)
 [做题笔记 3](https://github.com/tang-yue/my-blog/blob/master/notes/note-leetcode4.md)
-[小知识点笔记](https://github.com/tang-yue/my-blog/blob/master/notes/unmemorable.md) （8月至12月）
+[小知识点笔记](https://github.com/tang-yue/my-blog/blob/master/notes/unmemorable-js.md) （8月至12月）
 
 [工作新知识1](https://github.com/tang-yue/my-blog/blob/master/sources/work-new-knowledge1.md) （3月9日至5月26日） 
 
@@ -33,6 +33,8 @@ my-blog
 [request 封装](https://github.com/tang-yue/my-blog/blob/master/conclusions/request.md) （1月7日）
 
 [vue 初学者](https://github.com/tang-yue/my-blog/blob/master/conclusions/vue-beginner.md) （12月20日至1月7日）
+
+[有关vue的工作笔记]()
 
 [promise 笔记](https://github.com/tang-yue/my-blog/blob/master/conclusions/promise-note.md) （5月14日）
 

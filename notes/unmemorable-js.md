@@ -769,6 +769,13 @@ window.location.search.substr(1).split('&');
 让外部有个div,并给其宽度，让内部再有一个div,也给一个宽度，再加上margin: 0 auto。
 ```
 
+```
+-moz-  代表 FireFox 火狐 浏览器
+-ms- 代表 IE 浏览器
+-webkit- 代表 safari、chrome 浏览器
+-o-  代表 opera 浏览器
+```
+
 
 true && false || false   // 关于这样的代码的执行方式
 结果是为true 吗？ 真的是吗？
@@ -856,7 +863,6 @@ if('0') {
 
 执行了呀
 
-
 校验是否是正整数  ？？
 你认为的快速方法。
 其实这个正则是比较简单的。
@@ -931,6 +937,9 @@ NaN 是什么类型。
 数组和对象都可以用哪一种方法进行遍历。
 
 replace 会改变原字符串吗？ 不会
+
+
+
 
 
 

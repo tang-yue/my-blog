@@ -1,6 +1,5 @@
 问题1， 解决，没有滚动条时，背景充满全屏
 有滚动条时，背景颜色却没有撑满的问题。
-
 ```
 // 这是一个总的div
 .layout {
@@ -23,7 +22,6 @@ import '../assets/iconfont.js';
     <use xlink:href="#icon-log-out"></use>
 </svg>
 ```
-
 
 问题3，如何限定当前view页面的css只属于当前view，而不被其他所影响
 `<style scoped></style>`
@@ -120,8 +118,6 @@ methods: {
 
 关于postcss-px2rem-exclude 和 postcss-px2rem两者是有区别的。感觉是有很多的坑。
 
-2月12日，学习vscode。 下载下来，然后并没有学。
-
 问题9: 请问vue 本地运行的css样式效果，和线上运行的css样式效果是有所区别的，
 请问这到底是为什么呢。
 通过百度查询，执行不同css样式文件的顺序不一样。
@@ -133,5 +129,5 @@ html,body,#app {
 但是当出现滚动条的时候
 背景并没有充满整个屏幕。
 
- vue 项目使用 svg https://segmentfault.com/a/1190000012213278
+vue 项目使用 svg https://segmentfault.com/a/1190000012213278
 
