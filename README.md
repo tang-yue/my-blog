@@ -40,9 +40,9 @@ my-blog
 
 [freecodecamp中Interview Algorithms](https://github.com/tang-yue/my-blog/blob/master/conclusions/freecodecamp-interview-algorithms.md) (8月14日)
 
-[freecodecamp中Algorithms,Data structures Project](https://https://github.com/tang-yue/my-blog/blob/master/conclusions/AlgorithmsAndDataStructures.md) (8月20日)
+[freecodecamp中Algorithms,Data structures Project](https://github.com/tang-yue/my-blog/blob/master/conclusions/AlgorithmsAndDataStructures.md) (8月20日)
 
-[scriptOJ ES6练习题](https://https://github.com/tang-yue/my-blog/blob/master/conclusions/scriptoj-es6.md)  (9月17日)
+[scriptOJ ES6练习题](https://github.com/tang-yue/my-blog/blob/master/conclusions/scriptoj-es6.md)  (9月17日)
 
 
 
