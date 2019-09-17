@@ -32,9 +32,7 @@ my-blog
 
 [request 封装](https://github.com/tang-yue/my-blog/blob/master/conclusions/request.md) （1月7日）
 
-[vue 初学者](https://github.com/tang-yue/my-blog/blob/master/conclusions/vue-beginner.md) （12月20日至1月7日）
-
-[有关vue的工作笔记]()
+[vue 初学者](https://github.com/tang-yue/my-blog/blob/master/conclusions/vue-beginner.md) （12月20日至1月7日)
 
 [promise 笔记](https://github.com/tang-yue/my-blog/blob/master/conclusions/promise-note.md) （5月14日）
 
