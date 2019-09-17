@@ -14,9 +14,9 @@ my-blog
 
 [抓包工具fiddler的使用](https://github.com/tang-yue/my-blog/blob/master/conclusions/fiddler-course.md) （4月）
 
-[react上传图片到oss](https://github.com/tang-yue/my-blog/blob/master/conclusions/react-oss-upload.md) （6月）
+[map-reduce讲解](https://github.com/tang-yue/my-blog/blob/master/conclusions/map-reduce.md) (5月)
 
-[学习es6笔记](https://github.com/tang-yue/my-blog/blob/master/learn-es6)
+[react上传图片到oss](https://github.com/tang-yue/my-blog/blob/master/conclusions/react-oss-upload.md) （6月）
 
 [leetcode笔记](https://github.com/tang-yue/my-blog/blob/master/notes/note-leetcode.md)
 [做题笔记 1](https://github.com/tang-yue/my-blog/blob/master/notes/note-leetcode2.md)
@@ -40,6 +40,9 @@ my-blog
 
 [freecodecamp中Interview Algorithms](https://github.com/tang-yue/my-blog/blob/master/conclusions/freecodecamp-interview-algorithms.md) (8月14日)
 
+[freecodecamp中Algorithms,Data structures Project](https://https://github.com/tang-yue/my-blog/blob/master/conclusions/AlgorithmsAndDataStructures.md) (8月20日)
+
+[scriptOJ ES6练习题](https://https://github.com/tang-yue/my-blog/blob/master/conclusions/scriptoj-es6.md)  (9月17日)
 
 
 

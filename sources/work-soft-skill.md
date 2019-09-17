@@ -177,6 +177,15 @@ export default function Test() {
 
 
 
+9月11日
+记录一次用git pull，而造成的代码缺失问题。
+（1）从当前代码去 git pull master 上的代码。
+ (2) 还是从master 上 新建一个分支，然后在这个分支的基础上，git pull 我新增加的代码的分支。
+上述两种情况都会出现问题。
+
+
+
+
 
 
 

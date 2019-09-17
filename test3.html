@@ -9,10 +9,19 @@
   <div></div>
 </body>
 <script>
-  var str = 'abcdefg';
-
-  for(var s of str) {
-    console.log(s, 'ssss');
+  const a = [, , null, undefined, 'OK', ,];
+  const fillEmpty = (arr) => {
+    let bArr = [];
+    a.map((item, index) => {
+      bArr.push(index);
+    })
+    for(let i = 0; i < a.length; i++) {
+      if(bArr.indexOf(i) === -1) {
+        a[i] = 'Hello'
+      }
+    }
   }
+
+  fillEmpty(a);
 </script>
 </html>

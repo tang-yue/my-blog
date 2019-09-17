@@ -4,18 +4,25 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <script>
-    // https://blog.csdn.net/qq_22944825/article/details/78003719
-    var listName = [];
-    var arr = [];
-    var arr2 = [[2, "Hair Pin"], [3, "Half-Eaten Apple"], [67, "Bowling Ball"], [7, "Toothpaste"]]
-    for(let i = 0; i < arr2.length; i++) {
-      if(listName.indexOf(arr2[i][1]) === -1) {
-        arr.push(arr2[i]);
-        console.log(arr, 'arr');
-      }
+  class Animal {
+    constructor(name) {
+      this.speed = 0;
+      this.name = name;
     }
+    stop() {
+      this.speed = 0;
+      alert(`${this.name} stands still.`)
+    }
+  }
 
-    console.log(arr, 'arr');
+  class Rabbit extends Animal {
+    stop() {
+      console.log('rabbit 下的stop')
+    }
+  }
+
+  let rabbit = new Rabbit('white Rabbit');
+  rabbit.stop();
   </script>
 </head>
 <body>
