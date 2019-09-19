@@ -19,9 +19,9 @@ my-blog
 [react上传图片到oss](https://github.com/tang-yue/my-blog/blob/master/conclusions/react-oss-upload.md) （6月）
 
 [leetcode笔记](https://github.com/tang-yue/my-blog/blob/master/notes/note-leetcode.md)
-[做题笔记 1](https://github.com/tang-yue/my-blog/blob/master/notes/note-leetcode2.md)
-[做题笔记 2](https://github.com/tang-yue/my-blog/blob/master/notes/note-leetcode3.md)
-[做题笔记 3](https://github.com/tang-yue/my-blog/blob/master/notes/note-leetcode4.md)
+[leetcode做题笔记 1](https://github.com/tang-yue/my-blog/blob/master/notes/note-leetcode2.md)
+[leetcode做题笔记 2](https://github.com/tang-yue/my-blog/blob/master/notes/note-leetcode3.md)
+[leetcode做题笔记 3](https://github.com/tang-yue/my-blog/blob/master/notes/note-leetcode4.md) (leetcode 共计刷了73道)
 [小知识点笔记](https://github.com/tang-yue/my-blog/blob/master/notes/unmemorable-js.md) （8月至12月）
 
 [工作新知识1](https://github.com/tang-yue/my-blog/blob/master/sources/work-new-knowledge1.md) （3月9日至5月26日） 
@@ -37,6 +37,8 @@ my-blog
 [有关vue笔记](https://github.com/tang-yue/my-blog/blob/master/notes/vue) (4月)
 
 [promise 笔记](https://github.com/tang-yue/my-blog/blob/master/conclusions/promise-note.md) （5月14日）
+
+[关于后台上传excel功能](https://github.com/tang-yue/my-blog/blob/master/notes/work-import-excel.md) (7月)
 
 [freecodecamp中Intermediate Algorithms](https://github.com/tang-yue/my-blog/blob/master/conclusions/freecodecamp-intermediate-algorithms.md)（8月12日）
 
