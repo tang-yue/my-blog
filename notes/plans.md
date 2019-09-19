@@ -116,6 +116,10 @@ utils/index.js
 
 8月25日
 
+9月18日 新增
+1、要学习obj所有不常用的属性
+2、要看scriptoj上的react小书
+
 
 
 

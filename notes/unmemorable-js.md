@@ -938,6 +938,19 @@ NaN 是什么类型。
 
 replace 会改变原字符串吗？ 不会
 
+```
+let str = '1200000000';
+let a = str.split('')
+
+for(let i = a.length - 3; i > 0; i= i-3) {
+  a.splice(i, 0, ',');  // 这里每隔三位进行分割
+  // i++
+  // i--
+  // 上述无论是i++ 还是i-- 都是不需要的，因为这里是用i进行减3操作，其实和新插入的字符没有什么关系
+  console.log(a.length, i)
+}
+```
+
 
 
 

@@ -1,4 +1,5 @@
 https://javascript.info  该网站笔记
+在这个网站学习，总给我带来很多惊讶。
 
 ### promise 笔记
 
@@ -333,8 +334,132 @@ new User("Dude").sayHi();
 
 ### Proxy and Reflect
 
+------
+9月17日
 
+### Objects: the basics
 
+#### 4.1 Objects
+look nicer
+```
+let fruit = prompt("Which fruit to buy?", "apple");
+
+let bag = {};
+
+bag[fruit] = 5;
+```
+
+```
+let obj = {
+  for: 1,
+  let : 2,
+  return: 3
+}
+
+alert(obj.for + obj.let + obj.return); // 6
+
+but .... special one: '__proto__'
+
+let obj = {};
+obj.__proto__ = 5;
+alert(obj.__proto__);  // [object Object], didn't work as intended
+```
+存在检查
+```
+// 方法一
+let user = {};
+alert( user.noSuchProperty === undefined) // true
+
+// 方法二  又遇到这个方法了
+let user = { name: "John", age: 30 };
+alert("age" in user) // true
+alert("blabla" in user) // false
+
+please note the on the left side of in there must be a property name. That's usually a quoted string.
+```
+惊讶
+```
+let codes = {
+    "49": "Germany",
+    "41": "Switzerland",
+    "44": "Great Britain",
+    "1": "USA"
+  }
+  // integer properties are listed in the creation order
+  for( let code in codes) {
+    console.log(code); // 1, 41, 44, 49 // 居然按照顺序输出了
+  }
+
+let user = {
+  name: "John",
+  surname: "Smith"
+};
+user.age = 25;;
+// non-integer properties are listed in the creation order
+for( let prop in user) {
+  alert(prop); // name, surname, age
+}
+
+// 居然还有下面这样的写法
+let codes = {
+  "+49": "Germany",
+  "+41": "Switzerland",
+  "+44": "Great Britain",
+  "+1": "USA"
+}
+
+for(let code in codes) {
+  console.log( +code ) // 49 41 44 1
+}
+```
+
+comparison by reference
+```
+let a = {};
+let b = a;
+let c = {};
+alert( a == b ); // true
+alert( a == b);  // true
+alert( a == c); // false
+```
+
+```
+let user = {
+  name: "John",
+  sizes: {
+    height: 182,
+    width: 50
+  }
+};
+
+// alert(user.sizes.height)
+```
+
+```
+let user = { name: "John" };
+
+let permissions1 = { canView: true };
+let permissions2 = { canEdit: true };
+
+Object.assign(user, permissions1, permissions2) // 后面可以两个对象
+
+使用Object.assign(dest, [src1, src1, src3...]) 可以实现深度拷贝
+```
+
+```
+const user = {
+  name: "John"
+};
+
+user.name = "Pete";
+
+explanation:
+The const only protects the variable itself from changing.
+
+In other words, user stores a reference to the object.And it can't be changed.
+But the content of the object can.
+```
+剩余的，之后再学习
 
 
 

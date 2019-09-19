@@ -34,6 +34,8 @@ my-blog
 
 [vue 初学者](https://github.com/tang-yue/my-blog/blob/master/conclusions/vue-beginner.md) （12月20日至1月7日)
 
+[有关vue笔记](https://github.com/tang-yue/my-blog/blob/master/notes/vue) (4月)
+
 [promise 笔记](https://github.com/tang-yue/my-blog/blob/master/conclusions/promise-note.md) （5月14日）
 
 [freecodecamp中Intermediate Algorithms](https://github.com/tang-yue/my-blog/blob/master/conclusions/freecodecamp-intermediate-algorithms.md)（8月12日）
