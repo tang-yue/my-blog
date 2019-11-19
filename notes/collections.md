@@ -38,3 +38,18 @@ https://www.quora.com/What-are-some-of-the-best-books-on-stress-management
 https://github.com/maczyt/exercises
 
 
+思维导图
+https://mm.edrawsoft.cn/files  链接地址
+
+健康生活2 思维导图，是最全的。
+
+http://ourjs.com/home//   OurJS
+
+https://www.zcfy.cc/article/discovery  众成翻译
+
+https://js.checkio.org/  js.checkio.org
+
+
+
+
+

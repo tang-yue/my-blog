@@ -950,7 +950,10 @@ for(let i = a.length - 3; i > 0; i= i-3) {
   console.log(a.length, i)
 }
 ```
+如何判断一个数是不是整数。
 
+11月15日
+我今天在if else if else if else if 后面加上break，直接导致编译出错了
 
 
 
