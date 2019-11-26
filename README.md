@@ -48,7 +48,7 @@ my-blog
 
 [scriptOJ ES6练习题](https://github.com/tang-yue/my-blog/blob/master/conclusions/scriptoj-es6.md)  (9月17日)
 
-[scriptOJ 练习题](https://github.com/tang-yue/my-blog/blob/master/conclusions/scriptoj.md)
+[scriptOJ 练习题](https://github.com/tang-yue/my-blog/blob/master/conclusions/scriptoj.md) (9月20日 至 10月1日)
 
 
 

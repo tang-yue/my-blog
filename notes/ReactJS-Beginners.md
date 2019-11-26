@@ -1,3 +1,5 @@
+10月20日至11月1日
+
 1.  Modern JavaScript
 2. Creating variables using const
 3. Creating variables using let

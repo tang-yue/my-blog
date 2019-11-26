@@ -223,13 +223,16 @@ vue 自带 path 包 import path from 'path';
 </template>
 ```
 
-
 ```
-
 this.$store.dispatch('user/changeRoles', val).then(() => {
           this.$emit('change')
         }) 
 ```
+
+三者 渲染的优先级 ： render 函数 > template 属性 > 外部html
+
+
+
 
 
 

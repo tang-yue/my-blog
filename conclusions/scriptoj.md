@@ -1678,7 +1678,7 @@ const toChineseNum = (num) => {
     // 下面一行参照了别人的代码
     res = res.replace(/零[零十百千]+/g, '零').replace(/零+$/g, '').replace(/零万/g, '万')
     return res;
-  }
+}
 ```
 102 #101解析字串
 

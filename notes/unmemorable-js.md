@@ -956,6 +956,15 @@ for(let i = a.length - 3; i > 0; i= i-3) {
 我今天在if else if else if else if 后面加上break，直接导致编译出错了
 
 
+11月21日
+push() 方法   可向数组的末尾添加一个或多个元素，并返回新的长度
+
+arr.push(ele1, ele2, ele3, ..., ele4)
+
+unshift()
+
+如何将时间戳转换成  '2019-11-20T00:00:00+08:00'
+
 
 
 

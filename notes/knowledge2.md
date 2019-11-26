@@ -85,3 +85,44 @@ if(search.indexOf("?") !== -1)
 ```
 
 代码执行顺序， regular code, then promise handing, then everything else, like events etc
+
+
+11月21日 更新
+```
+funciton select() {
+let startMonth = new Date(Math.floor(date)).getMonth() + 1;
+      let startDay = new Date(Math.floor(date)).getDate();
+      let endYear = new Date(Math.floor(date)).getFullYear();
+      let endMonth = startMonth + 1;
+      let endStr = `${endYear}-${endMonth}-${startDay}`;
+      if(startMonth + 1 > 12) {
+        endYear = endYear + 1;
+        endMonth = 1;
+      }
+
+      if(endMonth <= 9 && startDay <= 9) {
+        endStr = `${endYear}-0${endMonth}-0${startDay}`;
+        // return;
+      } else if(endMonth <= 9) {
+        endStr = `${endYear}-0${endMonth}-${startDay}`;
+      } else if(startDay <= 9) {
+        endStr = `${endYear}-${endMonth}-0${startDay}`;
+      }
+
+      while(!moment(endStr, dateFormat)['_isValid']) {
+        startDay = startDay -1;
+        if(startDay <= 9) {
+          endStr = `${endYear}-${endMonth}-0${startDay}`;
+        } else {
+          endStr = `${endYear}-${endMonth}-${startDay}`;
+        }
+      }
+}
+```
+如上代码，选择当前时间，则下一个控件变成 当前时间的下一个月的同一天
+
+
+11月22日 更新
+
+我点击创建完成按钮
+去更改了渲染dom里的数组，我没有执行this.setState({})操作，为什么就会直接改掉了值。
