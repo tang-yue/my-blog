@@ -231,6 +231,80 @@ this.$store.dispatch('user/changeRoles', val).then(() => {
 
 三者 渲染的优先级 ： render 函数 > template 属性 > 外部html
 
+11月25日
+现在做的事情，是我想做的事情。
+
+router.js 里
+
+routers 是一个数组，数组里的对象，如果对象里没有 children 属性，那么就不展示。
+
+就是这里的每个menu,都有一个固定的属性，一个码对应多个属性。
+
+
+11月26日
+
+遇到一个问题，项目突然加载不到页面了： 我没有改任何的东西。
+居然是路径的名字被我写错了。
+
+我觉得我需要保持清醒思考的艺术。
+
+我觉得我有必要学习下，vue router 的配置规范，和原则。
+
+从这个项目中我能学习到什么。公司的项目总要求我们，再嵌套一个路由，它的实现过程究竟是怎么样的。
+
+
+                    <!-- v-bind:style="{width: isCollapse ? '75px' : '230px'}"  -->
+
+                    v-bind:style="{width: isCollapse ? '75px' : '230px'}" 
+
+vue 中 vue 中有那些跳转路由的方式。
+
+我怎么会犯如此低级的错误。
+
+window.location.href = window.location.origin + '/fe-user-growth/card/punchCard'
+
+table 表格 参考 Complex Table http://localhost:9527/#/table/complex-table
+
+获取对象属性的几种方法。
+
+取不出 headers 下的content-type 属性
+
+如何写好 css 的一个重要原则，就是不要有多余的css
+
+vue 中 图片转二维码   用哪个npm 包
+
+我觉得关于 vue中，上传图片到oss, 需要用到全局store
+
+vue 中上传图片
+https://segmentfault.com/a/1190000015545333
+
+一步一步慢慢的做。
+
+https://www.jianshu.com/p/e637452e1961
+
+vue 的 if 条件  如何写上三目运算符， 因为不会计算，所以要加上布尔值。
+
+```
+<script>
+
+export default {
+    name: 'CommonInvite'
+}
+</script>
+
+<style lang="less">
+.title {
+    color: blue;
+    .subTitle {
+        color: red;
+    }
+}
+</style>
+```
+
+关于路由跳转同一个页面，页面不刷新的问题。
+
+
 
 
 

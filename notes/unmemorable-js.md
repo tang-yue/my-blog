@@ -963,7 +963,28 @@ arr.push(ele1, ele2, ele3, ..., ele4)
 
 unshift()
 
-如何将时间戳转换成  '2019-11-20T00:00:00+08:00'
+如何将 '2019-11-20T00:00:00+08:00' 转成 时间戳
+
+Math.floor()
+
+关于npm包 moment 的所有总结。 影响到所有的转换格式。
+
+要想click 没有反应， 可以这样写 @click="index == 0 ? moveTop(index) : null"
+
+用null 代表。
+
+遇到一个很奇怪的问题。
+input 输入框，变得只能输入一个字符，且只能是英文的。
+ant design 里的form formItem 里 input,,,, 原来这样写 `<Header />` 和这样写 header() 是有点区别的
+
+如何把数组里某个对象的，某个属性和其属性值给单独提取出来。
+
+
+
+
+
+
+
 
 
 

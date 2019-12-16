@@ -9,6 +9,29 @@
   <div></div>
 </body>
 <script>
-  // function 
+  let arr = [
+    {name: '1', id: 1 },
+    {name: '2', id: 2 },
+    {name: '2', id: 2 }
+  ]
+  let re = arr.map((item) => JSON.stringify(item));
+  console.log(re);
+  let res = re.filter((item, index, new_arr) => new_arr.indexOf(item) === index)
+  let result = res.map((item) => JSON.parse(item));
+
+  console.log(result, 'result');
+
+  console.log(Array.from(new Set(arr)));
+
+  let couponItems = [
+    {name: '1', id: 1},
+    {name: '2', id: 2}
+  ]
+  let new_couponItems = couponItems.reduce(
+    (arr,item) =>{
+      arr.push({itemId: item.id})
+      return arr;
+    }, []);
+  console.log(new_couponItems)
 </script>
 </html>
