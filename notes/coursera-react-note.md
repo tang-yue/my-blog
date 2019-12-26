@@ -19,10 +19,6 @@ constructor => render => componentDidMount
 
 componentWillMount() 在react 17.0 已经完全移除了
 
-
-
-
-
 第二周
 ### Presentational and Container Components
 
