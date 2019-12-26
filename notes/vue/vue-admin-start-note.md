@@ -178,14 +178,11 @@ element-ui 这个是必须的
 和做这个项目的一些思考
 1、 如何把导航调成我想要的颜色。 done, 如果以前框架里面自带了颜色，那么要用 !important.
 2、 目前滚动导航暂时就不加了。
-3、 要实现折叠导航。相信自己, 如何给它加上一个折叠时候的动效。
-
+3、 要实现折叠导航。如何给它加上一个折叠时候的动效。
 
 v-bind:style="{width: isCollapse ? '75px' : '230px'}"
 
 :collapse="isCollapse"
-
-这个里面的东西真的好多。
 
 关于路由跳转的文档 https://juejin.im/post/5b82bcfcf265da4345153343
 
@@ -199,12 +196,10 @@ vue 自带 path 包 import path from 'path';
 
 关于vue 几个官方链接
 
- router:   https://router.vuejs.org/
- vuex:   https://vuex.vuejs.org/
- vue:    https://vuejs.org
+router:   https://router.vuejs.org/
+vuex:   https://vuex.vuejs.org/
+vue:    https://vuejs.org
 
-
- 
  ```
   <el-submenu index="2" class="nest-menu">
     <template slot="title">
@@ -246,22 +241,17 @@ routers 是一个数组，数组里的对象，如果对象里没有 children �
 遇到一个问题，项目突然加载不到页面了： 我没有改任何的东西。
 居然是路径的名字被我写错了。
 
-我觉得我需要保持清醒思考的艺术。
-
 我觉得我有必要学习下，vue router 的配置规范，和原则。
 
 从这个项目中我能学习到什么。公司的项目总要求我们，再嵌套一个路由，它的实现过程究竟是怎么样的。
 
+v-bind:style="{width: isCollapse ? '75px' : '230px'}" 
 
-                    <!-- v-bind:style="{width: isCollapse ? '75px' : '230px'}"  -->
-
-                    v-bind:style="{width: isCollapse ? '75px' : '230px'}" 
+v-bind:style="{width: isCollapse ? '75px' : '230px'}" 
 
 vue 中 vue 中有那些跳转路由的方式。
 
-我怎么会犯如此低级的错误。
-
-window.location.href = window.location.origin + '/fe-user-growth/card/punchCard'
+window.location.href = window.location.origin + '/fe-user-growth/xxxxx'
 
 table 表格 参考 Complex Table http://localhost:9527/#/table/complex-table
 
@@ -269,20 +259,20 @@ table 表格 参考 Complex Table http://localhost:9527/#/table/complex-table
 
 取不出 headers 下的content-type 属性
 
-如何写好 css 的一个重要原则，就是不要有多余的css
 
 vue 中 图片转二维码   用哪个npm 包
 
 我觉得关于 vue中，上传图片到oss, 需要用到全局store
 
 vue 中上传图片
+
 https://segmentfault.com/a/1190000015545333
 
 一步一步慢慢的做。
 
 https://www.jianshu.com/p/e637452e1961
 
-vue 的 if 条件  如何写上三目运算符， 因为不会计算，所以要加上布尔值。
+vue 的 if 条件  如何写上三目运算符， 因为不会计算，所以要加上布尔值。或者直接用括号
 
 ```
 <script>
@@ -304,14 +294,14 @@ export default {
 
 关于路由跳转同一个页面，页面不刷新的问题。
 
-
-
-
-
-
-
-
-
+```
+<div class="min-content"><router-view :key="key"></router-view></div>
+computed: {
+    key() {
+        return this.$route.name ? this.$route.name + new Date() : this.$route + new Date()
+    }
+}
+```
 
 
 

@@ -3,35 +3,17 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <style>
+  div {
+    padding: 1em;
+    border: 1px dashed transparent;
+    background: linear-gradient(white,white) padding-box,
+    repeating-linear-gradient(-45deg,#ccc 0, #ccc 0.25em,white 0,white 0.75em);
+  }
   </style>
 </head>
 <body>
-  <div></div>
+  <div> Hello world</div>
 </body>
 <script>
-  let arr = [
-    {name: '1', id: 1 },
-    {name: '2', id: 2 },
-    {name: '2', id: 2 }
-  ]
-  let re = arr.map((item) => JSON.stringify(item));
-  console.log(re);
-  let res = re.filter((item, index, new_arr) => new_arr.indexOf(item) === index)
-  let result = res.map((item) => JSON.parse(item));
-
-  console.log(result, 'result');
-
-  console.log(Array.from(new Set(arr)));
-
-  let couponItems = [
-    {name: '1', id: 1},
-    {name: '2', id: 2}
-  ]
-  let new_couponItems = couponItems.reduce(
-    (arr,item) =>{
-      arr.push({itemId: item.id})
-      return arr;
-    }, []);
-  console.log(new_couponItems)
 </script>
 </html>

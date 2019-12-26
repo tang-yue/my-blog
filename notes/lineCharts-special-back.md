@@ -105,7 +105,5 @@ class WeekLineChart extends React.Component {
     );
   }
 }
-
 export default WeekLineChart
-
 ```

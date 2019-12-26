@@ -50,6 +50,8 @@ my-blog
 
 [scriptOJ 练习题](https://github.com/tang-yue/my-blog/blob/master/conclusions/scriptoj.md) (9月20日 至 10月1日)
 
+[搭建 node+koa+mysql+sequelize后台项目](https://github.com/tang-yue/simple-node-koa-mysql-sequelize) (11月15日 至 12月20日)
+
 
 
 

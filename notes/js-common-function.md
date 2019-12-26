@@ -40,40 +40,52 @@ function unique(arr) {
    (2) arr.sort((a,b) => a-b); 对于排序负数，两位数，三位数都是可以的
    (3) arr.sort((a,b) => a>b); 可以排序字母
 ```
-### 5. 复制一份数组，但是不改变原数组有哪些方法
-已知要复制的数组 state
-#### （1）concat()
-```
-var newState = ( state || [] ).concat();
-var newState = [].concat( state || [] );
-```
+### 5 复制数组不改变原数组的三种方法
 
-#### （2）spreads ...
-```
-var newState = [...state]
-```
+1、connect
 
-#### （3）slice
-```
-var newState = (state || []).slice()
-```
+为了防止 array1 为undefined，最好写成下面这样。
 
-#### （4）Array.from()
-```
-var newState = Array.from(state)
-```
+(1) first method
+`var array2 = [].concat(array1 || []);`
 
-#### （5） JSON.stringify()，JSON.parse()
-```
-// copy obj or array
-var newState = JSON.parse(JSON.stringify(state))
-```
+(2) second method
+`var array2 = (array1 || []).concat(); `
 
-#### map 循环
-```
-var newState = state.map(item => item)
-```
+2、spreads ... to copy array
+`const itemCopy = [...items]`
 
-### 按照某个值，进行去重
+2、slice
 
-将对象的某个属性对应的值，合成一个数组。
+`var newArray = array.slice();`
+
+为了防止 array1 为空，最好的方式是`var array2 = (array1 || []).slice();`
+
+3、filter
+
+举列说明:
+
+```
+var array = [2, 4, 5, 7];
+var uniqueProducts = array.filter(function(elem, i, array) {
+	return array.indexOf(elem) === i;
+	}
+);
+
+uniqueProducts = [8,9,10,11];
+
+console.log(array);  // [2, 4, 5, 7]
+console.log(uniqueProducts); // [8, 9, 10, 11]
+```
+4、from
+
+`var arr2 = Array.from(arr); // 并不会去重` 
+
+5、an easy way to copy Array and Objects：
+
+`var arr2 = JSON.parse(JSON.stringify(arr));`
+
+6、 直接用for循环
+
+以上全部，参考文档
+[参考文档](https://stackoverflow.com/questions/7486085/copying-array-by-value-in-javascript)

@@ -28,8 +28,6 @@ Math.round()
 举列说明
 document.getElementsByTagName("H1")[0].getAttribute("class");
 
-
-
 document.getElementsByTagName()  方法的返回值是什么。 如何将其处理成数组（两种方法）
 
 NodeList形式的类数组
@@ -47,6 +45,4 @@ arr.reverse()  会改变原数组吗？ 答案是会的
 32、substring 和 subStr 的区别是什么？
 
 完全不记得有什么区别。完全不记得，完全不记得
-
-当再一次复习上述的时候，我感觉到无比的恶心。
 

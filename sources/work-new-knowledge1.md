@@ -155,7 +155,7 @@ const bar = {
 };
 const d = 4;
 
-const ret = { ...foo, ...bar, d };  // { a:1, b:3, c:2, d:4 }
+const ret = { ...foo, ...bar, d, };  // { a:1, b:3, c:2, d:4 }
 ```
 
 ### 复制数组不改变原数组的三种方法
@@ -265,7 +265,8 @@ git merge development (there won't be any conflicts now)
 ### 判断是否微信端
 第一种方式
 ```
-var ua = navigator.userAgent.toLowerCase();//获取判断用的对象
+var ua = window.navigator.userAgent.toLowerCase();//获取判断用的对象
+
 			  if (ua.match(/MicroMessenger/i) == "micromessenger") {
 			    //在微信中打开
 			  } else {
@@ -326,7 +327,6 @@ https://www.npmjs.com/package/react-html5video
 </body>
 </html>
 ```
-### 看看微信小程序配置
 
 ### react 里面滚动到底部功能
 ```
@@ -665,18 +665,7 @@ TweenOne
 效果图如下:
 [gif动效图](//img.pipacoding.com/assets/new2_landingpage/animation.gif)
 
-### 在当前分支拉master分支的代码
-在该分支上绑定master 分支
 
-#### 1.git remote add main 当前仓库地址，，（当前仓库地址默认就是master分支）
-#### 2.git pull main master
-
-### react-生命周期
-执行顺序 先DidMount 再render。。。。
-
-
-try again
-https://stackoverflow.com/questions/5970879/git-rebase-error-cannot-stat-file-permission-denied?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
 
 
 
