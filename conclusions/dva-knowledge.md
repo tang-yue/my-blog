@@ -2,6 +2,7 @@
 
 ### dva代码片段
 #### select取值
+
 ```
 // 取出命名空间为mail的model里的state对象
 const stateAllValue = yield select(state => 　state.mail);

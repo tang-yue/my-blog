@@ -26,7 +26,6 @@ express
 multer
 mysql
 
-
 github node + express 项目
 
 https://github.com/fengshi123/express_project/blob/master/dao/userDao.js
@@ -108,6 +107,8 @@ let addSql = 'INSERT INTO carousel_order(order) VALUES(?)';
 
 Sequelize 用法 中文 翻译网站， 以及 api 详解
 
+sequelize
+
 https://itbilu.com/nodejs/page-1.html
 
 
@@ -127,7 +128,6 @@ go 文档  http://gorm.book.jasperxu.com/crud.html#q
 多联表的几个 api
 
 BelongsTo HasOne HasMany BelongsToMany 
-
 
 我现在最主要要做的是总结。
 
@@ -184,7 +184,6 @@ BannerModel.update(
 })
 ```
 
-
 配置前后端项目
 
 https://www.jianshu.com/p/7258a75798c4   部署vsftpd
@@ -208,3 +207,8 @@ filezilla mac 免费版 下载链接   https://www.macdown.com/mac/2933.html
   eslint 配置参照下面这一篇
 
   https://hang-hu.github.io/frontend/2019/09/05/use-eslint.html
+
+
+12月29日
+
+如何部署前端项目到阿里云服务器

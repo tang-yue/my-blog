@@ -58,6 +58,8 @@ componentDidCatch
 
 https://zhuanlan.zhihu.com/p/23155051
 
+https://segmentfault.com/a/1190000006879700
+
 3次握手
 
 4次挥手
@@ -87,9 +89,3 @@ sessionStorage 把表单页面拆分成多个子页面，然后按步骤引导�
 因为只要打开控制台，你就随意修改它们的值，也就是说如果你的网站中有xss的风险，它们就能对你的localStorage 肆意妄为。
 
 ### vue 的响应式原理
-
-https://www.zhihu.com/search?type=content&q=vue%20%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86
-
-1、Object.defineProperty - get， 用于 依赖收集
-2、Object.defineProperty - set， 用于 依赖更新
-<!-- 3 -->
