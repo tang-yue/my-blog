@@ -40,7 +40,7 @@ function unique(arr) {
    (2) arr.sort((a,b) => a-b); 对于排序负数，两位数，三位数都是可以的
    (3) arr.sort((a,b) => a>b); 可以排序字母
 ```
-### 5 复制数组不改变原数组的三种方法
+### 5 复制数组不改变原数组方法
 
 1、connect
 
@@ -89,3 +89,10 @@ console.log(uniqueProducts); // [8, 9, 10, 11]
 
 以上全部，参考文档
 [参考文档](https://stackoverflow.com/questions/7486085/copying-array-by-value-in-javascript)
+
+数组里面是对象的去重
+
+let re1 = add_selectedRow.map((item) => JSON.stringify(item));
+    let re2 = re1.filter((item, index, new_arr) => new_arr.indexOf(item) === index);
+    let res_add_selectedRow = re2.map((item) => JSON.parse(item));
+

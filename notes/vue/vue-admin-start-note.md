@@ -139,31 +139,62 @@ export default function request(url, options) {
 
 ```
 module.exports = {
-  root: true,
-  env: {
-    browser: true,
-    node: true,
-  },
-  extends: [
-    'plugin:vue/essential',
-    '@vue/airbnb',
-  ],
-  rules: {
-    'no-console': 0,
-    'linebreak-style': 0,
-    'comma-dangle':0,
-    "indent": 0,
-    "semi":0,
-    "space-infix-ops":0,
-    "no-mixed-operators":0,
-    "no-trailing-spaces":0,
-    "no-multi-spaces":0,
-    "no-else-return": 0
-  },
-  parserOptions: {
-    parser: 'babel-eslint',
-  }
+    root: true,
+    env: {
+        node: true,
+    },
+    extends: [
+        'plugin:vue/base',
+        'plugin:vue/essential',
+        'plugin:vue/strongly-recommended',
+        'plugin:vue/recommended',
+        '@vue/standard',
+    ],
+    rules: {
+        'indent': [
+            'error', 4,
+        ],
+        'comma-dangle': [
+            'error', {
+                'arrays': 'always',
+                'objects': 'always',
+                'imports': 'always',
+                'exports': 'always',
+                'functions': 'never',
+            },
+        ],
+        'array-bracket-newline': [
+            'error', {
+                minItems: 1,
+            },
+        ],
+        'object-curly-newline': [
+            'error', {
+                minProperties: 1,
+            },
+        ],
+        'object-property-newline': [
+            'error', {
+                allowAllPropertiesOnSameLine: false,
+            },
+        ],
+        'no-console': 'off',
+        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+        'semi': [
+            'error', 'always',
+        ],
+        'standard/no-callback-literal': 'off',
+        'camelcase': 'off',
+        'vue/html-indent': [
+            'error', 4,
+        ],
+        'vue/prop-name-casing': 'off',
+    },
+    parserOptions: {
+        parser: 'babel-eslint',
+    },
 };
+
 ```
 
 第七步，具体是要选择哪个库，我觉得还需要根据需要。

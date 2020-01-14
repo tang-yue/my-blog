@@ -86,6 +86,16 @@ sessionStorage 把表单页面拆分成多个子页面，然后按步骤引导�
 任何数据都不能放在以上三种中，需要时刻注意是否有代码存在xss注入的风险。
 因为只要打开控制台，你就随意修改它们的值，也就是说如果你的网站中有xss的风险，它们就能对你的localStorage 肆意妄为。
 
-#### 5、vue 的响应式原理
+### 5、vue 的响应式原理
+
+### 6、理解BFC原理
+
+BFC 即Block Formatting Contexts （块级格式化上下文）。它是一个独立的渲染区域，
+
+https://www.zhihu.com/search?type=content&q=BFC
+
+https://muyiy.cn/question/css/39.html
+
+https://juejin.im/entry/59478ce8a0bb9f006bda9756
 
 

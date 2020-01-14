@@ -983,13 +983,35 @@ ant design 里的form formItem 里 input,,,, 原来这样写 `<Header />` 和这
 
 如何将一个对象里的所有属性值，都置为null
 
+下面这段代码为什么会不起作用呢
 
+```
+<div :style="handleMargin(0,0,0,20)">  // 这行代码不起作用
 
+</div>
 
+handleMargin(top, right, bottom, left) {
+  this.$emit('margin', top, right, bottom, left)
+}
 
+父组件
 
+<account-info
+        :accountInfo="accountInfo"
+        @margin="margin"
+        @apply="apply"
+        :isPower="isAuditManager()"
+      />
 
+margin(top, right, bottom, left) {
+  return {
+      margin: top + "px " + right + "px " + bottom + "px " + left + "px"
+  }
+}
+```
 
+289.9 * 100  // 28989.999999999999
 
+如何将一个数据里面，数组里是各个对象，对象里面的某个属性，值相同的给提取出来。
 
 

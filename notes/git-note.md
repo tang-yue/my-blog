@@ -46,3 +46,10 @@ git push origin :<branchname />
 慎重使用：
 
 现在在一个分支： merge 另一个分支，但是另一个分支没有当前分支上的一部分代码。此时merge, 原有分支上的这部分代码直接就被删除了。
+
+11、关于git checkout 方法
+
+慎重使用：
+
+我在master 分支上，修改了很多代码，此时发现居然是在master 修改的，于是没有，commit，直接git checkout -b dev-xxxx。
+于是切回master, git checkout. 再回到自己的开发分支上。发现并不是在master 修改的。只有增加的文件保留了，修改的文件，都没有了。
