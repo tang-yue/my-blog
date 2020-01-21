@@ -90,7 +90,20 @@ sessionStorage 把表单页面拆分成多个子页面，然后按步骤引导�
 
 ### 6、理解BFC原理
 
-BFC 即Block Formatting Contexts （块级格式化上下文）。它是一个独立的渲染区域，
+BFC 即Block Formatting Contexts （块级格式化上下文）。它是一个独立的渲染区域，里面的元素和外部的元素相互不影响。
+
+#### 触发BFC
+1、body 根元素
+2、浮动元素：float: left；float: right
+3、定位元素：position为absolute或fixed
+4、display：inline-block；table-cell；table-caption；flex；inline-flex
+5、overflow：hidden；scroll；auto
+
+#### 利用BFC 能解决哪些问题
+
+1、解决同一BFC容器中的相邻块级元素垂直方向的外边距重叠问题
+2、清除浮动
+3、BFC可以阻止元素被浮动元素覆盖
 
 https://www.zhihu.com/search?type=content&q=BFC
 
@@ -98,4 +111,128 @@ https://muyiy.cn/question/css/39.html
 
 https://juejin.im/entry/59478ce8a0bb9f006bda9756
 
+### 7、如何实现居中
 
+水平居中： 
+
+1、`text-align: center` 在块级元素内部的行内元素水平居中。
+对inline、inline-block、inline-table、inline-flex 元素水平居中都有效 (可以解决大部分问题)
+
+```js
+<div class="parent">
+  <div class="child">Demo</div>
+</div>
+<style>
+  .parent {
+    text-align: center;
+  }
+  .child {
+    // 设置宽度和border，更能看出效果
+    display: inline-block;
+  }
+</style>
+```
+2、块级元素居中： `margin: 0 auto` (该元素定宽)
+
+3、flex
+
+```js
+<div class="parent">
+  <div class="child">xxxx</div>
+</div>
+<style>
+  .parent {
+    display: flex;
+    justify-content:center;
+  }
+  .child {
+
+  }
+</style>
+```
+
+垂直居中：
+
+1、PC端有兼容性要求，宽高固定
+
+```js
+<div class="parent">
+  <div class="child">
+
+  </div>
+</div>
+<style>
+.parent {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border: 1px solid #eee;
+}
+.child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+  border: 1px solid #aaa;
+  width: 100px;
+  height: 100px;
+}
+</style>
+```
+
+2、pc 端无兼容性要求，宽高不固定，推荐css-table
+```js
+<div class="parent">
+  <div class="child">
+
+  </div>
+</div>
+<style>
+.parent {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #aaa;
+    width: 200px;
+    height: 200px;
+  }
+.child {
+  display: inline-block;
+  border: 1px solid #aaa;
+}
+</style>
+```
+
+3、pc端无兼容性要求，宽高不固定，推荐flex, （这个比较好）
+```js
+<div class="parent">
+  <div class="child">
+  </div>
+</div>
+<style>
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #aaa;
+    width: 200px;
+    height: 200px;
+}
+.child {
+    
+}
+</style>
+```
+
+### 跨域问题
+
+#### 完整url的组成
+
+1、协议 例 Http （超文本传输协议，信息是明文传输），Https（具有安全性的ssl加密传输协议）
+2、域名 例`www.baidu.com`为网站名字。`baidu.com`为一级域名，www 是服务器
+3、端口， 不填写的话，Http 走80端口，https 走 443
+4、路径 `http://www.baidu.com/路径1/路径1.2` / 表示根目录
+5、查询参数 `查询参数http://www.baidu.com/路径1/路径1.2?name="man"`
+
+#### 同源策略
