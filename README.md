@@ -54,6 +54,5 @@ my-blog
 
 [面试题](https://github.com/tang-yue/my-blog/blob/master/notes/summary/interviewSummary.md) (12月20日 至今)
 
-[部署前后端项目](https://github.com/tang-yue/my-blog/blob/master/notes/node/deploy.md)
-
+[部署前后端项目](https://github.com/tang-yue/my-blog/blob/master/notes/node/deploy.md) （12月29日前后部署前端）
 

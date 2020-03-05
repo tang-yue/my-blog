@@ -6,6 +6,8 @@ https://css-tricks.com/guides/react/  一个不错前端英文网站   在这里
 
 https://www.w3.org/TR/cors/     W3C 文章
 
+https://2ality.com/archive.html  高端js 文章
+
 
 推荐两个练习正则的网站
 https://regexr.com/  
