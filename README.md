@@ -56,3 +56,5 @@ my-blog
 
 [部署前后端项目](https://github.com/tang-yue/my-blog/blob/master/notes/node/deploy.md) （12月29日前后部署前端）
 
+[对待面试题的正确态度]()
+

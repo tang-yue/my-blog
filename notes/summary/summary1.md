@@ -1,4 +1,4 @@
-工作总结1
+两年半后台和移动端工作总结
 
 #### 1、npm 包 moment 的用法总结
 
@@ -102,6 +102,9 @@ export function getDevice(type) {
 }
 ```
 [更多判断系统类型参考](https://www.jianshu.com/p/00047e800ca1)
+
+
+
 
 
 

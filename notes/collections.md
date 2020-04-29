@@ -29,7 +29,6 @@ codesandbox  react 编辑器 地址 https://codesandbox.io/
 
 https://javascript.info  jsInfo 不错的学习js的网站
 
-tang19941027
 
 https://github.com/WomenWhoCode/javascript-resources
 
@@ -37,6 +36,7 @@ https://github.com/WomenWhoCode/javascript-resources
 https://www.quora.com/What-are-some-of-the-best-books-on-stress-management
 
 需要练习的
+
 https://github.com/maczyt/exercises
 
 
