@@ -315,7 +315,6 @@ document.domain
 
 4、反向代理
 
-[跨域参考文章](https://github.com/happylindz/blog/issues/3)
 
 5、location.hash、  window.name、 postMessage、 document.doman
 
@@ -323,6 +322,8 @@ JSONP 和 CORS 的对比
 
 JSONP 只支持GET 请求，和后端配置相应回调函数。 CORS 支持所有类型的HTTP请求
 JSONP 的优势在于支持老式浏览器，以及可以向不支持CORS的网站请求数据
+
+[跨域参考文章](https://github.com/happylindz/blog/issues/3)
 
 ### js 里面的闭包
 
@@ -372,6 +373,231 @@ Array.prototype.distinct01 = function () {
 Array.prototype.distinct03 = function() {
   return Array.from(new Set(this))
 }
+
+
+4月28日  面试复盘
+
+恒昌利通
+
+原生javascript 实现ajax 请求
+```
+var Ajax={
+  get: function(url, fn) {
+    // XMLHttpRequest对象用于在后台与服务器交换数据   
+    var xhr = new XMLHttpRequest();            
+    xhr.open('GET', url, true);
+    xhr.onreadystatechange = function() {
+      // readyState == 4说明请求已完成
+      if (xhr.readyState == 4 && xhr.status == 200 || xhr.status == 304) { 
+        // 从服务器获得数据 
+        fn.call(this, xhr.responseText);  
+      }
+    };
+    xhr.send();
+  },
+  // datat应为'a=a1&b=b1'这种字符串格式，在jq里如果data为对象会自动将对象转成这种字符串格式
+  post: function (url, data, fn) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    // 添加http头，发送信息至服务器时内容编码类型
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");  
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 304)) {
+        fn.call(this, xhr.responseText);
+      }
+    };
+    xhr.send(data);
+  }
+}
+```
+
+[vue 面试题](https://www.zhihu.com/search?type=content&q=vue)
+
+[函数的防抖和节流](https://mp.weixin.qq.com/s/Vkshf-nEDwo2ODUJhxgzVA)
+
+区别： 函数节流不管事件触发有多频繁，都会保证在规定时间内一定会执行一次真正的事件处理函数，而函数防抖只是在最后一次事件后才触发一次函数。 比如在页面的无限加载场景下，我们需要用户在滚动页面时，每隔一段时间发一次 Ajax 请求，而不是在用户停下滚动页面操作时才去请求数据。这样的场景，就适合用节流技术来实现。
+
+
+```
+function debounce (fn, wait=300) {
+    var timer
+    return function () {
+        if (timer) {
+            clearTimeOut(timer)
+        }
+        timer = setTimeout({
+            fn.apply(this, arguments) 
+        }, wait)
+    }
+}
+
+function throttle (fn, wait=300) {
+    var prev = +new Date()
+    return function () {
+       var now = +new Date()
+       if (prev - now > 300) {
+          fn.apply(this, arguments)
+          prev = now
+       }
+    }
+}
+```
+
+[手动创建一个虚拟dom](https://www.zhihu.com/people/FEencounter/posts)
+
+代码示列
+```
+// vdom 函数 创建 Virtual DOM
+function vdom(type, props, ...children) {
+    return {
+        type,
+        props,
+        children,
+    };
+}
+
+// Virtual DOM 树
+
+const vNode = vdom('div', null,
+    vdom('span', { class: 'item' }, 'item'),
+    vdom('input', { disabled: true })
+);
+```
+
+[前端路由简介以及vue-router 实现原理](https://zhuanlan.zhihu.com/p/37730038)
+
+hash 模式
+
+前端路由实现起来其实也很简单，就是匹配不同的 url 路径，进行解析，然后动态的渲染出区域 html 内容。但是这样存在一个问题，就是 url 每次变化的时候，都会造成页面的刷新。那解决问题的思路便是在改变 url 的情况下，保证页面的不刷新。
+
+
+`#` 后面 hash 值的变化，并不会导致浏览器向服务器发出请求，浏览器不发出请求，也就不会刷新页面。
+。另外每次 hash 值的变化，还会触发hashchange 这个事件，通过这个事件我们就可以知道 hash 值发生了哪些变化。然后我们便可以监听hashchange来实现更新页面部分内容的
+
+```
+function matchAndUpdate () {
+   // todo 匹配 hash 做 dom 更新操作
+}
+
+window.addEventListener('hashchange', matchAndUpdate)
+```
+
+history 模式
+
+HTML5 多两个 API pushState 和 replaceState ,,, 改变url 地址 且不会发送请求 popstate
+
+
+vue 3.0 有哪些新特性
+
+[vue 3.0 新特性](https://www.zhihu.com/search?type=content&q=vue3.0%20%E6%96%B0%E5%A2%9E%E4%BA%86%E5%93%AA%E4%BA%9B%E7%89%B9%E6%80%A7)
+
+1、 压缩包体积更小
+
+2、 Object.defineProperty -> Proxy
+
+Object.defineProperty 直接操作对象的属性， proxy 操作变为 对整个对象的操作。颗粒度变大。
+
+3、Virtual DOM 重构
+
+4、 更好的支持TypeScript
+
+
+
+[vue 双向绑定原理](https://www.zhihu.com/search?type=content&q=vue%20%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86)
+
+数据劫持结合发布订阅模式来实现双向绑定的。
+
+数据劫持 通过 Object.defineProperty 方法
+
+Observer 监听器：用来监听属性的变化通知订阅者
+Watcher 订阅者：收到属性的变化，然后更新视图
+Compile 解析器：解析指令，初始化模版，绑定订阅者
+
+
+阿里巴巴 --- 某CBU部门 面试复盘
+
+
+阿里旅行 面试复盘
+
+
+高思教育集团   面试复盘
+
+
+字节跳动  ---- 商品部门 面试复盘
+
+1、react 16 新增了哪些特性，某个属性的，应用场景， 有什么好处
+
+2、防抖， 节流函数， 它们的应用场景， 输入框输入模糊匹配问题
+
+3、 总共可以跳n级， 每次跳1级或者2级， 共有多少种跳法。
+用到了哪种算法？
+
+4、可以谈下 vue， 是如何做前端路由，如果让你实现一个，你怎么实现
+
+5、vue 的双向绑定 实现原理
+
+6、 有配过webpack, babel 吗？
+
+7、同源策略，什么是同源策略 浏览器端限制，还是服务端限制的
+
+8、有用过react hooks 吗？
+
+9、有用过 proxy 吗？
+
+
+
+某公司  ----- 面试复盘
+
+1、输入一个url, 到页面加载，浏览器执行了哪些事件。
+2、说下 vue 中 nextTick 的原理， 我们应该什么时候用this.nextTick()
+
+
+
+## js 基础
+
+VIPKID 面试复盘
+
+#### javascript 模块化
+
+2009年 1月 commonJS 服务器端模块化规范 同步加载  基于CommonJS 规范实现模块体系的Node.js
+
+2009年 12月 AMD   浏览器端模块化规范   异步加载  基于AMD规范的模块化加载器 RequireJS
+
+2011年 11月 CMD  浏览器端模块化规范   异步加载    基于CMD规范的模块化加载器  Sea.js
+
+2015 年 6月   ES模块化规范    目标是整合 CommonJS 、 AMD 已有的模块化方案， 成为浏览器和服务器通用的模块化解决方案
+
+在浏览器端使用模块加载器存在很多弊端，但是 CommmonJS 规范在服务器端就很方便稳定。解决办法 预编译
+
+2017 年 webpack 就是这种预编译的模块化方案。它结合了CommonJS 和AMD 的优缺点，开发时可按照CommonJS 的编写方式，支持编译后按需加载和异步加载所有资源。
+
+[javascript模块化野史](https://juejin.im/post/5e3985396fb9a07cde64c489)
+
+#### javascript 继承方式
+
+一、 类式继承
+
+通过修改子类的原型为父类的实列来实现继承，缺点太多。
+
+二、 构造函数式继承
+
+[深入JavaScript继承原理](https://juejin.im/post/5a96d78ef265da4e9311b4d8)
+
+#### react 是如何解决问题虚拟DOM更新频繁，影响性能的。
+
+
+#### 移动端是如何做适配的，有哪些方法？
+
+
+#### 小程序的渲染机制是什么？
+
+
+
+
+
+
+
+
 
 
 
