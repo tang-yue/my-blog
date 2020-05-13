@@ -42,3 +42,20 @@ border-radius: 30px  ------> 0.3rem
 
 原因是，我是看不懂这篇文章。或者说是找不到某个dom 节点。
 
+
+图片压缩
+
+base64 编码本质上 将 二进制数据转成文本数据，对于非二进制数据，是先将其转换成二进制形式，再转换成字符串。
+
+为什么要 base64, 让内容无措的传输。
+
+// 扩大容器 img.naturalWidth,,,  img.naturalHeight
+
+let radio = img.naturalWidth / img.naturalHeight
+
+ctx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight, (canvas.width - canvas.height * radio) / 2, 0, canvas.height * radio, canvas.height )
+
+第四个参数 img.naturalWidth, img.naturalHeight  将多大的宽度和多大的高度
+
+
+后面两个参数 这片区域的宽度   这片区域的高度

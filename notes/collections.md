@@ -8,6 +8,8 @@ https://www.w3.org/TR/cors/     W3C 文章
 
 https://2ality.com/archive.html  高端js 文章
 
+https://javascript.info  jsInfo 不错的学习js的网站
+
 
 推荐两个练习正则的网站
 https://regexr.com/  
@@ -20,15 +22,13 @@ https://regexone.com/lesson/capturing_groups
 http://www.read.org.cn/
 
 《如何高效学习》、《学习之道》、《魔术记忆》、《刻意练习》、《认知天性》、《思维导图》、《如何阅读一本书》
+
 https://vuejs.org/v2/api/  vue api
 
 
 https://www.nowcoder.com/ta/front-end-interview  前端面试经典题目合集介绍
 
 codesandbox  react 编辑器 地址 https://codesandbox.io/
-
-https://javascript.info  jsInfo 不错的学习js的网站
-
 
 https://github.com/WomenWhoCode/javascript-resources
 
@@ -69,6 +69,14 @@ vue 前端面试题：  https://zhuanlan.zhihu.com/p/71229672
 每日一题： https://github.com/Advanced-Frontend/Daily-Interview-Question
 
 面试题： https://github.com/brickspert/blog/issues/16
+
+图片压缩： https://compressjpeg.com/zh/
+
+
+
+
+
+
 
 
 
