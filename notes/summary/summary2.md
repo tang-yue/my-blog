@@ -59,3 +59,6 @@ ctx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight, (canvas.width - ca
 
 
 后面两个参数 这片区域的宽度   这片区域的高度
+
+如何优雅地写一个模态框。
+

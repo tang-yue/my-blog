@@ -73,6 +73,9 @@ vue 前端面试题：  https://zhuanlan.zhihu.com/p/71229672
 图片压缩： https://compressjpeg.com/zh/
 
 
+[egg 前后端分离](https://www.jianshu.com/p/798c5e9fde75)
+
+
 
 
 

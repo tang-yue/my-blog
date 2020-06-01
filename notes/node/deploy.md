@@ -47,6 +47,21 @@ location /vue-element-admin-template/ {
 
 ### 部署后端项目
 
+#### 安装node
+
+升级常用库文件，安装node.js 需要通过 g++ 进行编译
+
+```
+yum -y install gcc gcc-c++ autoconf
+```
+
+[如何升级 gcc](https://juejin.im/post/5d0ef5376fb9a07ef63fe74e)
+
+[安装nodejs](https://blog.csdn.net/chending_cd/article/details/100555886)
+
+[安装 mysql](https://zhuanlan.zhihu.com/p/62403721)
+
+
 
 
 
