@@ -187,3 +187,32 @@ let day = date.getDate();
 
 year + '年' + month + '月' + day + '日'
 ```
+
+
+```js
+sliceStr(str) {
+    // 三个特殊字符英文  ===== 一个中文
+    // 两个数字  ======== 一个中文
+    let strArr = str.split('')
+    let len = 0;
+    let count = 0;
+      
+    for(let i = 0; i < strArr.length; i++) {
+      if(/.*[\u4e00-\u9fa5]+.*$/.test(strArr[i])) {
+        // 含有中文
+        len = len + 1
+        count = count + 1
+      } else if(/[0-9]/.test(strArr[i])) {
+        // 含有数字
+        len = len + 2
+        count = count + 1
+      } else {
+        count = count + 1
+        len = len + 3
+      }
+      if(count === 10) {
+        return len
+      }
+    }
+  }
+```
