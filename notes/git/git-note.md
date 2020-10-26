@@ -53,3 +53,8 @@ git push origin :<branchname />
 
 我在master 分支上，修改了很多代码，此时发现居然是在master 修改的，于是没有，commit，直接git checkout -b dev-xxxx。
 于是切回master, git checkout. 再回到自己的开发分支上。发现并不是在master 修改的。只有增加的文件保留了，修改的文件，都没有了。
+
+
+11、删除项目中的所有.DS_Store
+
+find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch

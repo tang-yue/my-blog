@@ -1,4 +1,5 @@
 ### 关于react子组件向父组件，传值
+
 关于我模糊的记忆，只知道是用函数进行传值。
 1、首先，父组件和子组件共用一个函数。
 2、在子组件里的某个事件，会调用这个函数。同时，将参数给传递到父组件。
@@ -59,6 +60,7 @@ function getVersion() {
 ```
 
 3月6日
+
 我今天遇到了一个很奇怪的问题，
 ```
 if(oldVersion !== version) {
@@ -215,4 +217,18 @@ sliceStr(str) {
       }
     }
   }
+```
+
+
+```
+import Cookie from "js-cookie";
+export function getUser() {
+    const obj = ["userId", "avatar", "token","nickname", "wxname"].reduce((result, name) => {
+        result[name] = Cookie(name);
+        return result;
+        }, {});
+    return { ...obj };
+}
+// 引用
+import { getUser } from './utils/cookie' 
 ```

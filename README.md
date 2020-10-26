@@ -18,11 +18,11 @@ my-blog
 
 [react上传图片到oss](https://github.com/tang-yue/my-blog/blob/master/conclusions/react-oss-upload.md) （6月）
 
-[leetcode笔记](https://github.com/tang-yue/my-blog/blob/master/notes/note-leetcode.md)
-[leetcode做题笔记 1](https://github.com/tang-yue/my-blog/blob/master/notes/note-leetcode2.md)
-[leetcode做题笔记 2](https://github.com/tang-yue/my-blog/blob/master/notes/note-leetcode3.md)
-[leetcode做题笔记 3](https://github.com/tang-yue/my-blog/blob/master/notes/note-leetcode4.md) (leetcode 共计刷了73道)
-[小知识点笔记](https://github.com/tang-yue/my-blog/blob/master/notes/unmemorable-js.md) （8月至12月）
+[leetcode笔记](https://github.com/tang-yue/my-blog/blob/master/notes/leetcode/note-leetcode.md)
+[leetcode做题笔记 1](https://github.com/tang-yue/my-blog/blob/master/notes/leetcode/note-leetcode2.md)
+[leetcode做题笔记 2](https://github.com/tang-yue/my-blog/blob/master/notes/leetcode/note-leetcode3.md)
+[leetcode做题笔记 3](https://github.com/tang-yue/my-blog/blob/master/notes/leetcode/note-leetcode4.md) (leetcode 共计刷了73道)
+[小知识点笔记](https://github.com/tang-yue/my-blog/blob/master/notes/unmemorable/unmemorable-js.md) （8月至12月）
 
 [工作新知识1](https://github.com/tang-yue/my-blog/blob/master/sources/work-new-knowledge1.md) （3月9日至5月26日） 
 
@@ -58,7 +58,7 @@ my-blog
 
 2020年
 
-[对待面试题的正确态度](https://github.com/tang-yue/my-blog/blob/master/notes/node/attitude.md) (2月4日)
-
 [记录一次egg项目npm run start 异常](https://github.com/tang-yue/my-blog/blob/master/notes/node/startError.md)（7月1日）
+
+[随笔](https://github.com/tang-yue/my-blog/blob/master/thinking/thinking.md) (10月24日)
 
