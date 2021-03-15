@@ -1,92 +1,43 @@
 这里收集整理一些，我个人认为比较好的前端资源。
 
-https://github.com/topic/js    github 里面的js话题
+### js 相关
 
-https://css-tricks.com/guides/react/  一个不错前端英文网站   在这里可以学习vue
+[英文博客](https://hang-hu.github.io/posts/)
 
-https://www.w3.org/TR/cors/     W3C 文章
+[英文网站css-tricks](https://css-tricks.com/guides/react/)    
 
-https://2ality.com/archive.html  高端js 文章
+[github js topic](https://github.com/topic/js)
 
-https://javascript.info  jsInfo 不错的学习js的网站
+[高端js文章](https://2ality.com/archive.html)
 
+[jsInfo偏向新语法](https://javascript.info)
 
-推荐两个练习正则的网站
-https://regexr.com/  
-https://regexone.com/lesson/capturing_groups
+### 面试题部分
 
-前端开发刷题系统  http://scriptoj.mangojuice.top/
+[牛客经典题目合集](https://www.nowcoder.com/ta/front-end-interview)
 
-书单    https://www.liuchuo.net/222-2。
+[木易杨前端进阶](https://muyiy.cn/question/js/120.html)
 
-http://www.read.org.cn/
+[木易杨github每日一题](https://github.com/Advanced-Frontend/Daily-Interview-Question)
 
-《如何高效学习》、《学习之道》、《魔术记忆》、《刻意练习》、《认知天性》、《思维导图》、《如何阅读一本书》
+[前端九部](https://github.com/frontend9/fe9-interview/issues)
 
-https://vuejs.org/v2/api/  vue api
+### 正则表达式
 
+[正则练习1](https://regexr.com/)
 
-https://www.nowcoder.com/ta/front-end-interview  前端面试经典题目合集介绍
+[正则练习2](https://regexone.com/lesson/capturing_groups)
 
-codesandbox  react 编辑器 地址 https://codesandbox.io/
+### 书籍部分
 
-https://github.com/WomenWhoCode/javascript-resources
+[书单](https://www.liuchuo.net/222-2)
 
+[quora 缓解焦虑书单](https://www.quora.com/What-are-some-of-the-best-books-on-stress-management)
 
-https://www.quora.com/What-are-some-of-the-best-books-on-stress-management
-
-需要练习的
-
-https://github.com/maczyt/exercises
-
-
-思维导图
-https://mm.edrawsoft.cn/files  链接地址
-
-健康生活2 思维导图，是最全的。
-
-http://ourjs.com/home//   OurJS
-
-https://www.zcfy.cc/article/discovery  众成翻译
-
-https://js.checkio.org/  js.checkio.org
-
-
-vue js 技术揭秘
-
-英文文章
-
-https://hang-hu.github.io/posts/
-
-面试题： 
-
-木易杨前端进阶： https://muyiy.cn/question/js/120.html
-
-vue 前端面试题：  https://zhuanlan.zhihu.com/p/71229672
-
-前端九部 https://github.com/frontend9/fe9-interview/issues
-
-每日一题： https://github.com/Advanced-Frontend/Daily-Interview-Question
-
-面试题： https://github.com/brickspert/blog/issues/16
-
-图片压缩： https://compressjpeg.com/zh/
-
+### 其他
 
 [egg 前后端分离](https://www.jianshu.com/p/798c5e9fde75)
 
+[图片压缩](https://compressjpeg.com/zh/)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+[react 编辑器](https://codesandbox.io/)

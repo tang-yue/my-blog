@@ -6,7 +6,6 @@ vi /etc/nginx/nginx.conf
 cd  /usr/share/nginx/html
 cp /root/my-blog/test3.html   ./
 
-
 scp -r     my-blog   root@47.105.55.125:/root/
 
 yum -y install  nginx
@@ -33,7 +32,6 @@ cd /usr/share/nginx/html/
  cp /root/my-blog/test3.html   ./
 
  pwd
-
 
  netstat -tupln
  上面这个命令： 可以nginx 部署在哪个端口上

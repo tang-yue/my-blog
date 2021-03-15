@@ -61,12 +61,3 @@ yum -y install gcc gcc-c++ autoconf
 
 [安装 mysql](https://zhuanlan.zhihu.com/p/62403721)
 
-
-
-
-
-
-
-
-
-
