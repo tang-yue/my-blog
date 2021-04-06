@@ -23,7 +23,7 @@ git push origin :<branchname />
 
 4、 删除本地分支
 
-`git branch -d <BranchName>`
+`git branch -D <BranchName>`
 
 5、  当前分支合并另一个分支
 
@@ -85,3 +85,5 @@ $ cat ~/.ssh/id_rsa.pub
 13、安装私包 命令
 
 npm --registry http://npm.xesv5.com  install @xes/dh-hippo-jssdk
+
+npm 
