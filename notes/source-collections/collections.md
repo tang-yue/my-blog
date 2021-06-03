@@ -41,3 +41,5 @@
 [图片压缩](https://compressjpeg.com/zh/)
 
 [react 编辑器](https://codesandbox.io/)
+
+[vue2.0 eggjs mysql 的个人博客](https://segmentfault.com/a/1190000022458378)
