@@ -84,7 +84,7 @@ $ cat ~/.ssh/id_rsa.pub
 
 13、安装私包 命令
 
-npm --registry http://npm.xesv5.com  install @xes/dh-hippo-jssdk
+npm --registry http://npm.xxxx.com  install xxx
 
 14、npm run dev 报错 `Node Sass does not yet support your current environment`
 
@@ -93,3 +93,9 @@ npm --registry http://npm.xesv5.com  install @xes/dh-hippo-jssdk
 15、https://houbb.github.io/2021/03/06/github-access  443 timeout 问题
 
 19、git config --global --unset https.proxy
+
+git config --global --unset http.proxy
+
+20、git config --global http.proxy http://127.0.0.1:1087
+
+git config --global https.proxy http://127.0.0.1:1087
