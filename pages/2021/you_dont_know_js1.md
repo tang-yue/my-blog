@@ -1,5 +1,7 @@
 #### 你不知道的 javascript 上卷读书笔记
 
+### 第一个部分 作用域和闭包
+
 ### 第二章 词法作用域
 
 #### 欺骗词法
@@ -44,3 +46,148 @@ foo = function () {
 总结：我们习惯将 var a = 2;看作一个声明，而实际上 JavaScript 引擎并不这么认为。它将 var a 和 a = 2 当作两个单独的声明，第一个是编译阶段的任务，而第二个则是执行阶段的任务。
 
 ### 第五章 作用域闭包
+
+笔记：这个函数在定义时的词法作用域以外的地方被调用。闭包使得函数可以继续访问定义时的词法作用域。
+
+```js
+for (var i = 1; i <= 5; i++) {
+  setTimeout(function timer() {
+    console.log(i);
+  }, i * 1000);
+}
+```
+
+输出结果为 6 的解释：延迟函数的回调会在循环结束时才执行。我们试图假设循环中每个迭代在运行时都会自己"捕获"一个 i 的副本。但是根据作用域的工作原理，实际情况是尽管循环中的五个函数是在各个迭代中分别定义的，但是它们都被封闭在一个共享的全局作用域中，因此实际上只有一个 i；
+
+改进后：IIFE 会通过声明并立即执行一个函数来创建作用域
+
+```js
+for (var i = 1; i <= 5; i++) {
+  (function (j) {
+    setTimeout(function timer() {
+      console.log(j);
+    }, j * 1000);
+  })(i);
+}
+```
+
+解释：在迭代内使用 IIFE 会为每个迭代都生成一个新的作用域，使得延迟函数的回调可以将新的作用域封闭在每个迭代内部，这样每个迭代中访问的都是正确的值。
+
+使用块作用域：
+
+```js
+for (let i = 1; i <= 5; i++) {
+  setTimeout(function timer() {
+    console.log(i);
+  }, i * 1000);
+}
+```
+
+模块和模块模式特征：（1）为创建内部作用域而调用了一个包装函数；（2）包装函数的返回值必须至少包括一个对内部函数的引用，这样就会创建涵盖整个包装函数内部作用域的闭包
+
+### 第二部分 this 和对象原型
+
+### 第一章 关于 this
+
+```js
+function foo(num) {
+  console.log("foo: " + num);
+  // 记录foo被调用的次数
+  this.count++;
+}
+foo.count = 0;
+var i;
+for (i = 0; i < 10; i++) {
+  if (i > 5) {
+    foo(i); // 自认为this函数对象其实并没有
+    // foo.call(foo, i); // 修改为下面一行，确保this指向函数对象foo本身
+  }
+}
+// foo: 6
+// foo: 7
+// foo: 8
+// foo: 9
+// foo 被调用了多少次
+console.log(foo.count); // 0
+```
+
+笔记：this 实际上是在函数被调用时发生的绑定，它指向什么完全取决于函数在哪里被调用。
+
+### 第二章 this 全面解析
+
+#### 默认绑定
+
+```js
+function foo() {
+  console.log(this.a);
+}
+var a = 2;
+foo(); // 函数调用时，应用了this的默认绑定，因此this指向了全局对象
+```
+
+#### 隐式绑定
+
+```js
+function foo() {
+  console.log(this.a);
+}
+var obj = {
+  a: 2,
+  foo: foo,
+};
+obj.foo();
+// 当函数引用有上下文对象时，隐式绑定规则会把函数调用中的 this 绑定到这个上下文对象。因为调 用 foo() 时 this 被绑定到 obj
+```
+
+```js
+function foo() {
+  console.log(this.a);
+}
+var obj2 = {
+  a: 42,
+  foo: foo,
+};
+var obj1 = {
+  a: 2,
+  obj2: obj2,
+};
+obj1.obj2.foo(); // 42
+/*  对象属性引用链中只有最顶层或者说最后一层会影响调用位置 */
+```
+
+隐式丢失：隐式绑定的函数会丢失绑定对象，也就是说它会应用默认绑定。例子如下：
+
+```js
+function foo() {
+  console.log(this.a);
+}
+var obj = { a: 2, foo: foo };
+var bar = obj.foo; // 函数别名!
+var a = "oops, global"; // a 是全局对象的属性
+bar(); // "oops, global"
+```
+
+参数传递其实就是一种隐式赋值，因此我们传入函数时也会被隐式赋值，例如：
+
+```js
+function foo() {
+  console.log(this.a);
+}
+function doFoo(fn) {
+  // fn 其实引用的是 foo fn(); // <-- 调用位置!
+}
+var obj = { a: 2, foo: foo };
+var a = "oops, global"; // a 是全局对象的属性 doFoo( obj.foo ); // "oops, global"
+```
+
+不是自己声明的函数也会
+
+```js
+function foo() {
+  console.log(this.a);
+}
+var obj = { a: 2, foo: foo };
+var a = "oops, global"; // a 是全局对象的属性 setTimeout( obj.foo, 100 ); // "oops, global"
+```
+
+#### 显式绑定
