@@ -115,7 +115,9 @@ console.log(foo.count); // 0
 
 ### 第二章 this 全面解析
 
-#### 默认绑定
+### <a id="2.1绑定规则">2.1 绑定规则</a>
+
+- [2.1.1](#2.1.1)<a name="2.1.2">默认绑定</a>
 
 ```js
 function foo() {
@@ -125,7 +127,7 @@ var a = 2;
 foo(); // 函数调用时，应用了this的默认绑定，因此this指向了全局对象
 ```
 
-#### 隐式绑定
+- [2.1.2](#2.1.2)<a name="2.1.2">隐式绑定</a>
 
 ```js
 function foo() {
@@ -190,4 +192,164 @@ var obj = { a: 2, foo: foo };
 var a = "oops, global"; // a 是全局对象的属性 setTimeout( obj.foo, 100 ); // "oops, global"
 ```
 
-#### 显式绑定
+- [2.1.3](#2.1.3)<a name="2.1.3">显式绑定</a>
+
+可以使用 call(..)和 apply(..)方法。
+
+```js
+function foo() {
+  console.log(this.a);
+}
+var obj = {
+  a: 2,
+};
+foo.call(obj); // 2 调用foo时强制把它的this绑定到obj上。
+```
+
+显式绑定无法解决我们之前提出的丢失绑定问题。
+
+1、硬绑定：显式的强制绑定
+
+```js
+function foo() {
+  console.log(this.a);
+}
+var obj = {
+  a: 2,
+};
+var bar = function () {
+  foo.call(obj);
+};
+bar(); // 2;
+setTimeout(bar, 100); // 2
+// 硬绑定的bar不可能再修改它的this
+bar.call(window); // 2
+```
+
+es5 提供了内置的方法 Function.prototype.bind
+
+```js
+function foo(something) {
+  console.log(this.a, something);
+  return this.a + something;
+}
+
+var obj = {
+  a: 2,
+};
+
+var bar = foo.bind(obj); // bind(..)会返回一个硬编码的新函数
+var b = bar(3); // 2 3
+console.log(b); // 5
+```
+
+2、API 调用的“上下文”
+
+```js
+function foo(el) {
+  console.log(el, this.id);
+}
+var obj = {
+  id: "awesome",
+};
+// 调用 foo(..) 时把 this 绑定到 obj [1, 2, 3].forEach( foo, obj );
+// 1 awesome 2 awesome 3 awesome
+```
+
+- [2.1.4](#2.1.4)<a name="2.1.4">new 绑定</a>
+
+```js
+function foo(a) {
+  this.a = a;
+}
+var bar = new foo(2);
+console.log(bar.a); // 2
+```
+
+### <a id="2.2优先级">2.2 优先级</a>
+
+1、new 绑定直接修改了 this 的指向，指向新创建的对象。显式绑定 > 隐式绑定
+
+2、判断 this
+
+- new 绑定
+- 显式绑定
+- 隐式绑定
+- 默认绑定：非严格模式，绑定到全局对象上
+
+### <a id="2.3绑定例外">2.3 绑定例外</a>
+
+- [2.3.1](#2.3.1)<a name="2.3.1">被忽略的 this</a>
+
+如果你把 null 或者 undefined 作为 this 的绑定对象传入 call、apply 或者 bind，这些值
+在调用时会被忽略，实际应用的是默认绑定规则。
+但是会造成一些影响。建议使用 `var ø = Object.create( null );` `ø`符号代替`null`
+
+- [2.3.2](#2.3.2)<a name="2.3.2">间接引用</a>
+
+```js
+function foo() {
+  console.log(this.a);
+}
+var a = 2;
+var o = { a: 3, foo: foo };
+var p = { a: 4 };
+o.foo(); // 3
+(p.foo = o.foo)(); // 2 注意调用位置是foo，应用的是默认绑定，即严格模式下的全局对象
+```
+
+- [2.3.3](#2.3.2)<a name="2.3.3">软绑定</a>
+
+### <a id="2.4this词法">2.4 this 词法</a>
+
+```js
+function foo() {
+  // 返回一个箭头函数
+  return (a) => {
+    //this 继承自 foo()
+    console.log(this.a);
+  };
+}
+var obj1 = { a: 2 };
+var obj2 = { a: 3 };
+var bar = foo.call(obj1);
+bar.call(obj2); // 2, 不是 3 ! 注意：箭头函数的绑定无法被修改
+```
+
+### 第三章 对象
+
+### <a id="3.1语法">3.1 语法</a>
+
+```js
+var strPrimitive = "I am a string";
+typeof strPrimitive; // "string"
+strPrimitive instanceof String; // false // 奇怪
+var strObject = new String("I am a string");
+typeof strObject; // "object"
+strObject instanceof String; // true // 注意
+// 检查 sub-type 对象
+Object.prototype.toString.call(strObject); // [object String]
+```
+
+### <a id="3.2内容">3.2 内容</a>
+
+```js
+var myObject = {};
+Object.defineProperty(myObject, "a", {
+  value: 2,
+  writable: true, // 默认是 // 是否可修改
+  configurable: true, // 默认是 // 是否可配置
+  // 如果属性是可配置的，就可以用 defineProperty(..) 方法来修改属性描述符，同时禁止删除（删除没有反应）
+  enumerable: true, // 默认是 // 是否出现在枚举中 如for循环里
+});
+myObject.a; // 2
+```
+
+### <a id="3.3不变性">3.3 不变性</a>
+
+```js
+var myObject = { a: 2 };
+Object.preventExtensions(myObject);
+myObject.b = 3;
+myObject.b; // undefined
+```
