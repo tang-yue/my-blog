@@ -99,3 +99,5 @@ git config --global --unset http.proxy
 20、git config --global http.proxy http://127.0.0.1:1087
 
 git config --global https.proxy http://127.0.0.1:1087
+
+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
