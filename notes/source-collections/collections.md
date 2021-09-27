@@ -4,13 +4,13 @@
 
 [英文博客](https://hang-hu.github.io/posts/)
 
-[英文网站css-tricks](https://css-tricks.com/guides/react/)    
+[英文网站 css-tricks](https://css-tricks.com/guides/react/)
 
 [github js topic](https://github.com/topic/js)
 
-[高端js文章](https://2ality.com/archive.html)
+[高端 js 文章](https://2ality.com/archive.html)
 
-[jsInfo偏向新语法](https://javascript.info)
+[jsInfo 偏向新语法](https://javascript.info)
 
 ### 面试题部分
 
@@ -18,21 +18,23 @@
 
 [木易杨前端进阶](https://muyiy.cn/question/js/120.html)
 
-[木易杨github每日一题](https://github.com/Advanced-Frontend/Daily-Interview-Question)
+[木易杨 github 每日一题](https://github.com/Advanced-Frontend/Daily-Interview-Question)
 
 [前端九部](https://github.com/frontend9/fe9-interview/issues)
 
 ### 正则表达式
 
-[正则练习1](https://regexr.com/)
+[正则练习 1](https://regexr.com/)
 
-[正则练习2](https://regexone.com/lesson/capturing_groups)
+[正则练习 2](https://regexone.com/lesson/capturing_groups)
 
 ### 书籍部分
 
 [书单](https://www.liuchuo.net/222-2)
 
 [quora 缓解焦虑书单](https://www.quora.com/What-are-some-of-the-best-books-on-stress-management)
+
+[the art of impossible](https://yejunbin.github.io/the_art_of_impossible_cn/introduction.html)
 
 ### 其他
 
@@ -43,3 +45,7 @@
 [react 编辑器](https://codesandbox.io/)
 
 [vue2.0 eggjs mysql 的个人博客](https://segmentfault.com/a/1190000022458378)
+
+[必读书 before die](https://www.quora.com/What-are-the-must-read-novels-before-you-die)
+
+[在线图片选择器](http://www.jiniannet.com/Page/allcolor)

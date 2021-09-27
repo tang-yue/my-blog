@@ -100,4 +100,6 @@ git config --global --unset http.proxy
 
 git config --global https.proxy http://127.0.0.1:1087
 
-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
+21、.gitignore 配置 不生效原因和解决
+
+git清除本地缓存，然后再提交 `git rm -r --cached . ` `git add .`  

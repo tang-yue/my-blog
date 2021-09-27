@@ -2,12 +2,13 @@ react 学习笔记。
 断断续续到现在都没有看完。
 react 官网到现在都没有看完。
 目前看到 MAIN CONCEPTS 的 9.Forms
-8月15日 17:19分
-有 9, 10, 11, 12,还有下面的ADVANCED GUIDES部分
+8 月 15 日 17:19 分
+有 9, 10, 11, 12,还有下面的 ADVANCED GUIDES 部分
 
 9.Forms
- 
- 计算属性名
+
+计算属性名
+
 ```
     var param = "size";
     var config = {
@@ -25,7 +26,7 @@ react 官网到现在都没有看完。
     });
 ```
 
-Uncontrolled Components  和这一章是相关的。
+Uncontrolled Components 和这一章是相关的。
 
 10. Lifting State Up
 
@@ -44,4 +45,4 @@ React in thinking
 
 下面就看到了 ADVANCED GUIDES
 
-2021年 3月16日
+2021 年 3 月 16 日
