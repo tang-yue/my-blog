@@ -337,15 +337,17 @@ Object.prototype.toString.call(strObject); // [object String]
 var myObject = {};
 Object.defineProperty(myObject, "a", {
   value: 2,
-  writable: true, // 默认是 // 是否可修改
-  configurable: true, // 默认是 // 是否可配置
+  writable: true, // 以Object.defineProperty定义的格式默认否 需手动配置以下属性同理 // 是否可修改
+  configurable: true, // 默认否 // 是否可配置
   // 如果属性是可配置的，就可以用 defineProperty(..) 方法来修改属性描述符，同时禁止删除（删除没有反应）
-  enumerable: true, // 默认是 // 是否出现在枚举中 如for循环里
+  enumerable: true, // 默认否 // 是否出现在枚举中 如for循环里
 });
 myObject.a; // 2
 ```
 
 ### <a id="3.3不变性">3.3 不变性</a>
+
+1、`Object.preventExtensions(..)`可以禁止一个对象添加新属性并且保留已有属性
 
 ```js
 var myObject = { a: 2 };
@@ -353,3 +355,174 @@ Object.preventExtensions(myObject);
 myObject.b = 3;
 myObject.b; // undefined
 ```
+
+2、`Object.seal(..)`会创建一个“密封”的对象，这个方法实际上会在一个现有对象上调用`Object.preventExtensions(..)`并把所有现有属性标记为`configurable:false`
+所以在密封之后不仅不能添加新属性，也不能重新配置或者删除任何现有属性（虽然可以修改属性的值）
+
+3、`Object.freeze(..)`会创建一个冻结对象，这个方法实际上会在一个现有对象上调用`Object.seal(..)`并把所有“数据访问”属性标记为`writable:false`，这样就无法修改它们的值。
+
+- [3.3.1](#3.3.1)<a name="3.3.1">存在性</a>
+
+```js
+var myObject = {
+  a: 2,
+};
+"a" in myObject; // true
+"b" in myObject; // false
+
+myObject.hasOwnProperty("a");
+// in 操作符会检查属性是否在对象及其[[Prototype]]原型链中。
+// 相比之下，hasOwnProperty(..)只会检查属性是否在myObject对象中，不会检查[[Prototype]]链
+```
+
+- [3.3.2](#3.3.2)<a name="3.3.2">枚举性</a>
+
+`enumerable:false`表示不可枚举
+
+```js
+var myObject = {};
+Object.defineProperty(
+  myObject,
+  "a",
+  // 让a 像普通属性一样可以枚举
+  { enumerable: true, value: 2}
+);
+
+Object.defineProperty(
+  myObject,
+  "b"
+  // 让b不可枚举
+  { enumerable: false, value: 3 }
+);
+
+myObject.propertyIsEnumerable("a"); // true
+myObject.propertyIsEnumerable("b"); // false
+
+Object.keys( myObject ); // ["a"]
+Object.getOwnPropertyNames( myObject ); // ["a", "b"]
+
+```
+
+`propertyIsEnumerable(..)`会检查给定的属性名是否直接存在于对象中（而不是在原型链上）并且满足 `enumerable: true`
+`Object.keys(..)`会返回一个数组，包含所有可枚举属性，`Object.getOwnPropertyNames(..)`会返回一个数组，包含所有属性，无论它们是否可枚举
+
+- [3.3.3](#3.3.3)<a name="3.3.3">遍历</a>
+
+ES5 中增加了一些数组的辅助迭代器，包括`forEach(..)`、`every(..)`和`some(..)`。每种辅助迭代器都可以接受一个回调函数并把它应用到数组的每个元素上，**唯一的区别就是它们对于回调函数返回值的处理方式不同**。
+
+`forEach(..)`会**遍历数组中的所有值并忽略回调函数的返回值**
+
+`every(..)`会一直运行直到回调函数返回 false (或者 "假"值)，`some(..)`会一直运行直到回调函数返回 true（或者"真值）
+
+`for in` 既可以对象和数组和字符串 `for of`可以遍历数组，但是只能遍历类数组对象（比如 arguments 对象、DOM NodeList 对象）以及字符串
+
+### 第 4 章 混合对象 “类”
+
+没有什么可记录的
+
+### 第 5 章 原型
+
+### <a id="5.1 [[Prototype]]">5.1 Prototype</a>
+
+```js
+var anotherObject = {
+  a: 2,
+};
+var myObject = Object.create(anotherObject);
+
+console.log(myObject.a);
+```
+
+`Object.create(..)`会创建一个对象并把这个对象的`[[Prototype]]`关联到指定的对象
+
+### <a id="5.2 类">5.2 类</a>
+
+- [5.2.1](#5.2.1)<a name="5.2.1">构造函数</a>
+
+```js
+function Foo() {}
+Foo.prototype;
+
+var a = new Foo();
+Object.getPrototypeOf(a) === Foo.prototype; // true
+/* 所有的函数默认都会拥有一个名为prototype的公有并且不可枚举的属性，它会指向另一个对象：
+这个对象是在调用new Foo() 时创建的，最后会被关联到这个Foo.prototype指向的那个对象
+*/
+
+Foo.prototype.constructor === Foo; // true
+var a = new Foo();
+a.constructor === Foo; // true
+
+/*
+Foo.prototype 默认有一个公有并且不可枚举的属性.constructor，这个属性引用的是对象关联的函数
+通过“构造函数”调用new Foo() 创建的对象也有一个.constructor属性，指向"创建这个对象的函数"
+*/
+```
+
+换句话说，在 JavaScript 中对于“构造函数”最准确的解释是，所有带 new 的函数调用。 函数不是构造函数，但是当且仅当使用 new 时，函数调用会变成“构造函数调用”。
+
+`.constructor `引用同样被委托给了 `Foo.prototype`，而 `Foo.prototype.constructor`默认指向 Foo
+
+避免误解的例子：
+
+```js
+function Foo() {
+  /* .. */
+}
+Foo.prototype = {
+  /* .. */
+}; // 创建一个新原型对象
+var a1 = new Foo();
+a1.constructor === Foo; // false!
+a1.constructor === Object; // true!
+/*
+a1 并没有 .constructor 属性，所以它会委托 [[Prototype]] 链上的 Foo. prototype。但是这个对象也没有 .constructor 属性(不过默认的 Foo.prototype 对象有这 个属性!)，所以它会继续委托，这次会委托给委托链顶端的 Object.prototype。这个对象 有 .constructor 属性，指向内置的 Object(..) 函数
+*/
+```
+
+### <a id="5.3 (原型)继承">5.3 (原型)继承</a>
+
+```js
+function Foo(name) {
+  this.name = name;
+}
+Foo.prototype.myName = function () {
+  return this.name;
+};
+
+function Bar(name, label) {
+  Foo.call(this, name);
+  this.label = label;
+}
+// 我们创建了一个新的Bar.prototype对象并关联到Foo.prototype
+Bar.prototype = Object.create(Foo.prototype);
+// 注意现在就没有Bar.prototype.constructor 了
+Bar.prototype.myLabel = function () {
+  return this.label;
+};
+
+var a = new Bar("a", "obj a");
+var b = new Bar("b", "obj b");
+a.myName(); // "a"
+a.myLabel(); // "obj a"
+```
+
+存在问题的关联
+
+```js
+// 执行类似Bar.prototype.myLabel = ...的赋值语句时会直接修改Foo.prototype对象本身。所以不可以
+Bar.prototype = Foo.prototype;
+// 下面语句，基本上满足需求，但会产生副作用
+Bar.prototype = new Foo();
+```
+
+- [5.3.1](#5.3.1)<a name="5.3.1">检查"类"关系</a>
+
+`a instanceof Foo // true` `instanceof` 在 a 的整条[[prototype]]链中是否有指向 Foo.prototype 的对象
+
+```js
+// b 是否出现在 c 的 [[Prototype]] 链中?
+b.isPrototypeOf(c); // 但是这里没有验证
+```
+
+### <a id="5.4 对象关联">5.4 对象关联</a>
