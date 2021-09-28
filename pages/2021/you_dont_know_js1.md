@@ -528,22 +528,25 @@ b.isPrototypeOf(c); // 但是这里没有验证
 #### <a id="5.4 对象关联">5.4 对象关联</a>
 
 ```js
-var anotherObject = { cool: function() {
-console.log( "cool!" ); }
+var anotherObject = {
+  cool: function () {
+    console.log("cool!");
+  },
 };
-var myObject = Object.create( anotherObject ); 
+var myObject = Object.create(anotherObject);
 myObject.cool(); // "cool!"
 ```
+
 上面的代码会变得比较神奇，对于未来维护你 软件的开发者来说这可能不太好理解，下面的代码通过内部委托的方式实现同样的功能：
 
 ```js
-var anotherObject = { 
-  cool: function() {
-    console.log( "cool!" ); 
-  }
+var anotherObject = {
+  cool: function () {
+    console.log("cool!");
+  },
 };
-var myObject = Object.create( anotherObject );
-myObject.doCool = function() { 
+var myObject = Object.create(anotherObject);
+myObject.doCool = function () {
   this.cool(); // 内部委托!
 };
 myObject.doCool(); // "cool!"
@@ -554,4 +557,3 @@ myObject.doCool(); // "cool!"
 两种设计模式：面向对象原型继承和对象关联，都可达到继承的目的
 
 语法，代码有点过时。
-
