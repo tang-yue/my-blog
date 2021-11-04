@@ -1,6 +1,6 @@
 udemy -> Master the Coding Interview: Data Structures + Algorithms
 
-section 8：Data Structures: Linked Lists
+## section 8：Data Structures: Linked Lists
 
 Our First Linked List
 
@@ -194,6 +194,117 @@ myLinkedList.printList();
 console.log(myLinkedList);
 ```
 
-Doubly Linked Lists
+Doubly Linked Lists 实现
 
-双向链表是什么意思。
+```js
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+    this.prev = null;
+  }
+}
+class DoublyLinkedList {
+  constructor(value) {
+    this.head = {
+      value: value,
+      next: null,
+      prev: null,
+    };
+    this.tail = this.head; // 模糊
+    this.length = 1;
+  }
+  append(value) {
+    const newNode = new Node(value);
+    newNode.prev = this.tail;
+    this.tail.next = newNode;
+    this.tail = newNode; // 同时尾节点就变成新增的了
+    this.length++;
+    return this;
+  }
+  prepend(value) {
+    const newNode = new Node(value);
+    newNode.next = this.head;
+    this.head.prev = newNode;
+    this.head = newNode; // 将挂载好的新节点重新赋值
+    this.length++;
+    return this;
+  }
+  printList() {
+    const array = [];
+    let currentNode = this.head;
+    while (currentNode !== null) {
+      array.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    console.log(array);
+    return array;
+  }
+  insert(index, value) {
+    // check params
+    if (index >= this.length) {
+      return this.append(value);
+    }
+    const newNode = new Node(value);
+    const leader = this.traverseToIndex(index - 1);
+    const follower = leader.next;
+    leader.next = newNode;
+    newNode.prev = leader;
+    newNode.next = follower;
+    follower.prev = newNode;
+    this.length++;
+    return this.printList();
+  }
+  traverseToIndex(index) {
+    // check params
+    let counter = 0;
+    let currentNode = this.head;
+    while (counter !== index) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+    return currentNode;
+  }
+  remove(index) {
+    const leader = this.traverseToIndex(index - 1);
+    const unwantedNode = leader.next;
+    leader.next = unwantedNode.next;
+    // 或者写成 leader.next = leader.next.next;
+    this.length--;
+    return this.printList();
+  }
+}
+
+const myLinkedList = new DoublyLinkedList(10);
+myLinkedList.append(5);
+myLinkedList.append(16);
+myLinkedList.prepend(1);
+myLinkedList.printList();
+myLinkedList.insert(2, 99);
+myLinkedList.printList();
+myLinkedList.remove(2);
+//  myLinkedList.printList();
+console.log(myLinkedList);
+```
+
+Singly Linked Lists add reverse() method example:
+
+```js
+reverse() {
+    if(!this.head.next) {
+      return this.head;
+    }
+    let first = this.head;
+    this.tail = this.head;
+    let second = first.next;
+    while(second) {
+      const temp = second.next;
+      second.next = first;
+      first = second;
+      second = temp;
+    }
+    this.head.next = null;
+    this.head = first;
+    return this.printList();
+  }
+```
