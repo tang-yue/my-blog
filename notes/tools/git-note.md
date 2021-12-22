@@ -103,3 +103,10 @@ git config --global https.proxy http://127.0.0.1:1087
 21、.gitignore 配置 不生效原因和解决
 
 git清除本地缓存，然后再提交 `git rm -r --cached . ` `git add .`  
+
+
+npm --registry https://registry.npmjs.org/ install
+
+npm --registry https://registry.npm.taobao.org/ install
+
+
