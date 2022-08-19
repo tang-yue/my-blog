@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="myCanvas"></canvas>
+  <script>
+    var cv=document.getElementById('myCanvas')
+    var context=cv.getContext('2d')
+    context.fillStyle="red"; //设置填充颜色
+    context.fillRect(0,0,500,500);
+    context.moveTo(150,50); //设置起点为(150,50)
+    context.lineTo(250,250); //下一点的坐标设为（150，150）
+    context.lineTo(50,250); //下一点的坐标设为（50，150)
+    context.fillStyle="blue"
+    context.fill(); //填充颜色，因为会整个图像填充，所以可以有closePath(),也可以没有
+  </script>
+</body>
+
+</html>

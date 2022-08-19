@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"
+    integrity="sha512-zhHQR0/H5SEBL3Wn6yYSaTTZej12z0hVZKOv3TwCUXT1z5qeqGcXJLLrbERYRScEDDpYIJhPC1fk31gqR783iQ=="
+    crossorigin="anonymous" defer>
+    </script>
+</head>
+
+<body>
+  <canvas id="glcanvas" width="640" height="480">
+    你的浏览器似乎不支持或者禁用了HTML5 <code>&lt;canvas&gt;</code> 元素.
+  </canvas>
+</body>
+<script>
+  main()
+  /**
+   * 
+   * @param {WebGLRenderingContext} gl 
+   * @param {string} type 
+   * @param {string} source 
+   */
+
+  function main () {
+    const canvas=document.querySelector('#glcanvas');
+    const gl=canvas.getContext('webgl')
+    if(!gl) {
+      alert("无法初始化webgl，你的浏览器，操作系统或硬件等可能不支持webgl")
+      return;
+    }
+
+
+    /* 转换规则：
+       css的颜色rgba转webgl颜色rgba的方法：
+       先将css的rgba用正则获取出四个参数
+       然后将三个颜色除以255，透明度不用变
+    */
+    gl.clearColor(0.0,0.0,0.5,1.0);
+
+    gl.clear(gl.COLOR_BUFFER_BIT);
+  }
+</script>
+
+</html>
