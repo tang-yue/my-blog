@@ -141,7 +141,7 @@ const fragmentShader=`
 
 ### 4. 完整的流程
 
-![完整流程](https://images2015.cnblogs.com/blog/111077/201704/111077-20170424111332459-1733042331.png)
+![完整流程](./images/work-flow.png)
 
 1. 准备数据阶段
 2. 生成顶点着色器

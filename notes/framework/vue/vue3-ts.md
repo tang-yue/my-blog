@@ -124,3 +124,99 @@ module.exports = {
 };
 ```
 
+更改 package.json 文件，新增 eslint 命令
+
+```json
+"lint": "eslint src",
+"lint:fix": "eslint src --fix --ext .ts,.tsx",
+```
+
+执行npm run lint 后发现报错，然后在 `eslintrc.cjs` 中配置下规则即可，可验证 `npm run lint` 以及 fix 成功
+
+2、tsx 支持
+
+安装官方维护的vite插件 `@vitejs/plugin-vue-jsx`， 这个插件核心是`@vue/babel-plugin-jsx`，只是在这个插件上封装了一层供
+vite 插件调用。[vue jsx 语法规范](https://github.com/vuejs/babel-plugin-jsx)
+
+```bash
+npm install @vitejs/plugin-vue-jsx -D
+```
+`vite.config.ts` 文件的最终配置如下：
+
+```ts
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
+import { resolve } from "path"
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [
+    vue(),
+    vueJsx()
+  ],
+  server: {
+    host: "0.0.0.0", // 不加会报错
+    port: 8888
+  },
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "/src")
+    }
+  }
+})
+```
+简单改造下 app.vue 文件
+
+```vue
+<script lang="tsx">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+    props: {},
+    emits: [],
+    components: {},
+    setup(props, ctx) {
+      return () => <div>
+        hello world
+      </div>
+    }
+})
+// This starter template is using Vue 3 <script setup> SFCs
+// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
+</script>
+```
+可以看到界面显示成了 hello world
+
+让vscode 提示路径配置 `tsconfig.json` 文件 新增如下，然后重启vscode，就生效了
+
+```json
+"compilerOptions": {
+    //....
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"]
+    }
+  },
+```
+
+3、less 配置
+
+```bash
+npm install less less-loader -D
+```
+
+4、router 配置
+
+```bash
+npm install vue-router --save
+```
+
+
+
+
+
+
+
+
+
