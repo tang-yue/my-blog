@@ -38,9 +38,8 @@ declare module '*.vue' {
 
 vue3-element-ts-admin-template
 
-参考地址： https://github.com/cangshudada/vite-vue3-tsx   主要参考
-
-
+[主要参考](https://github.com/cangshudada/vite-vue3-tsx)
+[vue官网](https://vuejs.org/guide/typescript/composition-api.html)
 
 一、项目初始化
 
@@ -211,12 +210,3 @@ npm install less less-loader -D
 ```bash
 npm install vue-router --save
 ```
-
-
-
-
-
-
-
-
-
