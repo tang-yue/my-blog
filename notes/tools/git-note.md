@@ -126,5 +126,3 @@ git commit -a -m "feat: 新增登录功能"
 23、--save -E left-pad
 
 `npm install --save -E left-pad` 后缀参数强制npm在package.json中写死固定的版本号，而不使用`~`，`^`这类范围富豪榜
-
-

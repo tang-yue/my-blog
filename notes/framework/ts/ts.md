@@ -85,7 +85,7 @@ function firstElement<Type>(arr: Type[]): Type | undefined {
 
 // inference
 ```
-继续啦，努力学习和工作。专注学习，继续看函数。
+继续啦，继续看函数。
 
 ```ts
 // 这行代码看不懂

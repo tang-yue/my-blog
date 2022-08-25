@@ -1,8 +1,6 @@
 js 常用函数整理如下
 
 ### 1. 数组如何去重
-[参考](https://github.com/mqyqingfeng/Blog/issues/27)
-默写一个去重方法
 方法一
 ```
 function unique(arr) {
@@ -32,6 +30,8 @@ function unique(arr) {
     // return [...new Set(array)]
 }
 ```
+[参考](https://github.com/mqyqingfeng/Blog/issues/27)
+
 ### 2. 字符串如何去重
 
 ### 3. 快速生成一个从0-n的数组
@@ -97,6 +97,10 @@ console.log(uniqueProducts); // [8, 9, 10, 11]
 
 ### 6. 数组里面是对象的去重
 
+```js
 let re1 = add_selectedRow.map((item) => JSON.stringify(item));
 let re2 = re1.filter((item, index, new_arr) => new_arr.indexOf(item) === index);
 let res_add_selectedRow = re2.map((item) => JSON.parse(item));
+```
+
+### 7. 
