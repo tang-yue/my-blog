@@ -14,7 +14,7 @@ vue 中 v-show 请问可以是个变量吗？
 在./src/main.js 文件中 执行需要的一些初始化内容
 
 utils/index.js
-```
+```js
 // rem 布局   html font-size初始化
 (function initSize(doc, win) {
     var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
@@ -36,7 +36,7 @@ utils/index.js
 
 
 1、 如何判断是pc端还是移动端
-```
+```js
 // 判断是否是pc
 isPC() {
   var userAgentInfo = navigator.userAgent;
@@ -51,7 +51,6 @@ isPC() {
   }
   return flag;
 }
-// 只要写出相反的情况就可以了
 ```
 
 如何去掉 ul  li 样式，我觉得这是我要记住的
@@ -87,7 +86,7 @@ position 是紧紧接着background-size 所以连接起来就是 center/80%;
 `redirect.startsWith('/invitation')`
 返回布尔值，字符串redirect 是否以'/invitation'开头
 
-```
+```js
 const obj = { name:'tangyue', age:26 };
 const { name = '' } = obj;
 obj;   // {name:"tangyue", age:26}
@@ -141,7 +140,7 @@ JSON.stringify() 和 JSON.parse() 的区别
 JSON.stringify() 方法转化js对象或值为json字符串
 
 JSON.parse() 则是相反，去掉引号。
-```
+```js
 JSON.parse('{}') // {}
 JSON.parse('true') // true
 JSON.parse('"foo"') // "foo"
@@ -150,7 +149,7 @@ JSON.parse('null') // null
 ```
 
 关于headers
-```
+```js
 let headers = response.headers;
 headers.get(name)// 注意是用get取出值
 
@@ -204,7 +203,7 @@ vue 如何写内联的伪元素样式呢
 
 `&` 代表的是平级
 
-```
+```js
 window.onscroll = function(){
       //变量scrollTop是滚动条滚动时，距离顶部的距离
       var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
