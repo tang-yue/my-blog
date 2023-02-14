@@ -3,7 +3,8 @@ my-blog
 前端知识点，工作总结，一些思考。
 
 目录
-
+- 2023 年
+    - [记录一次 前端线上问题排查](https://github.com/tang-yue/my-blog/blob/master/pages/2023/check-online-problems.md) (2 月 10 日)
 - 2022 年
     - [前端可视化--webGL笔记](https://github.com/tang-yue/my-blog/blob/master/pages/2022/shareVisulization-note.md) (8 月 19 日)
 - 2021 年
