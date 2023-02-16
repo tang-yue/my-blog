@@ -60,4 +60,3 @@ yum -y install gcc gcc-c++ autoconf
 [安装nodejs](https://blog.csdn.net/chending_cd/article/details/100555886)
 
 [安装 mysql](https://zhuanlan.zhihu.com/p/62403721)
-

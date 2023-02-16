@@ -19,7 +19,7 @@
 [搭建本地静态页面的其他方式](https://www.cnblogs.com/moqiutao/p/14486683.html)
 
 - 方式一: live-server
-   - 直接使用live-server
+   - 直接使用live-server: `**vscode 自带插件**`
    - 使用node
 - 方式二: http-server
 - 方式三: express 搭建
