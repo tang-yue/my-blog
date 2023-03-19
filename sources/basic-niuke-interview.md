@@ -1,17 +1,10 @@
-关于 跨域的知识点
-
-写一篇博客关于jsonp 廖雪峰的教程。
-
-js 笔试面试题笔记
-如果每道错题，我都要记录的话，我觉得太过浪费时间。
-
 1.
 output(typeof (function() {output(“Hello World!”)})());
 
 立即执行函数仍旧是一个函数。
 首先输出的是“Hello World”，因为之后执行完了就变成了undefined,然后输出的是undefined.
 
-
+2.
 var f = function g() {
     return 23;
 };
@@ -294,7 +287,7 @@ i=0,再自加i=1（覆盖了父函数Foo的i值）;
 (4)构造函数调用指向实列对象
 (5)如果是使用new方式创建对象，this指向新建的那个对象。
 
-41.
+41. 测试列子如下
 ```
 function test() {
 	var n = 4399;
@@ -397,7 +390,6 @@ window里面并没有定义这个a，运行结果为 undefined
 浏览器的DNS缓存： chrome对每个域名会默认缓存60s；IE将DNS缓存30min；Firefox默认缓存时间
 只有1分钟；safari约为10s。
 
-
 49. ajax的事件是：
 ajaxComplete(callback);
 ajaxError(callback);
@@ -442,10 +434,6 @@ vsr myArray = myRe.test()  或者 /d(b+)d/g.exec();
 str.match(regexp);
 
 ```
-
-55.  var a = b = 3; 相当于 var a = 3; b = 3; b 是全局的
-
-10月25日 5:42 分 刷完 牛客的js面试题。
 
 -----------------------
 
@@ -493,5 +481,3 @@ function count(start, end) {
 	};
 }
 ```
-我的心里放心不下，leetcode ，于是在 下午2:16分
-我又去刷leetcode去了。

@@ -110,6 +110,3 @@ npm install file-loader url-loader -D
 
 npm install vue-loader vue-template-compiler cache-loader thread-loader -D
 npm install vue -S
-
-
-

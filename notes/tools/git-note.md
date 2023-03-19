@@ -84,7 +84,8 @@ $ cat ~/.ssh/id_rsa.pub
 
 13、安装私包 命令
 
-npm --registry http://npm.xxxx.com  install xxx
+
+npm --registry https://npm.xxxx.com/ install xxx
 
 14、npm run dev 报错 `Node Sass does not yet support your current environment`
 
@@ -103,3 +104,25 @@ git config --global https.proxy http://127.0.0.1:1087
 21、.gitignore 配置 不生效原因和解决
 
 git清除本地缓存，然后再提交 `git rm -r --cached . ` `git add .`  
+
+npm --registry https://registry.npmjs.org/ install
+
+npm --registry https://registry.npm.taobao.org/ install
+
+22、git 规范
+
+1、commit
+type：
+- feat: 新功能（feature）
+- fix: 修补bug
+- docs: 文档 (documentation)
+- style: 格式 (不影响代码运行的变动)
+- refactor: 重构 (即不是新增功能，也不是修改bug的代码变动)
+- test: 增加测试
+- chore: 构建过程活辅助工具的变动
+例：
+git commit -a -m "feat: 新增登录功能"
+
+23、--save -E left-pad
+
+`npm install --save -E left-pad` 后缀参数强制npm在package.json中写死固定的版本号，而不使用`~`，`^`这类范围富豪榜
