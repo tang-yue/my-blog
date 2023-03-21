@@ -14,4 +14,22 @@ NODE_ENV 决定您的应用创建运行的模式，是开发，生产还是测�
 
 如果环境文件中没有设置NODE_ENV 变量，它的值将取决于模式，在production模式下`--mode production`, 被设置为'production' 在test模式下被设置为'test'，默认则是'development'。`.env.xxx` 与 `--mode xxx` 两处xxx值是相同的。 如果环境文件中设置了NODE_ENV 变量，那么则取决于设置的值。
 
-### 
+### ts 常用总结
+
+```ts
+// 子组件refts定义
+const myComponentRef = ref<InstanceType<typeof MyComponent>>()
+```
+
+### vue3 总结
+
+1、watch 监听props 与watchEffect 监听的区别与使用方法。
+2、在父组件更改了值，如何props值不重新赋值給新变量监听，而在子组件中更新呢？
+
+第一种方法
+給子组件加一个key值
+https://juejin.cn/post/7065578037756035103
+3、provide/inject 参数响应式和非响应式的区别
+4、底部分页组件，修改了size了，currentPage
+
+1、资源管理 试题管理 
