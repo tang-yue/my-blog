@@ -35,7 +35,6 @@ vite 官网选择 typescript + react
 `npm install @commitlint/cli @commitlint/config-conventional -D`
 配置 commitlint.config.js 文件
 
-
 import 'antd-mobile/es/global'
 遇到的问题？？
 antd-mobile 要不要开启postcss-pxtorem 进行转换
