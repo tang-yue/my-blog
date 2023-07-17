@@ -126,3 +126,12 @@ git commit -a -m "feat: 新增登录功能"
 23、--save -E left-pad
 
 `npm install --save -E left-pad` 后缀参数强制npm在package.json中写死固定的版本号，而不使用`~`，`^`这类范围富豪榜
+
+24、git config 相关
+
+查看当前用户（global）配置 `git config --global --list`
+手动设置提交用户的email和用户名
+```
+git config --global user.name "myname"
+git config --global user.email  "test@gmail.com"
+```

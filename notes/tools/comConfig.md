@@ -13,4 +13,4 @@ mac 电脑
   - brew install git
   - brew install node
   - brew cask install visual-studio-code
-6. 配 vpn 教程：https://my.v2cloud.link/#/dashboard
+6. https://efan.shadowx.org
