@@ -109,6 +109,8 @@ npm --registry https://registry.npmjs.org/ install
 
 npm --registry https://registry.npm.taobao.org/ install
 
+npm --registry https://npm.xesv5.com/ install 
+
 22、git 规范
 
 1、commit
@@ -135,3 +137,20 @@ git commit -a -m "feat: 新增登录功能"
 git config --global user.name "myname"
 git config --global user.email  "test@gmail.com"
 ```
+
+25、adb
+
+adb install -r -t -d D:\demotmp\apkold\haokanvideo\7-15-0-10.apk
+adb shell am start com.tal.init.ota/.MainActivity
+
+26、.npmrc 文件
+
+registry=https://registry.npmjs.org/
+@xes:registry=https://npm.xesv5.com/
+
+27、查看npm 安装源
+
+npm config get registry
+
+npm config list
+

@@ -661,7 +661,6 @@ function createParticleSystem() {
   scene.add(particleSystem);
 }
 ```
-
 demo7
 
 

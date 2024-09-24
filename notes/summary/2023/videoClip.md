@@ -31,5 +31,3 @@ const myComponentRef = ref<InstanceType<typeof MyComponent>>()
 https://juejin.cn/post/7065578037756035103
 3、provide/inject 参数响应式和非响应式的区别
 4、底部分页组件，修改了size了，currentPage
-
-1、资源管理 试题管理 

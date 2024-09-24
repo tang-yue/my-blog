@@ -40,7 +40,10 @@
 
 [egg 前后端分离](https://www.jianshu.com/p/798c5e9fde75)
 
-[图片压缩](https://compressjpeg.com/zh/)
+[图片压缩1](https://compressjpeg.com/zh/)
+[图片压缩2](https://tinypng.com/)
+[图片压缩3](https://imageoptim.com/online)
+[图片压缩4](http://optimizilla.com/)
 
 [react 编辑器](https://codesandbox.io/)
 
@@ -49,3 +52,15 @@
 [必读书 before die](https://www.quora.com/What-are-the-must-read-novels-before-you-die)
 
 [在线图片选择器](http://www.jiniannet.com/Page/allcolor)
+
+### 一些不错的前端网站
+ 
+ 5个工具 前端工程师 https://requestly.io/blog/5-tools-that-every-front-end-developer-needs
+
+ https://levelup.gitconnected.com/productivity-benefits-of-integrating-chatgpt-into-the-front-end-development-process-6d492bae3a20
+
+ https://claritydev.net/blog 这个网站不错的
+
+ https://levelup.gitconnected.com/ 这个网站也不错
+
+ https://naba10.hashnode.dev/using-openais-chatgpt-to-boost-frontend-engineering-productivity 这个也可以
