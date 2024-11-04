@@ -5,8 +5,6 @@
 ### 605. Can Place Flowers
 ### 414 Third Maximum Number
 ### 189. Rotate Array
-
-
 没有做出来的题目如下：
 ### 840. Magic Squares In Grid
 我不会做
@@ -98,7 +96,6 @@
 递归，并且将一个函数嵌套在另一个函数里面。
 67  Add Binary 默写别人的答案
 别人的写法比你的else if 写法要精简多了。
-
 606 说实话我对于这道题我不能够理解
 
 
