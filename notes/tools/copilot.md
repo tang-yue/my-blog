@@ -30,7 +30,6 @@ function process() {}
 参考官方文档说明
 
 7、简述下 copilot 其他的几个功能
-
 **Editor Inline Chat** 快捷键`command + i`: 可以对选中的代码直接提问，点击刷新还可以生成一个新的回答，然后选择是否接受；也可以优化整个文件的代码。
 **Explain** 如果你有看不懂的代码，可以给你解释代码逻辑。
 **Fix** 代码爆红，选择quick fix，只能写基础的，如ts
