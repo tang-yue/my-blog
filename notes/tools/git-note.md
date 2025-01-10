@@ -109,8 +109,6 @@ npm --registry https://registry.npmjs.org/ install
 
 npm --registry https://registry.npm.taobao.org/ install
 
-npm --registry https://npm.xesv5.com/ install 
-
 22、git 规范
 
 1、commit
@@ -146,7 +144,7 @@ adb shell am start com.tal.init.ota/.MainActivity
 26、.npmrc 文件
 
 registry=https://registry.npmjs.org/
-@xes:registry=https://npm.xesv5.com/
+@xes:registry=https://xxx/
 
 27、查看npm 安装源
 
