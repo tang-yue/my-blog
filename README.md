@@ -3,6 +3,8 @@ my-blog
 前端知识点，工作总结，一些思考。
 
 目录
+- 2025 年
+    - [curosr 使用技巧](https://github.com/tang-yue/my-blog/blob/master/pages/2025/use-cursor-tips.md) (3 月 9 日)
 - 2023 年
     - [记录一次 前端线上问题排查](https://github.com/tang-yue/my-blog/blob/master/pages/2023/check-online-problems.md) (2 月 10 日)
 - 2022 年

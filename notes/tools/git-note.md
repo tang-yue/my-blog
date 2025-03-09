@@ -151,4 +151,3 @@ registry=https://registry.npmjs.org/
 npm config get registry
 
 npm config list
-
